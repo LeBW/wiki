@@ -1,7 +1,7 @@
 # Servlet
 ## 思维导图
 Servlet的知识点可以用以下思维导图概括.
-![servlet-knowledge](/servlet-knowledge.png).
+![servlet-knowledge](./servlet-knowledge.png).
 
 ## Servlet介绍
 
