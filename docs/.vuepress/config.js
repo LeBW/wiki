@@ -1,7 +1,7 @@
 module.exports = {
   title: 'LBW\'s Wiki Pages',
   description: 'Organize all of my knowledge.',
-  base: '/wiki/'
+  base: '/wiki/',
   themeConfig: {
     nav: [
       { text: 'Home', link: '/'},
