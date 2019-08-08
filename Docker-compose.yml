@@ -1,0 +1,8 @@
+version: '3'
+services:
+  mywiki:
+    image: nginx
+    volumes:
+    - ./docs/.vuepress/dist:/usr/share/nginx/html:ro
+    ports:
+    - "80:80"
