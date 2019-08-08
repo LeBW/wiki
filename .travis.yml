@@ -2,6 +2,7 @@ language: node_js
 node_js:
     - lts/*
 script:
+    - yarn add -D vuepress
     - yarn build
 deploy:
     provider: pages
