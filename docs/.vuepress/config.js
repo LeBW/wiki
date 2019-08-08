@@ -2,10 +2,32 @@ module.exports = {
   title: 'LBW\'s Wiki Pages',
   description: 'Organize all of my knowledge.',
   base: '/wiki/',
+  head: [
+    ['link', { rel: 'icon', href: `/lbw-wiki.png` }],
+  ],
   themeConfig: {
     nav: [
-      { text: 'Home', link: '/'},
-      { text: '概览', link: '/overview/'},
+      {
+        text: '概览',
+        link: '/overview/',
+      },
+      {
+        text: '基础知识',
+        items: [
+          {
+            text: '数据结构与算法',
+            link: '/algorithm/',
+          },
+          {
+            text: '操作系统',
+            link: '/operating-system/',
+          },
+          {
+            text: '计算机网路',
+            link: '/computer-network/',
+          }
+        ],
+      },
       {
         text: '编程语言',
         items: [
@@ -24,28 +46,58 @@ module.exports = {
         items: [
           {
             text: 'Tomcat',
-            link: '/backend/',
+            link: '/backend/tomcat/',
           },
           {
             text: 'Spring',
-            link: '/backend/spring',
+            link: '/backend/spring/',
+          },
+          {
+            text: '数据库',
+            link: '/backend/database/',
           }
         ],
       },
-      { text: 'Blog', link: 'https://lebw.github.io'},
-      { text: 'Github', link: 'https://github.com/lebw/my-wiki'},
+      {
+        text: '微服务',
+        items: [
+          {
+            text: 'Docker',
+            link: '/docker/',
+          },
+          {
+            text: 'Kubernetes',
+            link: '/kubernetes/',
+          },
+          {
+            text: 'Dev-Ops',
+            link: '/dev-ops/',
+          },
+        ]
+      },
+      {
+        text: '其他',
+        link: '/others/',
+      },
+      {
+        text: 'Blog',
+        link: 'https://lebw.github.io',
+      },
+      {
+        text: 'Github',
+        link: 'https://github.com/lebw/my-wiki'
+      },
     ],
     sidebar: {
-      '/wiki/': getWikiSidebar(),
+      '/backend/tomcat/': getTomcatSidebar(),
     },
   },
 }
 
-function getWikiSidebar() {
+function getTomcatSidebar() {
   return [
-    'Operating Systems',
-    'BackEnd',
-    'Docker',
-    'Kubernetes',
+    'tomcat',
+    'servlet',
+    'jsp',
   ]
 }
