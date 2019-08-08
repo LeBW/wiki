@@ -1,12 +1,13 @@
 module.exports = {
   title: 'LBW\'s Wiki Pages',
   description: 'Organize all of my knowledge.',
+  base: '/wiki/'
   themeConfig: {
     nav: [
       { text: 'Home', link: '/'},
       { text: '概览', link: '/overview/'},
-      { 
-        text: '编程语言', 
+      {
+        text: '编程语言',
         items: [
           {
             text: 'Java',
@@ -18,7 +19,7 @@ module.exports = {
           },
         ],
       },
-      { 
+      {
         text: '后端',
         items: [
           {
