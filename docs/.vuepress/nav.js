@@ -61,10 +61,6 @@ module.exports = [
                 text: 'Kubernetes',
                 link: '/kubernetes/',
             },
-            {
-                text: 'Dev-Ops',
-                link: '/dev-ops/',
-            },
         ]
     },
     {
@@ -73,6 +69,14 @@ module.exports = [
             {
                 text: '前端',
                 link: '/frontend/'
+            },
+            {
+                text: 'Linux',
+                link: '/linux/'
+            },
+            {
+                text: 'Dev-Ops',
+                link: '/dev-ops/',
             },
         ]
     },

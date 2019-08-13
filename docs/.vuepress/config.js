@@ -12,6 +12,8 @@ module.exports = {
       '/backend/database/': getDatabaseSidebar(),
       '/language/c/': getCSidebar(),
       '/frontend/': getFrontendSidebar(),
+      '/linux/': getLinuxSidebar(),
+      '/operating-system/': getOperatingSystemSidebar(),
     },
   },
 }
@@ -46,5 +48,17 @@ function getFrontendSidebar() {
     'css',
     'javascript',
     'ajax',
+  ]
+}
+
+function getLinuxSidebar() {
+  return [
+    'sed',
+  ]
+}
+
+function getOperatingSystemSidebar() {
+  return [
+    'process-thread',
   ]
 }
