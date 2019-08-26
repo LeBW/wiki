@@ -14,6 +14,7 @@ module.exports = {
       '/frontend/': getFrontendSidebar(),
       '/linux/': getLinuxSidebar(),
       '/operating-system/': getOperatingSystemSidebar(),
+      '/language/java/': getJavaSidebar(),
     },
   },
 }
@@ -60,5 +61,11 @@ function getLinuxSidebar() {
 function getOperatingSystemSidebar() {
   return [
     'process-thread',
+  ]
+}
+
+function getJavaSidebar() {
+  return [
+    'jvm',
   ]
 }
