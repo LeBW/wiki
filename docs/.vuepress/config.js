@@ -67,5 +67,7 @@ function getOperatingSystemSidebar() {
 function getJavaSidebar() {
   return [
     'jvm',
+    'memory-management',
+    'garbage-collection',
   ]
 }
