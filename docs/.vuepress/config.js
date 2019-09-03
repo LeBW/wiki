@@ -60,6 +60,8 @@ function getLinuxSidebar() {
 
 function getOperatingSystemSidebar() {
   return [
+    'process',
+    'thread',
     'process-thread',
   ]
 }
