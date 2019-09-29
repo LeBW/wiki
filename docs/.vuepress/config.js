@@ -15,6 +15,7 @@ module.exports = {
       '/linux/': getLinuxSidebar(),
       '/operating-system/': getOperatingSystemSidebar(),
       '/language/java/': getJavaSidebar(),
+      '/kubernetes/': getKubernetesSidebar(),
     },
   },
 }
@@ -71,5 +72,12 @@ function getJavaSidebar() {
     'jvm',
     'memory-management',
     'garbage-collection',
+  ]
+}
+
+
+function getKubernetesSidebar() {
+  return [
+    'create-cluster',
   ]
 }
