@@ -80,5 +80,6 @@ function getKubernetesSidebar() {
   return [
     'create-cluster',
     'create-nfs',
+    'storageclass-nfs',
   ]
 }
