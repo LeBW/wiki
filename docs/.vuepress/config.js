@@ -61,7 +61,7 @@ function getLinuxSidebar() {
 function getOperatingSystemSidebar() {
   return [
     'process',
-    'thread',
+    'context-switch',
     'process-thread',
   ]
 }
