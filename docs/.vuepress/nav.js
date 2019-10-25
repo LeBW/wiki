@@ -76,7 +76,7 @@ module.exports = [
             },
             {
                 text: 'Dev-Ops',
-                link: '/dev-ops/',
+                link: '/devops/',
             },
         ]
     },

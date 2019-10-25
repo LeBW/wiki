@@ -16,6 +16,7 @@ module.exports = {
       '/operating-system/': getOperatingSystemSidebar(),
       '/language/java/': getJavaSidebar(),
       '/kubernetes/': getKubernetesSidebar(),
+      '/devops/': getDevOpsSidebar(),
     },
   },
 }
@@ -82,5 +83,12 @@ function getKubernetesSidebar() {
     'create-cluster',
     'create-nfs',
     'storageclass-nfs',
+  ]
+}
+
+function getDevOpsSidebar() {
+  return [
+    'DevOps之团队结构',
+    'DevOps之代码管理',
   ]
 }
