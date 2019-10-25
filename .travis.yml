@@ -4,7 +4,7 @@ node_js:
 script:
     - ls
     #    - yarn add -D vuepress
-    #    - yarn build
+    - yarn build
 deploy:
     provider: pages
     skip-cleanup: true
