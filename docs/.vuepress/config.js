@@ -90,5 +90,6 @@ function getDevOpsSidebar() {
   return [
     'DevOps之团队结构',
     'DevOps之代码管理',
+    'jenkins-installation',
   ]
 }
