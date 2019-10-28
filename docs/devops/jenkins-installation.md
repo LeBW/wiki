@@ -56,3 +56,8 @@ Jenkins的配置文件存放在 `/etc/sysconfig/jenkins`，如果需要修改配
 
 至此 Docker配置完成，可以在 Pipeline中使用 Docker相关命令了。
 
+## 参考资料
+[Installing Jenkins on RedHat distributions](https://wiki.jenkins.io/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions)
+
+[Build docker image in Jenkins](https://www.katacoda.com/courses/jenkins/build-docker-images#)
+
