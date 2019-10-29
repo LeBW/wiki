@@ -28,8 +28,41 @@ Jenkins默认使用端口8080。可以通过访问 http://localhost:8080 来访�
 
 Jenkins的配置文件存放在 `/etc/sysconfig/jenkins`，如果需要修改配置，可通过修改此文件完成。
 
-## 在Jenkins中使用Docker
-要在 Jenkins 中使用 Docker，首先需要安装相关插件。
+首次启动后，需要使用初始密钥，并且建议安装建议的插件。
+
+## 在 Jenkins 中配置 JDK，Maven 和 Docker
+
+* 对于Java应用来说，需要使用 JDK 包。同时还需要Maven 工具进行构建，于是需要在 Jenkins 中配置 JDK，Maven。
+* 对于应用的发布，部署等，使用 Docker 容器化是一个好的方案，因此需要在 Jenkins 中配置 Docker。
+
+三者都是在 Manage Jenkins -> Global Tool Configuration 中进行配置。
+> 配置 Docker 需要提前装好 Docker Commons Plugin 插件，不过只要在安装Jenkins时安装了建议的插件，就无需手动安装
+
+### JDK
+* 在 Global Tool Configuration 中找到 JDK，点击 JDK Installations
+* 点击 ADD JDK，Name中填写 `jdk-8u221`
+* 勾选 `Install automatically`
+* 点击 Add Installer，选择`Install from Java SE Development Kit from the website`，版本选择 8u221
+* 根据提示输入 Oracle 账号密码。
+* 点击 Apply 应用此配置。
+
+### Maven
+* 在 Global Tool Configuration 中找到 Maven，点击 Maven Installations
+* 点击 Add Maven，Name 填写 `mvn-3.6.2`
+* 勾选 `Install automatically`
+* 点击 Add Installer，选择 Install from Apache，选择版本`3.6.2`
+* 点击 Apply 应用此配置
+
+### Docker
+* 在 Global Tool Configuration 中找到 Docker，点击 Docker Installations
+* 点击 Add Docker，Name中填写 `myDocker`
+* 勾选 `Install automatically`
+* 点击 Add Installer，版本选择 latest
+* 点击 Apply 应用此配置。
+> 注意此方法是在 Jenkins 环境中安装 Docker Client，其默认还是与宿主机上的`/var/run/docker.sock`进行通信，因此需要保证Jenkins的宿主机上有可用的 Docker Engine
+
+## 在 Jenkins 中使用 Docker Plugin （一般无需使用）
+这是除了以上方法外，另一种在 Jenkins 中使用Docker的方法，主要由Docker Plugin插件实现。由于配置比较麻烦，一般无需使用。
 
 1. 进入 Manage Jenkins -> Manage Plugins -> Avaliable.
 2. 搜索 Docker，选择`Docker plugin`插件，勾选后点击 `Install without Restart`，等待插件安装完毕。
