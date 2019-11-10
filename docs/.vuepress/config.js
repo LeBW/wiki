@@ -17,6 +17,7 @@ module.exports = {
       '/language/java/': getJavaSidebar(),
       '/kubernetes/': getKubernetesSidebar(),
       '/devops/': getDevOpsSidebar(),
+      '/circumvent-internet/': getCircumventSidebar(),
     },
   },
 }
@@ -91,5 +92,11 @@ function getDevOpsSidebar() {
     'DevOps之团队结构',
     'DevOps之代码管理',
     'jenkins-installation',
+  ]
+}
+
+function getCircumventSidebar() {
+  return [
+    'circumvent-internet',
   ]
 }

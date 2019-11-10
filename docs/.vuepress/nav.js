@@ -78,6 +78,10 @@ module.exports = [
                 text: 'Dev-Ops',
                 link: '/devops/',
             },
+            {
+                text: '科学上网',
+                link: '/circumvent-internet/',
+            }
         ]
     },
     {
