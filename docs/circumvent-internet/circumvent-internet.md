@@ -6,6 +6,11 @@
 
 * [Anankke/SSRR-Windows](https://github.com/Anankke/SSRR-Windows)
 
+## 免费SS/SSR账号
+
+* [Alvin9999/new-pac](https://github.com/Alvin9999/new-pac/wiki)
+* [ThinkDevelop/Free-SS-SSR](https://github.com/ThinkDevelop/Free-SS-SSR)
+
 ## 国内小机场
 
 * [潮音Cloud](http://51jiasu.cf)
