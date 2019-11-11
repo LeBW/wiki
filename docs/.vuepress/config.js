@@ -57,7 +57,7 @@ function getFrontendSidebar() {
 
 function getLinuxSidebar() {
   return [
-    'sed',
+    'common-command',
     'file-system',
   ]
 }
