@@ -15,7 +15,7 @@ module.exports = [
                 link: '/operating-system/',
             },
             {
-                text: '计算机网路',
+                text: '计算机网络',
                 link: '/computer-network/',
             }
         ],
