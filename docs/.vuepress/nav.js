@@ -54,6 +54,10 @@ module.exports = [
         text: '微服务',
         items: [
             {
+                text: '微服务架构',
+                link: '/microservice/',
+            },
+            {
                 text: 'Docker',
                 link: '/docker/',
             },

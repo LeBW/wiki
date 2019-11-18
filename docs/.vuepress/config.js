@@ -18,6 +18,7 @@ module.exports = {
       '/kubernetes/': getKubernetesSidebar(),
       '/devops/': getDevOpsSidebar(),
       '/circumvent-internet/': getCircumventSidebar(),
+      '/microservice/': getMicroserviceSidebar(),
     },
   },
 }
@@ -98,5 +99,11 @@ function getDevOpsSidebar() {
 function getCircumventSidebar() {
   return [
     'circumvent-internet',
+  ]
+}
+
+function getMicroserviceSidebar() {
+  return [
+    'SOA',
   ]
 }
