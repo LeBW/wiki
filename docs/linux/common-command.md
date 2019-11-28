@@ -64,6 +64,45 @@ $ echo 'abc abc' | sed 's/abc/123/g'
 * 一般使用格式为 `netstat -nlp | grep <port-number>`
 * 其中`-n`代表以数字形式输出，`-l`代表显示正在监听的网络连接，`-p`代表显示与该连接对应的进程号和进程名
 * `grep`用于筛选出我们需要的端口号。
+> 以上是 Linux 系统中的`netstat`，与 Mac 中不一样。Mac中可以使用`netstat -na | grep <port-number>`来检查。
 
 ### lsof
-* 全称是 `list open files`，用于列出被某一个具体进程
+* 全称是 `list open files`，用于列出被某一个具体进程所打开的文件。这里的文件是广义上的文件，包括常规文件、目录、库、流或者网络文件（网络套接字，NFS文件，Unix域套接字等）。
+* 直接输入`lsof`,会列出所有活跃进程打开的文件。
+* 要查看占用某特定端口的进程，使用命令`lsof -i :<port-number>`.
+* `-i [i]`的作用：
+    * 列出网络地址符合一定规律的`network file`。该规律以`[i]`的格式展现。
+    * `[i]`的格式：`[46][protocol][@hostname|hostaddr][:service|port]`
+    * 其具体含义为：
+    ```
+    46 specifies the IP version, IPv4 or IPv6
+        that applies to the following address.
+        '6' may be be specified only if the UNIX
+        dialect supports IPv6.  If neither '4' nor
+        '6' is specified, the following address
+        applies to all IP versions.
+    protocol is a protocol name - TCP, UDP
+    hostname is an Internet host name.  Unless a
+        specific IP version is specified, open
+        network files associated with host names
+        of all versions will be selected.
+    hostaddr is a numeric Internet IPv4 address in
+        dot form; or an IPv6 numeric address in
+        colon form, enclosed in brackets, if the
+        UNIX dialect supports IPv6.  When an IP
+        version is selected, only its numeric
+        addresses may be specified.
+    service is an /etc/services name - e.g., smtp -
+        or a list of them.
+    port is a port number, or a list of them.
+    ```
+    * 举例如下：
+        * `-i6` - IPv6 only
+        * `TCP:25` - TCP and port 25
+        * `@1.2.3.4` - Internet IPv4 host address 1.2.3.4
+        * `@[3ffe:1ebc::1]:1234` - Internet IPv6 host address 3ffe:1ebc::1, port 1234
+        * `UDP:who` - UDP who service port
+        * `TCP@lsof.itap:513` - TCP, port 513 and host name lsof.itap
+        * `tcp@foo:1-10,smtp,99` - TCP, ports 1 through 10, service name smtp, port 99, host name foo
+        * `tcp@bar:1-smtp - TCP`, ports 1 through smtp, host bar
+        * `:time` - either TCP, UDP or UDPLITE time service port
