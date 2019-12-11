@@ -1,6 +1,32 @@
 # Linux常用命令
 
-## 监控系统信息相关命令
+## 查看系统相关命令
+
+### 查看系统内核
+三个命令可以用来查看系统内核以及其他信息。
+#### 1. uname
+uname 是用来查看系统信息的命令。用法： `uname [OPTION]...`. 当没有option时，视为`uname -s`.
+
+* `-a` 打印所有信息
+* `-s` 打印内核名称
+* `-r` 打印内核发行版本
+* ...其他见 `uname --help`
+
+所以最直观的，可以用 `uname -r`来查看内核版本。
+
+#### 2. cat /proc/version
+`cat /proc/version` 可以打印系统版本信息。
+
+#### 3. hostnamectl
+`hostnamectl`是用来控制系统主机名称的工具，也可以用来打印系统相关信息。
+
+### 查看系统版本
+不同的Linux发行版系统所用的命令不太一样。比较通用的可以使用
+```
+cat /etc/*release
+```
+
+## 监控性能相关命令
 ### top
 top命令用来监控Linux系统的性能，它可以实时地展示所有正在运行的进程，并且展示了CPU使用率，内存占用率等有用信息。
 
@@ -32,7 +58,7 @@ ls -lh filename
 
 ### du
 ```bash
-du -sh filename/directory name
+du -sh <filename>/<directory name>
 ```
 * `-s`表示只显示概要（也就是说当参数是目录的时候，不显示子目录信息）
 * `-h`表示使用 human readable 的形式输出。
