@@ -42,7 +42,9 @@ function getDatabaseSidebar() {
 
 function getCSidebar() {
   return [
+    'standard-library',
     'string-operation',
+    'memory-operation',
     'file-operation',
   ]
 }
