@@ -70,6 +70,8 @@ function getOperatingSystemSidebar() {
     'process',
     'context-switch',
     'process-thread',
+    'deadlock',
+    'memory-management',
   ]
 }
 
