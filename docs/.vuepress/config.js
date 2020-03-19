@@ -19,6 +19,7 @@ module.exports = {
       '/devops/': getDevOpsSidebar(),
       '/circumvent-internet/': getCircumventSidebar(),
       '/microservice/': getMicroserviceSidebar(),
+      '/backend/spring/': getSpringSidebar(),
     },
   },
 }
@@ -109,5 +110,12 @@ function getCircumventSidebar() {
 function getMicroserviceSidebar() {
   return [
     'SOA',
+  ]
+}
+
+function getSpringSidebar() {
+  return [
+    'spring-boot',
+    'spring-security',
   ]
 }
