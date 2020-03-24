@@ -116,6 +116,7 @@ function getMicroserviceSidebar() {
 function getSpringSidebar() {
   return [
     'spring-boot',
+    'spring-data',
     'spring-security',
   ]
 }
