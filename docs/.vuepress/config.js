@@ -56,6 +56,7 @@ function getFrontendSidebar() {
     'css',
     'javascript',
     'ajax',
+    'same-origin',
   ]
 }
 
