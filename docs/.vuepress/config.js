@@ -64,6 +64,7 @@ function getLinuxSidebar() {
   return [
     'common-command',
     'file-system',
+    'vim-config',
   ]
 }
 
