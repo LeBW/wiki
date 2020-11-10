@@ -75,6 +75,7 @@ function getOperatingSystemSidebar() {
     'process-thread',
     'deadlock',
     'memory-management',
+    'file-system',
   ]
 }
 
