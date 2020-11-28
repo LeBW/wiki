@@ -17,6 +17,10 @@ module.exports = [
             {
                 text: '计算机网络',
                 link: '/computer-network/',
+            },
+            {
+                text: '分布式系统',
+                link: '/distributed-system/',
             }
         ],
     },

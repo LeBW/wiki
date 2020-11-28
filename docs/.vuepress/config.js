@@ -20,6 +20,7 @@ module.exports = {
       '/circumvent-internet/': getCircumventSidebar(),
       '/microservice/': getMicroserviceSidebar(),
       '/backend/spring/': getSpringSidebar(),
+      '/distributed-system/': getDistributedSystemSidebar(),
     },
   },
 }
@@ -122,5 +123,11 @@ function getSpringSidebar() {
     'spring-boot',
     'spring-data',
     'spring-security',
+  ]
+}
+
+function getDistributedSystemSidebar() {
+  return [
+    'cap',
   ]
 }
