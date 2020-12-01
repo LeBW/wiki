@@ -130,5 +130,6 @@ function getSpringSidebar() {
 function getDistributedSystemSidebar() {
   return [
     'cap',
+    'distributed-transaction',
   ]
 }
