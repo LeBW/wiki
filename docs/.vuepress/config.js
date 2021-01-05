@@ -21,6 +21,7 @@ module.exports = {
       '/microservice/': getMicroserviceSidebar(),
       '/backend/spring/': getSpringSidebar(),
       '/distributed-system/': getDistributedSystemSidebar(),
+      '/computer-network/': getComputerNetworkSidebar(),
     },
   },
 }
@@ -131,5 +132,11 @@ function getDistributedSystemSidebar() {
   return [
     'cap',
     'distributed-transaction',
+  ]
+}
+
+function getComputerNetworkSidebar() {
+  return [
+    'http',
   ]
 }
