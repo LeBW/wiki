@@ -6,7 +6,7 @@ HTTP 全称 HyperText Transfer Proxy（超文本传输协议）。先看看几�
 * URL（Uniform Resource Location），统一资源定位符。URL 其实是 URI 的一个子集，不仅定义这个资源，而且定义了如何找到这个资源。
 
 URL主要由四个部分组成：协议，主机，端口，路径，如下图所示。
-![url](./url.jpg)
+![url](./URL.jpg)
 
 ## HTTP 报文格式
 HTTP 报文格式如下图所示
