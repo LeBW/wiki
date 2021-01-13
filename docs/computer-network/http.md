@@ -1,4 +1,4 @@
-# HTTP
+# 应用层（HTTP）
 HTTP 全称 HyperText Transfer Proxy（超文本传输协议）。先看看几个与 HTTP 有关的概念。
 
 ## URI 与 URL

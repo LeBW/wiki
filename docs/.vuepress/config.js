@@ -138,5 +138,6 @@ function getDistributedSystemSidebar() {
 function getComputerNetworkSidebar() {
   return [
     'http',
+    'tcp',
   ]
 }
