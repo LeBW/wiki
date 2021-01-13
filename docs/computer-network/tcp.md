@@ -32,3 +32,4 @@ TCP报文段的头部结构如下图所示
 当 SYN 设为0时，此报文段是数据报文段，此时 Sequence Number 表示的是该报文段数据中**第一个字节**的序列号。
 
 **Acknowledge Number (32 bit)**
+当 ACK 设为1时，表示 Acknowledge Number 字段是有意义
