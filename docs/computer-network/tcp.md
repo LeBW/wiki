@@ -17,3 +17,18 @@
 一个UDP套接字是由一个二元组进行标识的，该二元组包含一个**目的IP地址**和一个**目的端口号**。因此，如果两个UDP报文段有不同的源IP地址和/或端口号，但具有相同的目的IP地址和目的端口号，那么这两个报文段将通过相同的目的套接字被定向到相同的目的进程。
 
 ## TCP
+TCP报文段的头部结构如下图所示
+![tcp-head](./tcp-head.png)
+其中各字段含义如下
+
+**Source Port (16 bit)**：发送方的端口
+
+**Destination Port (16 bit)**：接收方的端口
+
+**Sequence Number (32 bit)**
+
+当 SYN 设为1时，此报文段是初始报文段（三次握手中的前两次），此时 Sequence Number 表示的是初始序列号(此时该报文段内没有实际内容，回复方需要将`Acknowledge Number`设为`sequence number + 1`）。
+
+当 SYN 设为0时，此报文段是数据报文段，此时 Sequence Number 表示的是该报文段数据中**第一个字节**的序列号。
+
+**Acknowledge Number (32 bit)**
