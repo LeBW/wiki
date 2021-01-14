@@ -16,7 +16,7 @@
 
 一个UDP套接字是由一个二元组进行标识的，该二元组包含一个**目的IP地址**和一个**目的端口号**。因此，如果两个UDP报文段有不同的源IP地址和/或端口号，但具有相同的目的IP地址和目的端口号，那么这两个报文段将通过相同的目的套接字被定向到相同的目的进程。
 
-## TCP
+## TCP 报文段结构
 TCP报文段的头部结构如下图所示
 ![tcp-head](./tcp-head.png)
 其中各字段含义如下
@@ -32,4 +32,50 @@ TCP报文段的头部结构如下图所示
 当 SYN 设为0时，此报文段是数据报文段，此时 Sequence Number 表示的是该报文段数据中**第一个字节**的序列号。
 
 **Acknowledge Number (32 bit)**
-当 ACK 设为1时，表示 Acknowledge Number 字段是有意义
+
+当 ACK 设为1时，表示 Acknowledge Number 字段是有意义的。此时该字段表示的是发送者已经收到了 `acknowledge number - 1`的所有数据，期待的下一个序列号就是 `akknowledge number`。
+
+**Data Offset (4 bit)**
+
+表示TCP头部的大小（用 32-bit word 单位表示）。TCP头部的最小大小是5个word（20字节），最大是15个word（60字节），因此下面的 Options 最大是40字节。
+
+**Reserved (3 bit)**：保留字段，应置0
+
+**Flags (9 bit)**
+
+此字段包含9个flag，分别如下：
+* NS: ECN-nonce，隐藏保护。
+* CWR: Congestion Window Reduced（CWR）置为1时，表示发送方已经收到过一个带有 ECE 位的 TCP报文段，并且已经回应了拥塞控制机制。
+* ECE：ECN-Echo 有两层含义：当 SYN 置为1时，将ECE置为1表示发送方支持ECN机制；当 SYN 不是1时，此字段表示网络拥塞的指示。
+* URG：置为1时，表示 Urgent pointer field 是有意义的。
+* ACK：表示 Acknowledge Number 是有意义的。除了三次握手中的第一次（也就是客户端发送的第一个请求）以外，其余所有TCP报文段应该将此位置为1.
+* PSH：置为1时，表示接收方应该立即将数据交给上层应用。
+* RST：置为1时，表示需要重置连接。
+* SYN：Synchronize sequence numbers。用于建立TCP连接，只有终端发送的第一个TCP数据包（也就是三次握手中的前两次）需要将此位置为1.
+* FIN：用于结束TCP连接。某一端发送带有FIN位的报文段时，表明该端已经发送了所有的数据包，没有需要再发的报文段了。
+
+**Window Size (16 bit)**
+
+用来表示接收窗口的大小，表示发送方期望收到的数据大小（用于流量控制和窗口缩放）
+
+**Checksum (16bit)**: 用来校验数据段有没有出错。
+
+**Urgent Pointer (16 bit)**
+
+当 URG 置为1时，表示紧急数据存在，此指针表示紧急数据的最后一个字节。当紧急数据存在并且给出指向紧急数据尾的指针时，TCP 必须通知接收端的上层应用。
+
+**Options**：暂略，详情见[维基百科](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)
+
+## TCP 连接管理
+TCP 建立连接：三次握手。如下图所示
+![tcp-three-way](./tcp-three-way.png)
+
+* 第一步：客户端首先像服务器端发送一个特殊的 TCP 报文段，该报文段不包含应用层数据，首部的标志位SYN 置为1，因此这个特殊报文段被称为 SYN 报文段。客户端会在该报文段中随机加入一个初始序号（client_isn），并将其放在 Sequence Number 字段中。
+* 第二步：当服务器收到客户端发送的第一条 SYN 报文段后，会向客户端发送允许连接的报文段。该报文段中也不包含应用层数据，其首部包含三个重要信息。首先，SYN比特被置为1.其次，该TCP报文段中首部的Acknowledge Number 被置为 `client_isn + 1`。最后，服务器选择子集的初始序列号 server_isn，并将其置于 Sequence Number 字段中。该报文段的含义可以理解为：我收到了你发起建立连接的 SYN 分组，该分组带有初始序号 client_isn。我同意建立该连接，我自己的初始序号是 server_isn。该允许连接的报文段有时被称为 SYNACK 报文段。
+* 第三步：客户端在收到 SYNACK 报文段后，再次向主机发送报文段，这最后一个报文段对服务器允许连接的报文段进行了确认，将首部中的 Acknowledge Number 置为 `server_isn + 1`。此时因为连接已经建立了，所以该报文段中的 SYN 比特被置为0。这个报文段中是可以携带数据的。
+
+TCP 终止连接：四次挥手。如下图所示
+![tcp-four-way](./tcp-four-way.png)
+
+参与一条TCP的两个进程中的任何一个都能终止 TCP 连接。当连接结束后，主机中的“资源”（即缓存和变量）将被释放。例如，客户打算关闭连接：
+* 客户TCP向服务器进程发送一个特殊的 TCP 报文段。该报文段的标志位 FIN 被设为1.当服务器发送
