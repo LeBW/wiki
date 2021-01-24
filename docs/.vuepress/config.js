@@ -125,6 +125,7 @@ function getSpringSidebar() {
     'spring-boot',
     'spring-data',
     'spring-security',
+    'filter-listener-intecepter'
   ]
 }
 
