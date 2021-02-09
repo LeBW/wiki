@@ -88,6 +88,7 @@ function getJavaSidebar() {
     'memory-management',
     'garbage-collection',
     'hashmap',
+    'arrayssort',
   ]
 }
 
