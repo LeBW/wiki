@@ -142,5 +142,6 @@ function getComputerNetworkSidebar() {
   return [
     'http',
     'tcp',
+    'ip',
   ]
 }
