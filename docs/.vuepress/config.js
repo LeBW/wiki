@@ -22,6 +22,7 @@ module.exports = {
       '/backend/spring/': getSpringSidebar(),
       '/distributed-system/': getDistributedSystemSidebar(),
       '/computer-network/': getComputerNetworkSidebar(),
+      '/algorithm/': getAlgorithmSidebar(),
     },
   },
 }
@@ -143,5 +144,11 @@ function getComputerNetworkSidebar() {
     'http',
     'tcp',
     'ip',
+  ]
+}
+
+function getAlgorithmSidebar() {
+  return [
+    'binary-search-tree',
   ]
 }
