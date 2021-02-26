@@ -40,6 +40,7 @@ function getDatabaseSidebar() {
     'theory',
     'jdbc',
     'mysql',
+    'database-index',
     'mongo',
   ]
 }
