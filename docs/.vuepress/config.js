@@ -23,6 +23,7 @@ module.exports = {
       '/distributed-system/': getDistributedSystemSidebar(),
       '/computer-network/': getComputerNetworkSidebar(),
       '/algorithm/': getAlgorithmSidebar(),
+      '/docker/': getDockerSidebar(),
     },
   },
 }
@@ -151,5 +152,11 @@ function getComputerNetworkSidebar() {
 function getAlgorithmSidebar() {
   return [
     'binary-search-tree',
+  ]
+}
+
+function getDockerSidebar() {
+  return [
+    'container',
   ]
 }
