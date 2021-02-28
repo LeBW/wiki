@@ -98,6 +98,7 @@ function getJavaSidebar() {
 
 function getKubernetesSidebar() {
   return [
+    'overview',
     'create-cluster',
     'create-nfs',
     'storageclass-nfs',
