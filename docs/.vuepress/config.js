@@ -102,6 +102,7 @@ function getKubernetesSidebar() {
     'create-cluster',
     'create-nfs',
     'storageclass-nfs',
+    'core-components',
   ]
 }
 
