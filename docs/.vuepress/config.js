@@ -92,6 +92,8 @@ function getJavaSidebar() {
     'garbage-collection',
     'hashmap',
     'arrayssort',
+    'concurrent-base',
+    'thread-pool',
   ]
 }
 
