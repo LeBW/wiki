@@ -188,6 +188,7 @@ B+树 这种索引结构，可以利用索引的“最左前缀”，来定位�
 ### 3.3 对比InnoDB 和 MyISAM
 
 
+
 # 参考资料
 [数据库索引原理及优化](https://blog.csdn.net/suifeng3051/article/details/52669644)
 
