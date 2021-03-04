@@ -94,6 +94,7 @@ function getJavaSidebar() {
     'arrayssort',
     'concurrent-base',
     'thread-pool',
+    'shared-resources',
   ]
 }
 
