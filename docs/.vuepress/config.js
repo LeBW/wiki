@@ -102,10 +102,11 @@ function getJavaSidebar() {
 function getKubernetesSidebar() {
   return [
     'overview',
+    'core-components',
+    'service',
     'create-cluster',
     'create-nfs',
     'storageclass-nfs',
-    'core-components',
   ]
 }
 
