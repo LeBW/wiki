@@ -18,7 +18,7 @@ Executors 目前提供了 5 种不同的线程池创建配置：
 
 首先我们来看看 Executor 框架的基本组成，参考下面的类图。
 
-![executor](./executor.png)
+![executor](./Executor.png)
 
 首先从整体上把握一下各个类型的主要设计目的：
 * Executor 是一个基础的接口，其初衷是将任务提交和任务执行细节解耦，这一点可以体会其定义的唯一方法。
