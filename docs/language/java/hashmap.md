@@ -297,6 +297,33 @@ final Node<K,V>[] resize() {
     return newTab;
 }
 ```
+
+## HashMap 与 TreeMap
+TreeMap 是基于红黑树的一种提供顺序访问的 Map，和 HashMap 不同，它的 get、put、remove 之类操作都是 O(log(n)) 的时间复杂度，具体顺序可以由指定的 Comparotor 来决定，或者根据键的自然顺序来判断。
+
+趁此机会，先来看看与 Map 有关的类结构图。
+
+![map-class](./map-class.png)
+
+Hashtable 比较特别，作为类似 Vector、Stack 的早期集合相关类型，它是扩展了 Dictionary 类的，类结构上与 HashMap 之类明显不同。
+
+HashMap 等其他 Map 实现则是都扩展了 AbstractMap，里面包含了通用方法抽象。不同 Map 的用途，从类图结构就能体现出来，设计目的已经体现在不同接口上。
+
+大部分使用 Map 的场景，通常就是放入、访问或者删除，而对顺序没有特别要求，HashMap 在这种情况下基本是最好的选择。HashMap 的性能表现非常依赖于哈希码的有效性，请务必掌握 hashCode 和 equals 的一些基本约定，比如：
+* equals 相等，hashCode 一定要相等。
+* 重写了 hashCode 方法，也要重写 equals
+* hashCode 需要保持一致性，状态改变返回的哈希值仍然要一致。
+* equals 的对称，反射，传递等性质。
+
+注意：对于对象类型，Object 的默认 hashCode 方法会将对象的内存地址转换为整数，作为哈希值，同样，equals 方法默认也会比较对象的内存地址。因此，在自定义对象作为 key 使用 HashMap 时，应该要重写其 hashCode 和 equals 方法。
+
+针对有序 Map 的分析内容比较有限，这里补充一些，虽然 LinkedHashMap 和 TreeMap 都能保证某种顺序，但二者还是非常不同的。
+
+* LinkedHashMap 还是根据 HashMap 实现的，只不过是在 HashMap 的基础上在节点上添加了双向链表的结构。
+* LinkedHashMap 有序，可分为插入顺序和访问顺序。如果是访问顺序，那么 put 和 get 操作已经存在的 Entry 时，就会把 Entry 移动到双向链表的表尾（其实是先删除再插入）。
+* LinkedHashMap 存取数据时，还是跟 HashMap 一样使用的 Entry[] 的方式，双向链表只是为了保证顺序。
+* TreeMap  的底层就是一颗红黑树，它的 containsKey , get , put and remove 方法的时间复杂度是 log(n) ，并且它是按照 key 的自然顺序（或者指定排序）排列。
+
 ## ConcurrentHashMap
 HashMap 是线程不安全的，也就是说多个线程同时操作某一个 HashMap 时，可能会出现资源竞争发生错误的问题。所以在多线程下，推荐使用 ConcurrentHashMap。
 
@@ -391,7 +418,6 @@ final V put(K key, int hash, V value, boolean onlyIfAbsent) {
 
 get 很简单，通过 key 计算 hash，如果 key hash 相同就返回，如果是红黑树按照红黑树获取，都不是就遍历链表获取。由于 Node 使用了 volatile，所以 get 是不需要加锁的。
 
-```
 ## 面试常问
 Q：为什么要把 capacity 设为 2的n次方 呢？并且扩容的时候，也是以2倍容量的形式进行扩容？
 
