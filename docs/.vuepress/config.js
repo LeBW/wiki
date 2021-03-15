@@ -106,6 +106,7 @@ function getKubernetesSidebar() {
     'overview',
     'core-components',
     'service',
+    'ingress',
     'create-cluster',
     'create-nfs',
     'storageclass-nfs',
