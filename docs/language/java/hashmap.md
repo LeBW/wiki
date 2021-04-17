@@ -7,6 +7,8 @@ HashMap 的结构图如下
 ![hashmap](./hashmap.jpg)
 
 上图可以看出，HashMap 的底层就是一个数组，数组中的每一项又是一个链表或者红黑树。当新建一个 HashMap 时，就会初始化一个数组。
+> 注意，HashMap 的实现从 1.7 到 1.8 有很大变化。在 JDK1.8 中才加入了红黑树的实现。
+
 
 ## 核心成员变量
 ``` java
@@ -296,6 +298,125 @@ final Node<K,V>[] resize() {
 }
 ```
 
+## HashMap 与 TreeMap
+TreeMap 是基于红黑树的一种提供顺序访问的 Map，和 HashMap 不同，它的 get、put、remove 之类操作都是 O(log(n)) 的时间复杂度，具体顺序可以由指定的 Comparotor 来决定，或者根据键的自然顺序来判断。
+
+趁此机会，先来看看与 Map 有关的类结构图。
+
+![map-class](./map-class.png)
+
+Hashtable 比较特别，作为类似 Vector、Stack 的早期集合相关类型，它是扩展了 Dictionary 类的，类结构上与 HashMap 之类明显不同。
+
+HashMap 等其他 Map 实现则是都扩展了 AbstractMap，里面包含了通用方法抽象。不同 Map 的用途，从类图结构就能体现出来，设计目的已经体现在不同接口上。
+
+大部分使用 Map 的场景，通常就是放入、访问或者删除，而对顺序没有特别要求，HashMap 在这种情况下基本是最好的选择。HashMap 的性能表现非常依赖于哈希码的有效性，请务必掌握 hashCode 和 equals 的一些基本约定，比如：
+* equals 相等，hashCode 一定要相等。
+* 重写了 hashCode 方法，也要重写 equals
+* hashCode 需要保持一致性，状态改变返回的哈希值仍然要一致。
+* equals 的对称，反射，传递等性质。
+
+注意：对于对象类型，Object 的默认 hashCode 方法会将对象的内存地址转换为整数，作为哈希值，同样，equals 方法默认也会比较对象的内存地址。因此，在自定义对象作为 key 使用 HashMap 时，应该要重写其 hashCode 和 equals 方法。
+
+针对有序 Map 的分析内容比较有限，这里补充一些，虽然 LinkedHashMap 和 TreeMap 都能保证某种顺序，但二者还是非常不同的。
+
+* LinkedHashMap 还是根据 HashMap 实现的，只不过是在 HashMap 的基础上在节点上添加了双向链表的结构。
+* LinkedHashMap 有序，可分为插入顺序和访问顺序。如果是访问顺序，那么 put 和 get 操作已经存在的 Entry 时，就会把 Entry 移动到双向链表的表尾（其实是先删除再插入）。
+* LinkedHashMap 存取数据时，还是跟 HashMap 一样使用的 Entry[] 的方式，双向链表只是为了保证顺序。
+* TreeMap  的底层就是一颗红黑树，它的 containsKey , get , put and remove 方法的时间复杂度是 log(n) ，并且它是按照 key 的自然顺序（或者指定排序）排列。
+
+## ConcurrentHashMap
+HashMap 是线程不安全的，也就是说多个线程同时操作某一个 HashMap 时，可能会出现资源竞争发生错误的问题。所以在多线程下，推荐使用 ConcurrentHashMap。
+
+对了，其实 HashTable 也是线程安全的，但是其实现方式是在所有的关键方法上加上 synchronized，简单粗暴，但是性能比较差，在高并发场景下会造成大量阻塞。
+
+ConcurrentHashMap 在 JDK 1.7 到 1.8 版本改动很大，1.7 中使用了 Segment + HashEntry 分段锁的方式实现，而在 1.8 中则抛弃了 Segment，改用 CAS + synchronized + Node 实现，同样也加入了红黑树，避免了链表过长导致的性能问题。下面分别讲讲两种实现。
+
+### 1.7 中的分段锁
+从结构上说，1.7 中的 ConcurrentHashMap 采用分段锁机制，里面包含一个 Segment 数组。Segment 中包含 HashEntry 数组，HashEntry 本身就是一个链表的结构，具有保存 key，value 的能力，和指向下一节点的指针。
+
+实际上就是相当于每个 Segment 都是一个 HashMap，默认的 Segment 长度是 16，也就是支持 16 个线程的并发写，Segment 之间不会互相影响。
+
+![concurrenthashmap-segment](./concurrenthashmap-segment.png)
+
+在构造的时候，Segment 的数量由所谓的 concurrentcyLevel 决定，默认是 16，也可以在相应构造函数直接指定。注意，Java 需要它是 2 的幂数值，如果输入是类似 15 这种非幂值，会被自动调整到 16 之类 2 的幂数值。
+
+具体情况，我们一起看看一些 Map 基本操作的[源码](http://hg.openjdk.java.net/jdk7/jdk7/jdk/file/9b8c96f96a0f/src/share/classes/java/util/concurrent/ConcurrentHashMap.java)，这是 JDK 7 比较新的 get 代码。针对具体的优化部分，为方便理解，我直接注释在代码段里，get 操作需要保证的是可见性，所以并没有什么同步逻辑。
+
+```java
+public V get(Object key) {
+        Segment<K,V> s; // manually integrate access methods to reduce overhead
+        HashEntry<K,V>[] tab;
+        int h = hash(key.hashCode());
+       // 利用位操作替换普通数学运算
+       long u = (((h >>> segmentShift) & segmentMask) << SSHIFT) + SBASE;
+        // 以 Segment 为单位，进行定位
+        // 利用 Unsafe 直接进行 volatile access
+        if ((s = (Segment<K,V>)UNSAFE.getObjectVolatile(segments, u)) != null &&
+            (tab = s.table) != null) {
+           // 省略
+          }
+        return null;
+    }
+```
+
+而对于 put 操作，首先是通过二次哈希避免哈希冲突，然后以 Unsafe 调用方式，直接获取相应的 Segment，然后进行线程安全的 put 操作：
+```java
+ public V put(K key, V value) {
+        Segment<K,V> s;
+        if (value == null)
+            throw new NullPointerException();
+        // 二次哈希，以保证数据的分散性，避免哈希冲突
+        int hash = hash(key.hashCode());
+        int j = (hash >>> segmentShift) & segmentMask;
+        if ((s = (Segment<K,V>)UNSAFE.getObject          // nonvolatile; recheck
+             (segments, (j << SSHIFT) + SBASE)) == null) //  in ensureSegment
+            s = ensureSegment(j);
+        return s.put(key, hash, value, false);
+    }
+```
+
+其核心逻辑实现在下面的内部方法中
+```java
+final V put(K key, int hash, V value, boolean onlyIfAbsent) {
+            // scanAndLockForPut 会去查找是否有 key 相同 Node
+            // 无论如何，确保获取锁
+            HashEntry<K,V> node = tryLock() ? null :
+                scanAndLockForPut(key, hash, value);
+            V oldValue;
+            try {
+                HashEntry<K,V>[] tab = table;
+                int index = (tab.length - 1) & hash;
+                HashEntry<K,V> first = entryAt(tab, index);
+                for (HashEntry<K,V> e = first;;) {
+                    if (e != null) {
+                        K k;
+                        // 更新已有 value...
+                    }
+                    else {
+                        // 放置 HashEntry 到特定位置，如果超过阈值，进行 rehash
+                        // ...
+                    }
+                }
+            } finally {
+                unlock();
+            }
+            return oldValue;
+        }
+ ```
+ 这里我们做一下简化，put 流程大致是这样：
+ 1. 计算hash，定位到 segment，segment 如果是空就先初始化。
+ 2. 使用 ReentrantLock 加锁，如果获取锁失败则尝试自旋，自旋超过次数就阻塞获取，保证一定获取锁成功。
+ 3. 使用ReentrantLock加锁，如果获取锁失败则尝试自旋，自旋超过次数就阻塞获取，保证一定获取锁成功。 
+
+### 1.8 中的 CAS+sychronized
+1.8 中抛弃分段锁，转为用 CAS + synchronized 来实现，同样 HashEntry 改为 Node，也加入了 红黑树的实现。主要还是看 put 的流程。
+
+1. 首先计算 hash，遍历 node 数组，如果 node 是空，就通过 CAS + volatile 自旋的方式进行初始化。
+2. 如果当前数组位置是空，则直接通过 CAS 自旋写入数据。
+3. 如果 hash = MOVED，说明需要扩容，执行扩容。
+4. 如果都不满足，就使用 synchronized 对**当前**的 Node 加锁，然后写入数据，写入数据同样判断链表、红黑树，链表写入和 HashMap 的方式一样，key hash 一样就覆盖，反之就尾插法，链表长度超过 8 就转换为红黑树。
+
+get 很简单，通过 key 计算 hash，如果 key hash 相同就返回，如果是红黑树按照红黑树获取，都不是就遍历链表获取。由于 Node 使用了 volatile，所以 get 是不需要加锁的。
 
 ## 面试常问
 Q：为什么要把 capacity 设为 2的n次方 呢？并且扩容的时候，也是以2倍容量的形式进行扩容？

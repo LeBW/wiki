@@ -87,11 +87,13 @@ function getOperatingSystemSidebar() {
 
 function getJavaSidebar() {
   return [
+    'grammer',
     'jvm',
     'memory-management',
     'garbage-collection',
     'hashmap',
     'arrayssort',
+    'string',
     'concurrent-base',
     'thread-pool',
     'shared-resources',
@@ -104,6 +106,8 @@ function getKubernetesSidebar() {
     'overview',
     'core-components',
     'service',
+    'ingress',
+    'scheduler',
     'create-cluster',
     'create-nfs',
     'storageclass-nfs',
