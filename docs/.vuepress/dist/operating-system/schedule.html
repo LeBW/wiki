@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>进程调度 | LBW&#39;s Wiki Pages</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/lbw-wiki.png">
+    <meta name="description" content="Organize all of my knowledge.">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.6026cf0f.js" as="script"><link rel="preload" href="/assets/js/2.e987bf84.js" as="script"><link rel="preload" href="/assets/js/85.912fdc32.js" as="script"><link rel="prefetch" href="/assets/js/10.42a9c32e.js"><link rel="prefetch" href="/assets/js/11.34582077.js"><link rel="prefetch" href="/assets/js/12.a13015bc.js"><link rel="prefetch" href="/assets/js/13.a8df3139.js"><link rel="prefetch" href="/assets/js/14.277a551a.js"><link rel="prefetch" href="/assets/js/15.b7923d61.js"><link rel="prefetch" href="/assets/js/16.a645fbbc.js"><link rel="prefetch" href="/assets/js/17.b5987c61.js"><link rel="prefetch" href="/assets/js/18.8e7102ae.js"><link rel="prefetch" href="/assets/js/19.e50bd638.js"><link rel="prefetch" href="/assets/js/20.f026c526.js"><link rel="prefetch" href="/assets/js/21.2ea36855.js"><link rel="prefetch" href="/assets/js/22.ad5ffb1e.js"><link rel="prefetch" href="/assets/js/23.3ee1b1a7.js"><link rel="prefetch" href="/assets/js/24.f1613663.js"><link rel="prefetch" href="/assets/js/25.93cfab1c.js"><link rel="prefetch" href="/assets/js/26.076584da.js"><link rel="prefetch" href="/assets/js/27.3ddfb75d.js"><link rel="prefetch" href="/assets/js/28.93f1e33d.js"><link rel="prefetch" href="/assets/js/29.93f0694a.js"><link rel="prefetch" href="/assets/js/3.bb98a16c.js"><link rel="prefetch" href="/assets/js/30.96f804f9.js"><link rel="prefetch" href="/assets/js/31.b1eb7b6e.js"><link rel="prefetch" href="/assets/js/32.8185df2f.js"><link rel="prefetch" href="/assets/js/33.5ca3932c.js"><link rel="prefetch" href="/assets/js/34.43300fdf.js"><link rel="prefetch" href="/assets/js/35.368e952f.js"><link rel="prefetch" href="/assets/js/36.4ee10d16.js"><link rel="prefetch" href="/assets/js/37.bf62f19b.js"><link rel="prefetch" href="/assets/js/38.e73fae53.js"><link rel="prefetch" href="/assets/js/39.66f837a3.js"><link rel="prefetch" href="/assets/js/4.38e3fd12.js"><link rel="prefetch" href="/assets/js/40.41d49a04.js"><link rel="prefetch" href="/assets/js/41.3c8c3e1c.js"><link rel="prefetch" href="/assets/js/42.c91d076a.js"><link rel="prefetch" href="/assets/js/43.c2a53dc3.js"><link rel="prefetch" href="/assets/js/44.746cc14d.js"><link rel="prefetch" href="/assets/js/45.39af7200.js"><link rel="prefetch" href="/assets/js/46.b82a25ee.js"><link rel="prefetch" href="/assets/js/47.61b3cd99.js"><link rel="prefetch" href="/assets/js/48.723fb2e8.js"><link rel="prefetch" href="/assets/js/49.cca3429a.js"><link rel="prefetch" href="/assets/js/5.4a3a1b01.js"><link rel="prefetch" href="/assets/js/50.00af5d70.js"><link rel="prefetch" href="/assets/js/51.3c8ff878.js"><link rel="prefetch" href="/assets/js/52.2c63a1bc.js"><link rel="prefetch" href="/assets/js/53.a4d4a8e1.js"><link rel="prefetch" href="/assets/js/54.b15be7f5.js"><link rel="prefetch" href="/assets/js/55.f17212c2.js"><link rel="prefetch" href="/assets/js/56.e79cb932.js"><link rel="prefetch" href="/assets/js/57.14494adb.js"><link rel="prefetch" href="/assets/js/58.618f2768.js"><link rel="prefetch" href="/assets/js/59.2efdb962.js"><link rel="prefetch" href="/assets/js/6.1298f9ac.js"><link rel="prefetch" href="/assets/js/60.225d869c.js"><link rel="prefetch" href="/assets/js/61.5b991738.js"><link rel="prefetch" href="/assets/js/62.88ac1d76.js"><link rel="prefetch" href="/assets/js/63.38a1ef0b.js"><link rel="prefetch" href="/assets/js/64.9a27b689.js"><link rel="prefetch" href="/assets/js/65.dc9975cd.js"><link rel="prefetch" href="/assets/js/66.d3dd41aa.js"><link rel="prefetch" href="/assets/js/67.f1e809fc.js"><link rel="prefetch" href="/assets/js/68.1327c7f3.js"><link rel="prefetch" href="/assets/js/69.849c6c04.js"><link rel="prefetch" href="/assets/js/7.c0d1efc8.js"><link rel="prefetch" href="/assets/js/70.724f3185.js"><link rel="prefetch" href="/assets/js/71.1eab5270.js"><link rel="prefetch" href="/assets/js/72.2bf761d4.js"><link rel="prefetch" href="/assets/js/73.cea1c384.js"><link rel="prefetch" href="/assets/js/74.e346dfc8.js"><link rel="prefetch" href="/assets/js/75.4ea91ea7.js"><link rel="prefetch" href="/assets/js/76.b6d4dce6.js"><link rel="prefetch" href="/assets/js/77.a14fcbfd.js"><link rel="prefetch" href="/assets/js/78.d2c2fe85.js"><link rel="prefetch" href="/assets/js/79.c910e8ae.js"><link rel="prefetch" href="/assets/js/8.66ecfe98.js"><link rel="prefetch" href="/assets/js/80.20be2b42.js"><link rel="prefetch" href="/assets/js/81.73348490.js"><link rel="prefetch" href="/assets/js/82.dc33aeb5.js"><link rel="prefetch" href="/assets/js/83.1c7f07ea.js"><link rel="prefetch" href="/assets/js/84.333fb36b.js"><link rel="prefetch" href="/assets/js/86.a1cbae60.js"><link rel="prefetch" href="/assets/js/87.f915d4f2.js"><link rel="prefetch" href="/assets/js/9.dd542db7.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">LBW's Wiki Pages</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/overview/" class="nav-link">
+  概览
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础知识" class="dropdown-title"><span class="title">基础知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础知识" class="mobile-dropdown-title"><span class="title">基础知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/algorithm/" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/operating-system/" class="nav-link router-link-active">
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/computer-network/" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-item"><!----> <a href="/distributed-system/" class="nav-link">
+  分布式系统
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程语言" class="dropdown-title"><span class="title">编程语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程语言" class="mobile-dropdown-title"><span class="title">编程语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/language/java/" class="nav-link">
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/language/c/" class="nav-link">
+  C/C++
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/tomcat/" class="nav-link">
+  Tomcat
+</a></li><li class="dropdown-item"><!----> <a href="/backend/spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/backend/database/" class="nav-link">
+  数据库
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="微服务" class="dropdown-title"><span class="title">微服务</span> <span class="arrow down"></span></button> <button type="button" aria-label="微服务" class="mobile-dropdown-title"><span class="title">微服务</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/microservice/" class="nav-link">
+  微服务架构
+</a></li><li class="dropdown-item"><!----> <a href="/docker/" class="nav-link">
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/kubernetes/" class="nav-link">
+  Kubernetes
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend/" class="nav-link">
+  前端
+</a></li><li class="dropdown-item"><!----> <a href="/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/devops/" class="nav-link">
+  Dev-Ops
+</a></li><li class="dropdown-item"><!----> <a href="/circumvent-internet/" class="nav-link">
+  科学上网
+</a></li></ul></div></div><div class="nav-item"><a href="https://lebw.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Blog
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/lebw/my-wiki" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/overview/" class="nav-link">
+  概览
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础知识" class="dropdown-title"><span class="title">基础知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础知识" class="mobile-dropdown-title"><span class="title">基础知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/algorithm/" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/operating-system/" class="nav-link router-link-active">
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/computer-network/" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-item"><!----> <a href="/distributed-system/" class="nav-link">
+  分布式系统
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程语言" class="dropdown-title"><span class="title">编程语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程语言" class="mobile-dropdown-title"><span class="title">编程语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/language/java/" class="nav-link">
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/language/c/" class="nav-link">
+  C/C++
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/tomcat/" class="nav-link">
+  Tomcat
+</a></li><li class="dropdown-item"><!----> <a href="/backend/spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/backend/database/" class="nav-link">
+  数据库
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="微服务" class="dropdown-title"><span class="title">微服务</span> <span class="arrow down"></span></button> <button type="button" aria-label="微服务" class="mobile-dropdown-title"><span class="title">微服务</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/microservice/" class="nav-link">
+  微服务架构
+</a></li><li class="dropdown-item"><!----> <a href="/docker/" class="nav-link">
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/kubernetes/" class="nav-link">
+  Kubernetes
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend/" class="nav-link">
+  前端
+</a></li><li class="dropdown-item"><!----> <a href="/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/devops/" class="nav-link">
+  Dev-Ops
+</a></li><li class="dropdown-item"><!----> <a href="/circumvent-internet/" class="nav-link">
+  科学上网
+</a></li></ul></div></div><div class="nav-item"><a href="https://lebw.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Blog
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/lebw/my-wiki" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/operating-system/process.html" class="sidebar-link">进程与线程</a></li><li><a href="/operating-system/context-switch.html" class="sidebar-link">上下文切换</a></li><li><a href="/operating-system/schedule.html" aria-current="page" class="active sidebar-link">进程调度</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/operating-system/schedule.html#调度算法" class="sidebar-link">调度算法</a></li></ul></li><li><a href="/operating-system/process-thread.html" class="sidebar-link">同步问题</a></li><li><a href="/operating-system/deadlock.html" class="sidebar-link">死锁</a></li><li><a href="/operating-system/memory-management.html" class="sidebar-link">内存管理</a></li><li><a href="/operating-system/file-system.html" class="sidebar-link">文件系统</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="进程调度"><a href="#进程调度" class="header-anchor">#</a> 进程调度</h1> <p>CPU调度是多道程序操作系统的基础。通过在进程间切换CPU，操作系统可以使得计算机更加高效。</p> <blockquote><p>对于支持线程的操作系统，操作系统实际调度的是内核级线程而非进程。不过，术语 进程调度（process scheduling）和线程调度（thread scheduling）经常交替使用。</p></blockquote> <p>进程调度方案分为抢占式和非抢占式。</p> <ul><li>在非抢占式下，进程调度只能在进程中止或者切换到等待状态（例如，I/O 请求，或 wait() 调用等）</li> <li>在抢占式下，除了以上两种情况，还有当进程从运行状态切换到就绪状态（例如出现中断）或者进程由等待状态切换到就绪状态时（例如 I/O 完成）时，都可以发生调度。</li></ul> <p>Windows 3.x 使用了非抢占调度；Windows 95 开始引入抢占式调度，所有之后的 Windows 都是抢占式调度。Mac OS X 采用抢占调度。</p> <h2 id="调度算法"><a href="#调度算法" class="header-anchor">#</a> 调度算法</h2> <p>介绍常用的进程调度算法。</p> <h3 id="_1-先来先服务调度"><a href="#_1-先来先服务调度" class="header-anchor">#</a> 1. 先来先服务调度</h3> <p>FCFS 调度算法最简单，先请求CPU的进程首先分配到CPU，是非抢占式的。实现简单，但是缺点不少。</p> <p>FCFS往往会导致平均等待时间很长，尤其是当运行时间很长的进程先到达时，会拖慢后面所有进程的时间。</p> <h3 id="_2-最短作业优先调度"><a href="#_2-最短作业优先调度" class="header-anchor">#</a> 2. 最短作业优先调度</h3> <p>最短作业优先调度（Shortest Job First，SJF）调度算法将每个进程与下次CPU执行时间关联起来。当CPU变为空闲时，它会被赋予具有最短CPU运行时长的进程。
+注意这里更为恰当的说法是 最短下次CPU执行，因为调度取决于进程下次CPU执行的时间，而不是总的CPU执行时间。</p> <p>可以证明 SJF 算法是最优的，因为其平均等待时间最小。SJF 算法的真正困难是如何直到下次CPU执行的长度。</p> <p>SJF 算法既可以是非抢占的也可以是抢占的。当一个新进程到达就绪队列而以前的进程还在被执行时，就需要考虑是否需要抢占了。抢占SJF调度有时被称为最短剩余时间优先（Shortest Remaining Time First）。</p> <h3 id="_3-优先级调度"><a href="#_3-优先级调度" class="header-anchor">#</a> 3. 优先级调度</h3> <p>在优先级调度中，每个进程会被赋予一个优先级，具有最高优先级的进程会被分配到CPU。</p> <blockquote><p>SJF 算法可以理解为优先级调度的一个特例，其中下次CPU执行时间的倒数就是优先级）</p></blockquote> <p>优先级的定义既可以是内部的，也可以是外部的。内部定义的优先级一般采用一些测量数据来计算进程优先级，例如时限，内存要求，打开文件数量，平均I/O时间与平均CPU时间之比 等。外部定义的优先级则采用操作系统以外的准则，例如进程重要性，赞助部门，其他因素（政治等）。</p> <p>与 SJF 类似，优先调度可以是抢占的，也可以是非抢占的。</p> <p>优先级调度算法的一个主要问题是无穷阻塞或饥饿，因为低优先级进程可能会无穷等待CPU。解决无穷等待问题的解决方案之一是 老化（aging）。老化逐渐增加在系统中等待很长时间的进程的优先级，例如每隔一定时间增加等待进程的优先级。</p> <h3 id="_4-轮转调度"><a href="#_4-轮转调度" class="header-anchor">#</a> 4. 轮转调度</h3> <p>轮转（Round-Robin，RR）调度算法是专门为分时系统设计的。它类似于 FCFS 的设计，但是增加了抢占以切换进程。定义一个时间片（例如10ms ~ 100ms）。就绪队列作为循环队列，为每个进程分配不超过一个时间片的CPU。</p> <p>RR算法的性能很大程度取决于时间片大小。在一种极端情况下，时间片很大，那么 RR 就退化成了 FCFS。相反，如果时间片过小，则会导致大量的上下文切换开销。</p> <p>一般来说，如果大多数进程能在一个时间片内完成，那么平均等待时间会有所改善。这也是设计时间片大小的关键。根据经验，80%的CPU执行应该小于时间片。</p> <h3 id="_5-多级反馈队列调度"><a href="#_5-多级反馈队列调度" class="header-anchor">#</a> 5. 多级反馈队列调度</h3> <p>多级反馈队列（Multilevel Feedback Queue）是一种多级队列调度，这种算法允许进程在队列之间迁移。这里的想法是根据不同CPU执行的特点来区分进程。如果进程使用较多的CPU时间，就把它移到更低的优先级队列。
+这种方法将 I/O 密集型和交互性进程放到更高优先级队列上。此外，在较低优先级队列中等待过长的进程会被移动到较高优先级队列，这种形式的老化阻止了饥饿的发生。</p> <p>通常，多级反馈队列调度程序可以由下列参数来定义：</p> <ul><li>队列数量。</li> <li>每个队列的调度算法。</li> <li>用以确定何时升级到更高优先级队列的方法。</li> <li>用以确定何时降级到更低优先级队列的方法。</li> <li>用以确定进程在需要服务时会进入哪个队列的方法。</li></ul> <p>以上五种调度算法都是单处理器系统的CPU调度算法。如果有多个CPU，则负载分配成为可能，但是调度问题就更加复杂。</p> <h3 id="linux-调度"><a href="#linux-调度" class="header-anchor">#</a> Linux 调度</h3> <p>Linux 采用的是 完全公平调度程序（Completely Fair Scheduler，CFS），比较复杂，以后再说...</p> <p>多级反馈队列调度是最通用的CPU调度算法。通过配置，它能适应所设计的特定系统。遗憾的是，由于需要一些方法来选择参数以定义最佳的调度程序，所以它也是最复杂的算法。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/operating-system/context-switch.html" class="prev">
+        上下文切换
+      </a></span> <span class="next"><a href="/operating-system/process-thread.html">
+        同步问题
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.6026cf0f.js" defer></script><script src="/assets/js/2.e987bf84.js" defer></script><script src="/assets/js/85.912fdc32.js" defer></script>
+  </body>
+</html>
