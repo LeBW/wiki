@@ -90,6 +90,7 @@ function getJavaSidebar() {
     'grammer',
     'jvm',
     'memory-management',
+    'four-references',
     'garbage-collection',
     'hashmap',
     'arrayssort',
