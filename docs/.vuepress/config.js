@@ -95,6 +95,7 @@ function getJavaSidebar() {
     'hashmap',
     'arrayssort',
     'string',
+    'reflection',
     'concurrent-base',
     'thread-pool',
     'shared-resources',
