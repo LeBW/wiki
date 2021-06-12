@@ -320,9 +320,9 @@ HashMap 等其他 Map 实现则是都扩展了 AbstractMap，里面包含了通�
 针对有序 Map 的分析内容比较有限，这里补充一些，虽然 LinkedHashMap 和 TreeMap 都能保证某种顺序，但二者还是非常不同的。
 
 * LinkedHashMap 还是根据 HashMap 实现的，只不过是在 HashMap 的基础上在节点上添加了双向链表的结构。
-* LinkedHashMap 有序，可分为插入顺序和访问顺序。如果是访问顺序，那么 put 和 get 操作已经存在的 Entry 时，就会把 Entry 移动到双向链表的表尾（其实是先删除再插入）。
+* LinkedHashMap 有序，可分为插入顺序和访问顺序（根据属性 `accessOrder` 来判断使用哪种顺序）。如果是访问顺序，那么 put 和 get 操作已经存在的 Entry 时，就会把 Entry 移动到双向链表的表尾（其实是先删除再插入）。
 * LinkedHashMap 存取数据时，还是跟 HashMap 一样使用的 Entry[] 的方式，双向链表只是为了保证顺序。
-* TreeMap  的底层就是一颗红黑树，它的 containsKey , get , put and remove 方法的时间复杂度是 log(n) ，并且它是按照 key 的自然顺序（或者指定排序）排列。
+* TreeMap 的底层就是一颗红黑树，它的 containsKey, get, put and remove 方法的时间复杂度是 log(n)，并且它是按照 key 的自然顺序（或者指定排序）排列，所以在按照自然顺序遍历时，使用 TreeMap 比较合适。
 
 ## ConcurrentHashMap
 HashMap 是线程不安全的，也就是说多个线程同时操作某一个 HashMap 时，可能会出现资源竞争发生错误的问题。所以在多线程下，推荐使用 ConcurrentHashMap。
@@ -409,14 +409,58 @@ final V put(K key, int hash, V value, boolean onlyIfAbsent) {
  3. 使用ReentrantLock加锁，如果获取锁失败则尝试自旋，自旋超过次数就阻塞获取，保证一定获取锁成功。 
 
 ### 1.8 中的 CAS+sychronized
-1.8 中抛弃分段锁，转为用 CAS + synchronized 来实现，同样 HashEntry 改为 Node，也加入了 红黑树的实现。主要还是看 put 的流程。
+1.8 中抛弃分段锁，转为用 CAS + synchronized 来实现，同样 HashEntry 改为 Node，也加入了 红黑树的实现。主要还是看 put 的流程。主要代码如下：
+```java
 
+final V putVal(K key, V value, boolean onlyIfAbsent) { if (key == null || value == null) throw new NullPointerException();
+    int hash = spread(key.hashCode());
+    int binCount = 0;
+    for (Node<K,V>[] tab = table;;) {
+        Node<K,V> f; int n, i, fh; K fk; V fv;
+        // 如果 node 数组是空的，执行初始化操作（体现了懒加载）
+        if (tab == null || (n = tab.length) == 0)  
+            tab = initTable();
+        else if ((f = tabAt(tab, i = (n - 1) & hash)) == null) {
+            // 利用CAS去进行无锁线程安全操作，如果bin是空的
+            if (casTabAt(tab, i, null, new Node<K,V>(hash, key, value)))
+                break; 
+        }
+        else if ((fh = f.hash) == MOVED)
+            tab = helpTransfer(tab, f);
+        else if (onlyIfAbsent // 不加锁，进行检查
+                 && fh == hash
+                 && ((fk = f.key) == key || (fk != null && key.equals(fk)))
+                 && (fv = f.val) != null)
+            return fv;
+        else {
+            V oldVal = null;
+            synchronized (f) {
+                   // 细粒度的同步修改操作... 
+                }
+            }
+            // Bin超过阈值，进行树化
+            if (binCount != 0) {
+                if (binCount >= TREEIFY_THRESHOLD)
+                    treeifyBin(tab, i);
+                if (oldVal != null)
+                    return oldVal;
+                break;
+            }
+        }
+    }
+    addCount(1L, binCount);
+    return null;
+}
+```
+总体逻辑如下：
 1. 首先计算 hash，遍历 node 数组，如果 node 是空，就通过 CAS + volatile 自旋的方式进行初始化。
 2. 如果当前数组位置是空，则直接通过 CAS 自旋写入数据。
 3. 如果 hash = MOVED，说明需要扩容，执行扩容。
 4. 如果都不满足，就使用 synchronized 对**当前**的 Node 加锁，然后写入数据，写入数据同样判断链表、红黑树，链表写入和 HashMap 的方式一样，key hash 一样就覆盖，反之就尾插法，链表长度超过 8 就转换为红黑树。
 
 get 很简单，通过 key 计算 hash，如果 key hash 相同就返回，如果是红黑树按照红黑树获取，都不是就遍历链表获取。由于 Node 使用了 volatile，所以 get 是不需要加锁的。
+
+我们注意到，在同步逻辑上，它使用的是 `synchronized`，而不是通常建议的 ReentrantLock 之类的，这是因为在现代 JDK 中，synchronized 已经被不断优化，可以不再过分担心性能问题，另外，相比与 ReentrantLock，它可以减少内存消耗，这是个非常大的优势。
 
 ## 面试常问
 Q：为什么要把 capacity 设为 2的n次方 呢？并且扩容的时候，也是以2倍容量的形式进行扩容？
