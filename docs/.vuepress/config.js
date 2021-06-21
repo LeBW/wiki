@@ -96,6 +96,7 @@ function getJavaSidebar() {
     'arrayssort',
     'string',
     'reflection',
+    'javaio',
     'concurrent-base',
     'thread-pool',
     'shared-resources',
