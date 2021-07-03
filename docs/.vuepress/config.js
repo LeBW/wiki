@@ -164,6 +164,7 @@ function getComputerNetworkSidebar() {
 
 function getAlgorithmSidebar() {
   return [
+    'sort',
     'binary-search-tree',
   ]
 }
