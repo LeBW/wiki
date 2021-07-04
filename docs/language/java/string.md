@@ -12,3 +12,11 @@ StringBuilder 是 Java 1.5 中新增的，在能力上和 StringBuffer 没有本
 为了实现修改字符串的目的，StringBuffer 和 StringBuilder 底层都是利用可修改的（char，JDK 之后是 byte）数组，二者都继承了 AbstractStringBuilder，里面包含了基本操作，区别仅在于最终的方法是否加上了 synchronized。
 
 另外，内部的数组设置为多大也是个问题。如果太小，拼接的时候可能要重新创建足够大的数组；如果太大，又会浪费空间。目前，在 AbstractStringBuilder的实现中，内部数组初始大小设置为构建时初始字符串长度加 16（这意味着，如果没有构建对象时输入最初的字符串，那么初始值就是 16）。我们如果确定拼接会发生非常多次，而且大概是可预计的，那么就可以指定合适的大小，避免很多次扩容的开销。扩容会产生多重开销，因为要抛弃原有数组，创建新的（可以简单认为是倍数）数组，还要进行 arraycopy。
+
+## String 到底创建了几个对象？
+面试经常会问 new String 时到底创建了几个对象。
+
+```java
+String s1 = "abc";  // 创建了一个对象，"abc" 存在常量池中。
+String s2 = new String("def");  // 创建了两个对象，一个是 "def" 存在常量池中；一个是 s2 指向的存在堆中的“def”对象。
+```
