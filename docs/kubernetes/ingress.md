@@ -4,6 +4,29 @@
 2. 使用 LoadBalancer 类型的 Service。适用于公有云上的 Kubernetes 服务。
 3. 在 1.7 之后，可以使用新特性，ExternalName，来将外网上的服务映射至集群内。
 
+## NodePort
+Nodeport 服务是引导外部流量到你的服务的最原始的方式。正如名字所示，它在所有节点（虚拟机）上开放一个特定端口，任何发送到该端口的流量都被转发到对应服务。
+![node-port](./node-port.png)
+
+Nodeport 的实现原理与普通 Service 类似，都是 kube-proxy 通过增添 iptables 规则或者 ipvs 等来实现流量转发的，唯一的区别是对于 NodePort 类型的 Service，kube-proxy 还会在主机上监听该端口，并做转发。
+> 其实对于 NodePort 类型的服务，会自动创建与之对应的 ClusterIP，只不过在其基础上再加上了一个从集群外部访问的方式。
+
+该方法有一些局限性：
+1. 每个端口只能是一种服务。
+2. 端口范围只能是 30000-32767。
+3. 如果节点的 IP 地址发生变化，服务的访问也会出现变化。
+
+基于以上原因，一般不建议在生产环境下使用这种方式暴露服务。如果你运行的服务不要求一直可用，或者对成本比较敏感，你可以使用这种方法。这样的应用的最佳例子是 demo 应用，或者某些临时应用。
+## LoadBalancer
+LoadBalancer 是将服务暴露到外部的标准方式，这种方式需要云服务商的支持。例如，在 GKE 上，这种方式会启动一个 Network Load Balancer，它将给你一个单独的 IP 地址，转发所有的流量到你的服务。
+![load-balancer](./load-balancer.png)
+
+来自这个外部 load balancer 的流量会全部转发到你的服务上，云提供商会决定该如何做负载均衡。
+> 注意，部分厂商允许用户在 yaml 中指定 loadbalancerIP。在这种情况下，可以确定负载均衡器的地址（也就是服务的访问地址）。但是也有些云厂商不支持定义 loadbalancerIP，因此会在运行时自动分配一个临时的 IP。
+
+这个方式的最大缺点是每一个用 LoadBalancer 暴露的服务都会有它自己的 IP 地址，每个用到的 LoadBalancer 都需要付费，这将是非常昂贵的。
+## Ingress
+
 可以发现，对于第二种方式 LoadBalancer，由于每个服务都需要一个负载均衡服务，所以这个做法实际上既浪费，成本又高。作为用户，我们更希望 Kubernetes 为我内置一个全局的负载均衡器。然后，通过我访问的 URL，把请求转发给不同的后端 Service。
 
 这种全局的，为了代理不同后端 Service 后端而设置的负载均衡服务，就是 Kubernetes 里面的 Ingress 服务。
