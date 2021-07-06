@@ -278,3 +278,124 @@ resize2fs /dev/MyVG01/Stuff
 # check 
 df -hT
 ```
+
+### 对学院服务器进行文件系统扩缩容
+学院服务器使用 LVM 对磁盘进行管理。使用 `lvdisplay` 查看其逻辑卷情况，发现有三个逻辑卷，主要的两个是 `/dev/centos/home` 和 `/dev/centos/root/`。
+```bash
+$ lvdisplay
+  --- Logical volume ---
+  LV Path                /dev/centos/swap
+  LV Name                swap
+  VG Name                centos
+  LV UUID                rJR3Jb-5uhg-Bk0m-Mylv-4fhs-N00U-TCX6kQ
+  LV Write Access        read/write
+  LV Creation host, time localhost.localdomain, 2016-08-09 22:22:00 -0400
+  LV Status              available
+  # open                 2
+  LV Size                2.00 GiB
+  Current LE             512
+  Segments               1
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently set to     8192
+  Block device           253:1
+   
+  --- Logical volume ---
+  LV Path                /dev/centos/home
+  LV Name                home
+  VG Name                centos
+  LV UUID                Nj18L4-51Lz-d2n8-pAJP-4OBz-rWke-yc5VcZ
+  LV Write Access        read/write
+  LV Creation host, time localhost.localdomain, 2016-08-09 22:22:00 -0400
+  LV Status              available
+  # open                 1
+  LV Size                47.45 GiB
+  Current LE             12146
+  Segments               1
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently set to     8192
+  Block device           253:2
+   
+  --- Logical volume ---
+  LV Path                /dev/centos/root
+  LV Name                root
+  VG Name                centos
+  LV UUID                w7RY5D-luT1-RZXj-iyjb-0c7B-uD3z-64FJLO
+  LV Write Access        read/write
+  LV Creation host, time localhost.localdomain, 2016-08-09 22:22:02 -0400
+  LV Status              available
+  # open                 1
+  LV Size                50.00 GiB
+  Current LE             12800
+  Segments               1
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently set to     8192
+  Block device           253:0
+```
+
+然后，查看一下文件系统：
+```bash
+$ df -hT
+Filesystem              Type      Size  Used Avail Use% Mounted on
+/dev/mapper/centos-root xfs        50G  1.1G   49G   3% /
+devtmpfs                devtmpfs   12G     0   12G   0% /dev
+tmpfs                   tmpfs      12G     0   12G   0% /dev/shm
+tmpfs                   tmpfs      12G  1.1G   11G   9% /run
+tmpfs                   tmpfs      12G     0   12G   0% /sys/fs/cgroup
+/dev/mapper/centos-home xfs        48G   33M   48G   1% /home
+/dev/sda1               xfs       497M  123M  375M  25% /boot
+tmpfs                   tmpfs     2.4G     0  2.4G   0% /run/user/0
+```
+
+发现：
+* `/dev/mapper/centos-root` 挂载的是根目录，即我们常用的基本都放在这里了
+* `/dev/mapper/contos-home` 挂载的是 `/home` 目录，平时用的比较少
+
+而两个文件系统都是给的 50G 左右的大小，所以比较浪费，我们需要给 root 分配更多，而给 home 分配少一点即可。
+
+由于 xfs 文件系统只能扩，不能缩，所以我们首先把 home 删掉。（如果需要收缩的文件系统很大且很重要，那么请谨慎使用该方法）。
+
+0. 备份
+```bash
+$ xfsdump -f /root/home.img /home
+```
+
+1. 卸载 home 目录
+```bash
+umount /home
+```
+
+如果无法卸载报错 `umount: /home: device is busy`
+那么必须用fuser命令来查看process ID和进程的拥有者，比如:
+```bash
+[root@yc ~]# fuser -cu /home/
+/home:                1849rce(yinchong)  1861rce(yinchong)  
+[root@yc ~]#
+```
+
+然后使用 `fuser -ck /home/` 可以 kill 相关进程。
+
+2. 删除相关逻辑卷
+```bash
+$ lvremove /dev/centos/home
+```
+
+3. 扩展 root 逻辑卷 与 文件系统根目录
+```bash
+$ lvresize -L 90G /dev/centos/root  # 扩展逻辑卷
+$ xfs_growfs /dev/centos/root  # 扩展文件系统
+```
+
+4. 重建 home 逻辑卷 和 文件系统
+```bash
+$ lvcreate -L 5G -n home centos    # 重建逻辑卷
+$ mkfs.xfs /dev/mapper/centos-home  # 格式化 home 文件系统
+$ mount -a # 挂载。由于本文中 lv 名称 和 挂载点都不变，所以不需要修改 /etc/fstab
+```
+
+5. 恢复备份
+```
+$ xfsrestore -f home.img /home
+```
