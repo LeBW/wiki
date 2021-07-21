@@ -89,6 +89,7 @@ function getJavaSidebar() {
   return [
     'grammer',
     'jvm',
+    'classload',
     'memory-management',
     'four-references',
     'garbage-collection',

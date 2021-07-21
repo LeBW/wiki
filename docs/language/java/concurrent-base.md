@@ -101,7 +101,50 @@ new Thread(p).start();
 Executor 可以用来管理 Thread 对象，从而简化并发编程。有关知识详见 [Java 线程池](./thread-pool.md)
 
 ## Callable 和 Future
-上面讲到了 Runnable，是执行工作的独立单位，但是 Runnable 的缺点是不返回任何值。如果我们希望任务在完成时能够返回一个值，那么可以实现 Callable 接口而不是 Runnable 接口。在 Java SE5 中引入了 Callable 接口，它是一种具有类型参数的泛型，它的类型参数表示的是从方法 call（）中返回的值，并且必须使用 `ExecutorService.submit()` 方法调用它。
+上面讲到了 Runnable，是执行工作的独立单位，但是 Runnable 的缺点是不返回任何值。如果我们希望任务在完成时能够返回一个值，那么可以实现 Callable 接口而不是 Runnable 接口。在 Java SE5 中引入了 Callable 接口，它是一种具有类型参数的泛型，它的类型参数表示的是从方法 call（）(注意不是 run（）了）中返回的值，并且必须使用 `ExecutorService.submit()` 方法调用它。
+```java
+@FunctionalInterface
+public interface Callable<V> {
+    /**
+     * Computes a result, or throws an exception if unable to do so.
+     *
+     * @return computed result
+     * @throws Exception if unable to compute a result
+     */
+    V call() throws Exception;
+}
+```
+
+上面说到必须要用到 `ExecutorService.submit()` 对 Callable 进行调用，其返回结果就是一个 Future，该接口如下：
+```java
+public interface ExecutorService extends Executor {
+    ...
+    /**
+     * Submits a value-returning task for execution and returns a
+     * Future representing the pending results of the task. The
+     * Future's {@code get} method will return the task's result upon
+     * successful completion.
+     *
+     * <p>
+     * If you would like to immediately block waiting
+     * for a task, you can use constructions of the form
+     * {@code result = exec.submit(aCallable).get();}
+     *
+     * <p>Note: The {@link Executors} class includes a set of methods
+     * that can convert some other common closure-like objects,
+     * for example, {@link java.security.PrivilegedAction} to
+     * {@link Callable} form so they can be submitted.
+     *
+     * @param task the task to submit
+     * @param <T> the type of the task's result
+     * @return a Future representing pending completion of the task
+     * @throws RejectedExecutionException if the task cannot be
+     *         scheduled for execution
+     * @throws NullPointerException if the task is null
+     */
+    <T> Future<T> submit(Callable<T> task);
+}
+```
 ## 面试常问
 ### 为什么我们启动线程时需要调用 start()，而不是直接调用 run()？
 

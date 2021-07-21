@@ -50,9 +50,9 @@ private final BlockingQueue<Runnable> workQueue;
 private final HashSet<Worker> workers = new HashSet<>();
 ```
 
-线程池的工作线程被抽象为静态内部类 Worker，基于 AQS 实现。
-* ThreadFactory 提供上面所需要的创建线程逻辑
-* 如果任务提交时被拒绝，比如线程池已经处于 SHUTDOWN 状态，需要为其提供处理逻辑，Java 标准库提供了类似ThreadPoolExecutor.AbortPolicy等默认实现，也可以按照实际需求自定义。
+线程池的工作线程被抽象为静态内部类 `Worker`，基于 `AbstractQueuedSynchronizer` (AQS) 实现。
+* `ThreadFactory` 提供上面所需要的创建线程逻辑
+* 如果任务提交时被拒绝，比如线程池已经处于 SHUTDOWN 状态，需要为其提供处理逻辑，Java 标准库提供了类似 `ThreadPoolExecutor.AbortPolicy` 等默认实现，也可以按照实际需求自定义。
 
 从上面的分析，就可以看出线程池的几个基本组成部分，一起都体现在线程池的构造函数中，从字面我们就可以大概猜测到其用意：
 * corePoolSize，所谓的核心线程数，可以大致理解为长期驻留的线程数目（除非设置了 allowCoreThreadTimeOut）。对于不同的线程池，这个值可能会有很大区别，比如 newFixedThreadPool 会将其设置为 nThreads，而对于 newCachedThreadPool 则是为 0。
