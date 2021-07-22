@@ -78,6 +78,7 @@ function getOperatingSystemSidebar() {
     'process',
     'context-switch',
     'schedule',
+    'ipc',
     'process-thread',
     'deadlock',
     'memory-management',
@@ -159,6 +160,7 @@ function getComputerNetworkSidebar() {
   return [
     'http',
     'tcp',
+    'udp',
     'ip',
   ]
 }
