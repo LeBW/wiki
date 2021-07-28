@@ -1,6 +1,19 @@
 # 索引
 这里我们以 MySQL 数据库为研究对象，讨论与数据库索引有关的话题。首先需要说明的是，MySQL 支持多种存储引擎，而各种存储引擎对索引的支持也各不相同，因此 MySQL 数据库支持多种索引类型，如 BTree 索引，哈希索引，全文索引等。为了避免混乱，首先我们只讨论 BTree 索引，因为这是平时使用 MySQL 时主要打交道的索引。
 
+Mysql 中建立索引的方式
+* 在执行 CREATE TABLE 语句时可以创建索引，也可以单独用 CREATE INDEX 或 ALTER TABLE 来为表增加索引。
+例如：
+```sql
+mysql> ALTER TABLE article ADD INDEX index_article_title ON title(200);
+```
+
+索引创建完成后，可以利用 SQL 语句查看已经存在的索引。在 MySQL 中，可以使用 SHOW INDEX 语句查看表中创建的索引。
+
+```sql
+mysql> SHOW INDEX FROM <表名> [ FROM <数据库名>];
+```
+
 ## 2.1 索引的本质
 MySQL 官方对索引的定义为：索引（Index）是帮助 MySQL 高效获取数据的数据结构。提取句子主干，可以得到索引的本质：索引是数据结构。
 
