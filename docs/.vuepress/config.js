@@ -83,6 +83,7 @@ function getOperatingSystemSidebar() {
     'deadlock',
     'memory-management',
     'file-system',
+    'io',
   ]
 }
 
