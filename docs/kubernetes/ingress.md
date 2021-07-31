@@ -6,7 +6,7 @@
 
 ## NodePort
 Nodeport 服务是引导外部流量到你的服务的最原始的方式。正如名字所示，它在所有节点（虚拟机）上开放一个特定端口，任何发送到该端口的流量都被转发到对应服务。
-![node-port](./node-port.png)
+![node-port](./nodeport.png)
 
 Nodeport 的实现原理与普通 Service 类似，都是 kube-proxy 通过增添 iptables 规则或者 ipvs 等来实现流量转发的，唯一的区别是对于 NodePort 类型的 Service，kube-proxy 还会在主机上监听该端口，并做转发。
 > 其实对于 NodePort 类型的服务，会自动创建与之对应的 ClusterIP，只不过在其基础上再加上了一个从集群外部访问的方式。
