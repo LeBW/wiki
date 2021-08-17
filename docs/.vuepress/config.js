@@ -95,6 +95,7 @@ function getJavaSidebar() {
     'memory-management',
     'four-references',
     'garbage-collection',
+    'jmm',
     'hashmap',
     'arrayssort',
     'string',
