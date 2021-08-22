@@ -102,8 +102,8 @@ function getJavaSidebar() {
     'reflection',
     'javaio',
     'concurrent-base',
-    'thread-pool',
     'shared-resources',
+    'thread-pool',
   ]
 }
 

@@ -36,6 +36,7 @@ JAVA SE5 中有 `java.util.concurrent.locks` 包，其中包含了对锁的实�
 > ReentrantLock 是一种独享锁。此外，locks 包还有个接口 ReadWriteLock 也很常用，其实现类 ReentrantReadWriteLock 可以用来实现共享锁。具体见下面的 独享锁vs共享锁
 
 可重入锁又名递归锁，是指在同一个线程在外层方法获取锁的时候，再进入该线程的内层方法会自动获取锁（前提锁对象得是同一个对象或者class），不会因为之前已经获取过还没释放而阻塞。Java中 ReentrantLock 和 synchronized 都是可重入锁。
+> 可重入的主要目的是防止死锁。举个例子，对于 synchronized，可能有些情况下我们两个方法都被 synchronized 加锁了，然后我们需要在某个方法里调用另一个方法，此时就需要可重入的特性，否则就会陷入死锁。
 
 ReentrantLock 相比 synchronized，因为可以像普通对象一样使用，所以可以利用其提供的各种便利方法，进行精细的同步操作，甚至是实现 synchronized 难以表达的用例，如：
 * 可以实现公平锁机制（等待时间最长的线程获得锁）
@@ -98,8 +99,17 @@ private void enqueue(E e) {
 
 通过 signal/await 组合，完成了条件判断和通知等待线程，非常顺畅的完成了状态转换。注意，signal 和 await 成对调用非常重要，否则假设只有 await 操作，线程会一直等待直到被打断（interrupt）。
 
-关于锁的内容非常多，先来讲讲广义上的概念：乐观锁和悲观锁。
+## synchronized 和 Lock 的不同
+这里总结一下 synchronized 和 Lock 的不同，大致可以分为两点：
+1. synchronized 关键字是依赖于 JVM 实现的，后面我们也会提到，虚拟机团队在 JDK 1.6 为 synchronized 做了很多优化，这些优化都是在 JVM 的层面实现的，对于我们 Java 程序员来说是看不见的。相对而言，ReentrantLock 是在 JDK 层面实现的，所以我们可以通过查看它的源码，来看看它是如何实现的。
+2. ReentrantLock 相对于 synchronized，增加了一些高级功能，主要有三点：
+	1. 等待可中断。ReentrantLock 提供了一种能够中断等待锁的线程的机制，通过 `lock.lockInterruptibly()` 来实现这个机制。也就是说正在等待的线程可以选择放弃等待，改为处理其他事情。
+	2. ReentrantLock 可以指定是公平锁还是非公平锁。而 synchronized 只能是非公平锁。所谓的公平锁就是先等待的线程先获得锁。ReentrantLock 默认情况是非公平的，可以通过 ReentrantLock类的 `ReentrantLock(boolean fair)` 构造方法来制定是否是公平的。
+	3. 可实现选择性通知（锁可以绑定多个条件）: synchronized关键字与 `wait()` 和 `notify()/notifyAll()` 方法相结合可以实现等待/通知机制。ReentrantLock 类当然也可以实现，但是需要借助于 `Condition` 接口与 `newCondition()` 方法。
+> Condition 是 JDK1.5 之后才有的，它具有很好的灵活性，比如可以实现多路通知功能也就是在一个 Lock 对象中可以创建多个 Condition 实例（即对象监视器），线程对象可以注册在指定的 Condition 中，从而可以有选择性的进行线程通知，在调度线程上更加灵活。 在使用 notify()/notifyAll() 方法进行通知时，被通知的线程是由 JVM 选择的，用 ReentrantLock 类结合 Condition 实例可以实现“选择性通知” ，这个功能非常重要，而且是 Condition 接口默认提供的。而 synchronized 关键字就相当于整个 Lock 对象中只有一个 Condition 实例，所有的线程都注册在它一个身上。如果执行 notifyAll() 方法的话就会通知所有处于等待状态的线程这样会造成很大的效率问题，而 Condition 实例的 `signalAll()` 方法 只会唤醒注册在该Condition实例中的所有等待线程。
 
+
+关于锁的内容非常多，下面先来讲讲广义上的概念：乐观锁和悲观锁。
 ## 乐观锁，悲观锁
 乐观锁与悲观锁是一种广义上的概念，体现了看待线程同步的不同角度。在Java和数据库中都有此概念对应的实际应用。
 * 对于同一个数据的并发操作，悲观锁认为自己在使用数据的时候一定有别的线程来修改数据，因此在获取数据的时候会先加锁，确保数据不会被别的线程修改。Java中，synchronized关键字和Lock的实现类都是悲观锁。
@@ -290,6 +300,63 @@ Synchronized的重量级锁是通过对象内部的一个叫做监视器锁（mo
 总体来说，synchronized与java.util.concurrent包中的ReentrantLock相比，由于 JDK1.6 中加入了针对锁的优化措施（见后面），使得synchronized与ReentrantLock的性能基本持平。ReentrantLock只是提供了synchronized更丰富的功能，而不一定有更优的性能，所以在synchronized能实现需求的情况下，优先考虑使用synchronized来进行同步。
 
 ## ReentrantLock 底层原理
+这里看看 ReentrantLock 的底层原理。其主要方法为 `lock()` 和 `unlock`，所以我们来看看这两个方法的实现。
+```java
+//加锁
+public void lock() {
+    sync.lock();
+}
+
+//释放锁
+public void unlock() {
+    sync.release(1);
+}
+```
+可以看出来，两个方法都是调用了一个叫做 sync 的对象，那么 sync 是什么呢？
+
+```java
+public class ReentrantLock implements Lock, java.io.Serializable {
+    private static final long serialVersionUID = 7373984872572414699L;
+    private final Sync sync;
+}
+```
+可以看出来，sync 是 ReentrantLock 的一个私有成员变量，类型是 Sync 对象。那么 Sync 又是什么呢？
+
+不着急，我们先看简单的 “sync是在什么时候初始化的”
+
+在源码中，只有在2个构造函数的地方对sync对象做了初始化，可分别初始化为NonfairSync和FairSync
+
+```java
+/** 所有锁操作都是基于这个字段 */
+private final Sync sync;
+/**
+ * 通过该构造函数创建额ReentrantLock是一个非公平锁
+ */
+public ReentrantLock() {
+    sync = new NonfairSync();
+}
+/**
+ * 如果入参为true，则创建公平的ReentrantLock；
+ * 否则，创建非公平锁
+ */
+public ReentrantLock(boolean fair) {
+    sync = fair ? new FairSync() : new NonfairSync();
+}
+```
+
+这两个对象（NonfairSync 和 FairSync）也是 ReentrantLock 的内部类，它们和 Sync 的关系如下图所示
+
+![fairsync-nonfairsync](./fairsync-nonfairsync.jpg)
+
+从上图可以看出，FairSync 和 NonFairSync 在类结构上完全一致，并且继承于 Sync。下面我们再看看 Sync 的继承关系吧。
+
+![sync](./sync.jpg)
+
+从中我们可以得出一个初步结论：ReentrantLock 实现了 Lock 接口,操作其成员变量 sync 这个 AQS 的子类,来完成锁的相关功能。而 sync 这个成员变量有2种形态：NonfairSync 和 FairSync。
+
+具体的先不写了，看下面两篇参考文献吧。。
+
+
 ReentrantLock 基于 AQS（AbstractQueuedSynchronizer，抽象队列同步器）实现。
 
 AQS 内部会维护一个 state 状态位，尝试加锁的时候通过 CAS 修改值，如果成功设置为 1，并且把当前线程 ID 赋值，则代表加锁成功。一旦获取到锁，其他的线程将会被阻塞进入阻塞队列自旋，获得锁的线程释放锁的时候将会唤醒阻塞队列中的线程，，释放锁的时候则会把 state 位重新置为 0，同时当前线程 ID 置为空。
@@ -298,3 +365,7 @@ AQS 内部会维护一个 state 状态位，尝试加锁的时候通过 CAS 修�
 
 ## 参考资料
 [不可不说的Java“锁”事 - 美团技术团队](https://tech.meituan.com/2018/11/15/java-lock.html)
+
+[从ReentrantLock的实现看AQS的原理及应用](https://tech.meituan.com/2019/12/05/aqs-theory-and-apply.html)
+
+[JDK - ReentrantLock 手撕 AQS](https://zhuanlan.zhihu.com/p/54297968)
