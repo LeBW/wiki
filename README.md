@@ -3,6 +3,8 @@
 
 ![Wiki主页](./images/wiki%E4%B8%BB%E9%A1%B5.png)
 
+主页：[https://wiki.libowen.website/](https://wiki.libowen.website/)
+
 ## Prerequisites
 * Node.js 10+
 
