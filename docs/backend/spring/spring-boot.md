@@ -87,4 +87,16 @@ public abstract class SpringFactoriesLoader {
 上图是从 Spring Boot 的 autoconfigure 依赖包中的 `META-INF/spring.factories` 中摘录的一段内容，可以很好的说明问题。
 
 所以，`@EnableAutoConfiguration` 自动配置的魔法其实是：
-* 从 classpath 中搜寻所有的 `META-INF/spring.factories` 配置文件，并将其中 `org.springframework.boot.autoconfigure.EnableutoConfiguration` 对应的配置项通过反射（Java Refletion）实例化为对应的标注了 `@Configuration` 的 JavaConfig 形式的 IoC 容器配置类，然后汇总为一个并加载到 IoC 容器.
+* 从 classpath 中搜寻所有的 `META-INF/spring.factories` 配置文件，并将其中 `org.springframework.boot.autoconfigure.EnableutoConfiguration` 对应的配置项通过反射（Java Refletion）实例化为对应的标注了 `@Configuration` 的 JavaConfig 形式的 IoC 容器配置类，然后汇总并加载到 IoC 容器.
+
+相关代码可以从 `AutoConfigurationImportSelector.getCandidateConfigurations()` 中看出端倪：
+```java
+	protected List<String> getCandidateConfigurations(AnnotationMetadata metadata, AnnotationAttributes attributes) {
+        // 这里就是利用 SpringFactoiresLoader 从 spring.factories 中读取 @EnableAutoConfiguration 的类
+		List<String> configurations = SpringFactoriesLoader.loadFactoryNames(getSpringFactoriesLoaderFactoryClass(),
+				getBeanClassLoader());
+		Assert.notEmpty(configurations, "No auto configuration classes found in META-INF/spring.factories. If you "
+				+ "are using a custom packaging, make sure that file is correct.");
+		return configurations;
+	}
+```
