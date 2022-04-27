@@ -12,6 +12,10 @@ public class Application {
 从中可以看出，关键部分有两个，一个是第 1 行的注解 `@SpringBootApplication`，一个是第 5 行的 `SpringApplication.run(...)`。
 所以要了解 Spring Boot 的启动流程，从这两位入手就可以了。
 
+下面氛围两部分：
+1. 第一部分，从 `@SpringBootApplication` 入手，从注解的角度看看 SpringBoot 的关键注解。
+> 注意，在 Java 中，注解只是起到标注的作用，可以理解为一种特殊的 comment，为 类/方法 进行特定标注，本身并不执行代码。真正使注解起作用的，是第二部分的启动过程，利用反射，读取类的注解并进行相应操作。
+2. 第二部分，从 `SpringApplication.run()` 入手，了解真实的启动过程。
 ## @SpringBootApplication
 `@SpringBootApplication` 是 SpringBoot 应用的核心注解，它其实是一个组合注解：
 ```java
@@ -100,3 +104,6 @@ public abstract class SpringFactoriesLoader {
 		return configurations;
 	}
 ```
+具体细节在第二部分介绍。
+
+## 启动流程
