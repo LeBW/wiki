@@ -107,3 +107,37 @@ public abstract class SpringFactoriesLoader {
 具体细节在第二部分介绍。
 
 ## 启动流程
+SpringBoot 应用的 main 函数一般是
+```java
+public static void main(String[] args) {
+    SpringApplication.run(SpringBootExampleApplication.class, args);
+}
+```
+点进 run 函数，可以发现关键代码为：
+```java
+public static ConfigurableApplicationContext run(Class<?>[] primarySources, String[] args) {
+    return new SpringApplication(primarySources).run(args);
+}
+```
+从中可以看出，SpringBoot 的启动过程从大体上可以分为两步：
+* 创建 SpringApplication，即 `new SpringApplication(primarySources)` 的过程。
+* 运行 SpringApplication，即 `.run(args)` 的过程。
+下面分别讲讲两部分
+### 创建 SpringApplication
+创建 SpringApplication 的过程主要代码为：
+```java
+public SpringApplication(ResourceLoader resourceLoader, Class<?>... primarySources) {
+    this.resourceLoader = resourceLoader;
+    Assert.notNull(primarySources, "PrimarySources must not be null");
+    this.primarySources = new LinkedHashSet<>(Arrays.asList(primarySources));
+    this.webApplicationType = WebApplicationType.deduceFromClasspath();
+    this.bootstrapRegistryInitializers = new ArrayList<>(
+            getSpringFactoriesInstances(BootstrapRegistryInitializer.class));
+    setInitializers((Collection) getSpringFactoriesInstances(ApplicationContextInitializer.class));
+    setListeners((Collection) getSpringFactoriesInstances(ApplicationListener.class));
+    this.mainApplicationClass = deduceMainApplicationClass();
+}
+```
+
+* 保存一些信息，如 primarySources（一般为应用的主类）
+* 利用 `Class.isPresent()` 判断当前应用的类型（Reactive 或者 Servlet）
