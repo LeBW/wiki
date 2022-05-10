@@ -129,15 +129,22 @@ public static ConfigurableApplicationContext run(Class<?>[] primarySources, Stri
 public SpringApplication(ResourceLoader resourceLoader, Class<?>... primarySources) {
     this.resourceLoader = resourceLoader;
     Assert.notNull(primarySources, "PrimarySources must not be null");
+    // primarySources 一般为应用的主类，在这里就是上面的 SpringBootExampleApplication 类
     this.primarySources = new LinkedHashSet<>(Arrays.asList(primarySources));
+    // deduceFromClasspath() 主要使用 Class.isPresent() 来判断当前应用的类型（Reactive 还是 Servlet）
     this.webApplicationType = WebApplicationType.deduceFromClasspath();
+    // getSpringFactoriesInstances(Class<T> type) 函数主要是利用 SpringFactoriesLoader 去 META-INF/spring.factories 中寻找 key 为 type 的类，并对其实例化
+    // 实例化 key 为 org.springframework.boot.BootstrapRegistryInitializer 的类
     this.bootstrapRegistryInitializers = new ArrayList<>(
             getSpringFactoriesInstances(BootstrapRegistryInitializer.class));
+    // 实例化 key 为 org.springframework.context.ApplicationContextInitializer 的类
     setInitializers((Collection) getSpringFactoriesInstances(ApplicationContextInitializer.class));
+    // 实例化 key 为 org.springframework.context.ApplicationListener 的类
     setListeners((Collection) getSpringFactoriesInstances(ApplicationListener.class));
+    // 利用方法调用栈，寻找方法名为 main 的方法，并将其对应的类作为主类
     this.mainApplicationClass = deduceMainApplicationClass();
 }
 ```
+简单来说，这一步做的是将一些关键信息保存在 SpringApplication 的属性中，为后面做准备。
 
-* 保存一些信息，如 primarySources（一般为应用的主类）
-* 利用 `Class.isPresent()` 判断当前应用的类型（Reactive 或者 Servlet）
+### run（运行过程）
