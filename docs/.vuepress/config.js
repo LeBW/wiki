@@ -7,6 +7,7 @@ module.exports = {
   ],
   themeConfig: {
     nav: require('./nav.js'),
+    sidebarDepth: 2,
     sidebar: {
       '/backend/tomcat/': getTomcatSidebar(),
       '/backend/database/': getDatabaseSidebar(),
