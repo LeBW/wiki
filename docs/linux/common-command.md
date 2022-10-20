@@ -112,6 +112,11 @@ $ echo 'abc abc' | sed 's/abc/123/g'
 * `grep`用于筛选出我们需要的端口号。
 > 以上是 Linux 系统中的`netstat`，与 Mac 中不一样。Mac中可以使用`netstat -na | grep <port-number>`来检查。
 
+查看各个端口的连接数情况
+```
+netstat -ant | awk '/^tcp/{print $4}' | awk -F: '{print $(NF)}' | sort | uniq -c | sort -nr | head
+```
+
 ### lsof
 * 全称是 `list open files`，用于列出被某一个具体进程所打开的文件。这里的文件是广义上的文件，包括常规文件、目录、库、流或者网络文件（网络套接字，NFS文件，Unix域套接字等）。
 * 直接输入`lsof`,会列出所有活跃进程打开的文件。
