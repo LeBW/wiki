@@ -178,5 +178,6 @@ function getAlgorithmSidebar() {
 function getDockerSidebar() {
   return [
     'container',
+    'practice',
   ]
 }
