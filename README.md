@@ -9,6 +9,11 @@
 * Node.js 10+
 
 推荐使用 [nvm](https://github.com/nvm-sh/nvm) 管理 Node.js。
+
+```sh
+nvm install v16.20.2
+nvm use v16.20.2
+```
 ## Quick Start
 * 安装依赖
 ```bash

@@ -5,6 +5,7 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: `/lbw-wiki.png` }],
   ],
+  host: '0.0.0.0',
   themeConfig: {
     nav: require('./nav.js'),
     sidebarDepth: 2,
