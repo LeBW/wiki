@@ -51,6 +51,10 @@ module.exports = [
             {
                 text: '数据库',
                 link: '/backend/database/',
+            },
+            {
+                text: 'Redis',
+                link: '/backend/redis/',
             }
         ],
     },

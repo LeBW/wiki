@@ -26,6 +26,7 @@ module.exports = {
       '/computer-network/': getComputerNetworkSidebar(),
       '/algorithm/': getAlgorithmSidebar(),
       '/docker/': getDockerSidebar(),
+      '/backend/redis/': getRedisSidebar(),
     },
   },
 }
@@ -180,5 +181,11 @@ function getDockerSidebar() {
   return [
     'container',
     'practice',
+  ]
+}
+
+function getRedisSidebar() {
+  return [
+    'basis',
   ]
 }
