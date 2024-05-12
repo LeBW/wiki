@@ -45,6 +45,10 @@ module.exports = [
                 link: '/backend/tomcat/',
             },
             {
+                text: 'Jetty',
+                link: '/backend/jetty/',
+            },
+            {
                 text: 'Spring',
                 link: '/backend/spring/',
             },

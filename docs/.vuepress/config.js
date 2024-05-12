@@ -11,6 +11,7 @@ module.exports = {
     sidebarDepth: 2,
     sidebar: {
       '/backend/tomcat/': getTomcatSidebar(),
+      '/backend/jetty/': getJettySidebar(),
       '/backend/database/': getDatabaseSidebar(),
       '/language/c/': getCSidebar(),
       '/frontend/': getFrontendSidebar(),
@@ -36,6 +37,12 @@ function getTomcatSidebar() {
     'tomcat',
     'servlet',
     'jsp',
+  ]
+}
+
+function getJettySidebar() {
+  return [
+    'jetty',
   ]
 }
 
