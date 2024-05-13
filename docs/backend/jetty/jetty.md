@@ -1,9 +1,55 @@
 # Jetty
 这里以 Jetty 8.2 为例，介绍 Jetty 的模型。
 
+
 Jetty 的架构如下图所示
 
 ![Jetty](./jetty.png)
+
+可见 Jetty 里的核心组件有 Connector 和 Handler，其中：
+* Connector 用于发起 HTTP 监听，并接受外部 HTTP 请求
+* Handler 用于处理 HTTP 请求并生成响应
+
+## 如何使用 Jetty
+首先看一个最简单的例子，用 Jetty 启用一个 Web 服务器，监听 8080 端口并对请求返回字符串 “Hello World”。
+
+```java
+public class HelloWorldServer {
+
+    public static class HelloServlet extends HttpServlet {
+        @Override
+        protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+                throws IOException {
+            resp.setContentType("text/html");
+            resp.setStatus(HttpServletResponse.SC_OK);
+            resp.getWriter().println("<h1>Hello World</h1>");
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        Server server = new Server(8080); // 创建 Jetty 服务器，监听 8080 端口
+        
+        // 创建一个 handler，handler 用于处理请求
+        ServletContextHandler context = new ServletContextHandler();
+        // 设置上下文路径
+        context.setContextPath("/"); 
+        server.setHandler(context);
+
+        // 将 servlet 添加到 Jetty，并映射到路径 "/"
+        context.addServlet(new ServletHolder(new HelloServlet()), "/");
+
+        try {
+            server.start(); // 启动 Jetty 服务器
+            server.join();  // 在当前线程加入服务器，等待服务器关闭
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            server.destroy(); // 在服务器关闭时清理资源
+        }
+    }
+}
+
+```
 
 Jetty 的主类是 `org.eclipse.jetty.server.Server`. 看一下里面的关键字段和方法
 ```java
