@@ -20,6 +20,8 @@ public class Server extends HandlerWrapper implements Attributes
     {
         setServer(this);
         // 初始化 SelectorChannelConnector，（内部创建了一个 SelectorManager，并加入了 bean 列表中）
+        // SelectChannelConnector 是一个 NIO 的连接器，说明 Jetty 从这时就已经支持并且默认是 NIO 模型了
+        // 与之对应的，有 BIO 的连接器，类名称是 SocketConnector，后面可以做对比
         Connector connector=new SelectChannelConnector();
         connector.setPort(port);
         setConnectors(new Connector[]{connector});
@@ -76,6 +78,7 @@ protected void doStart() throws Exception
         throw new IllegalStateException("No server");
 
     // open listener port。这里调用的就是 SelectChannelConnector 的 open() 方法
+    // 调用完后，就已经开始监听目标端口了
     open();
 
     // 把 server 的线程池直接拿过来用，这也应证了上面说的一个 Server 内的 connector 共用线程池
@@ -87,7 +90,7 @@ protected void doStart() throws Exception
     }
 
     // 内部其实是调用了每个 bean 的 start 方法，有两个关键的 bean
-    // 一个是上面上面刚刚加入的那个线程池的(不过如果是从 server 拿的线程池，那么已经是开启状态了，这里不会做任何操作)
+    // 一个是上面上面刚刚加入的那个线程池的(不过如果是从 server 拿的线程池，那么已经是开启状态了，内部逻辑保证不会重复开启)
     // 一个是构造函数时加入的 ConnectorSelectorManager（调用它的 start，主要是开启了 selector 线程，也就是从线程池中拿一个线程出来当 selector 线程）
     super.doStart();
 
@@ -96,8 +99,9 @@ protected void doStart() throws Exception
         // getAcceptors 默认返回1，所以这里是创建了一个长度为1的线程数组
         _acceptorThreads = new Thread[getAcceptors()];
 
-        // 为线程池添加一个 new Acceptor(i) 的任务，该任务会将「执行该任务的线程」变成一个 accetpor 线程
-        // 也就是从线程池中拿一个线程出来当 accetor 线程
+        // 为线程池添加一个 new Acceptor(i) 的任务，该任务会将「执行该任务的线程」变成一个 acceptor 线程
+        // 也就是从线程池中拿一个线程出来当 acceptor 线程
+        // acceptor 线程的作用就是接受外部请求的TCP连接，然后调用 connector 的 accept  方法进行连接
         for (int i = 0; i < _acceptorThreads.length; i++)
             if (!_threadPool.dispatch(new Acceptor(i)))
                 throw new IllegalStateException("!accepting");
