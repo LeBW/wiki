@@ -465,6 +465,7 @@ public void register(SocketChannel channel)
 
 接下里可能会有一个疑问：selector 把任务分配给工作线程之后，工作线程在处理任务的时候，如果碰到了 IO（例如网络请求等），会怎么处理呢？如果还是像传统的方式一样调用阻塞式的 IO 操作，那么工作线程还是会阻塞住，没法干别的事情，所以这里我们需要调用非阻塞式的 IO 操作，例如 Servlet 3.0 提出来的 `AsyncContext` 模式，或者在早期 Jetty 使用的 Continuation 模式。
 
+## 用 Jetty NIO 实现一个简易网关
 下面通过 Servlet 3.0 提出的 `AsyncContext` 介绍一下非阻塞式 IO 的处理方式。假设我们要用 Jetty 写一个简易的网关程序，也就是说 Jetty 服务端在接受到请求后，需要往后端服务转发请求，这个往后端服务转发的过程显然是一个重 IO 的操作，它很可能比较耗时，因此我们希望它可以异步进行，不占用 Jetty Server 的工作线程，那么我们需要如下实现
 
 ```java
