@@ -255,7 +255,7 @@ ConnectorEndpoint 里的具体任务就暂时不细分析了，总之在这个�
 
 而我们知道，网络IO（也就是上面说的读取、写入等操作）是比较耗时的，这些时间该工作线程一直在等待，无法干其他的事情，相当于没法用 CPU 了，只是耗着内存。
 
-假设现在有 500 个线程，都处于 IO 过程中，那么这 500 个线程会占用大量内存，而且无法使用 CPU，这无疑是一种资源浪费。如果有更好的办法能够利用起这些线程，让他们在等待 IO 的过程中可以去处理别的事情，等 IO 准备好之后，再回来处理这个请求，无疑会更高效，这也是 NIO 的目的和意义。
+假设现在有 500 个线程，都处于 IO 过程中，那么这 500 个线程会占用大量内存，而且没法再去处理新的请求了，这无疑是一种浪费。如果有更好的办法能够利用起这些线程，让他们在等待 IO 的过程中可以去处理别的请求，等 IO 准备好之后，再回来处理这个请求，无疑会更高效，这也是 NIO 的目的和意义。
 
 ### NIO
 下面看看 Jetty 的 NIO 模型。架构如下
@@ -325,6 +325,8 @@ public class SelectChannelConnector extends AbstractNIOConnector {
 需要重点关注这个 `_acceptChannel.configureBlocking(true);` ，理解下这里的阻塞模式：
 * 当传递 true 时，这个通道将被配置为阻塞模式。这意味着任何试图在这个通道上进行 I/O 操作的线程会被阻塞直到操作完成。就 ServerSocketChannel 而言，accept() 方法（这个方法接受并返回新的连接）将会阻塞，直到新的连接到达或被其他方式中断。在阻塞模式下，ServerSocketChannel 的行为和传统的 ServerSocket 很相似。
 * 如果传递 false，通道将被配置为非阻塞模式。在这种模式下，调用 accept() 方法将立即返回，如果还没有新的连接，则返回 null。这允许服务器在单个线程中管理多个通道，即所谓的非阻塞 IO 或多路复用 IO。
+
+这里之所以选择阻塞模式，是因为 Jetty 使用单独的 acceptor 线程来处理建立连接的过程，这个线程只需要关心 accept 就可以了，其他的统统不用关心，也就是说它没有其他的事情可干了，所以干脆设置成阻塞模式，意思可以理解为：“如果当前没有新的请求过来，那你就阻塞着吧，反正你也没别的事情可干”。
 
 上述代码执行后，目标端口就已经成功开始监听了，也可以理解为服务器启动了。接下来是启动 selector 线程和 acceptor 线程。
 启动 selector 的线程在 `ConnectorSelectorManager` 的 start 方法里
@@ -414,7 +416,7 @@ selector 线程的工作就是不停执行 `set.doSelect()` 方法，而这个�
 
 总之，`doSelect` 做的事情就是遍历所有 changes，找到可以处理的任务并进行分配。
 
-而这里的 changes 是哪里来的呢，主要来源就是 acceptor，下面会讲。
+而这里的 changes 是哪里来的呢，主要来源之一就是 acceptor，下面会讲。
 
 接下来看看 `SelectChannelConnector` 的 `accept` 方法，也就是 acceptor 线程执行的代码
 ```java
@@ -461,9 +463,13 @@ public void register(SocketChannel channel)
 ```
 也就是说，accept 做的事情其实就是建立连接，然后吧 socketChannel 加入到对应 set 的 change 列表中，就完了。
 
-是 selector 遍历 set 里面的 change，然后进行处理和任务分配的。
+是 selector 线程来遍历 set 里面的 change，然后进行处理和任务分配的。
 
 接下里可能会有一个疑问：selector 把任务分配给工作线程之后，工作线程在处理任务的时候，如果碰到了 IO（例如网络请求等），会怎么处理呢？如果还是像传统的方式一样调用阻塞式的 IO 操作，那么工作线程还是会阻塞住，没法干别的事情，所以这里我们需要调用非阻塞式的 IO 操作，例如 Servlet 3.0 提出来的 `AsyncContext` 模式，或者在早期 Jetty 使用的 Continuation 模式。
+
+这种模式的原理可以理解为，工作线程在处理的过程中，如果需要重IO，比如网络请求，那么它可以开启异步模式，然后使用支持异步的 HTTP Client 去发送请求，同时在这个异步 HTTP Client 的回调函数里填充响应，并且提醒原始请求可以返回响应了。
+
+听起来很绕，不过看看下面这个例子，应该就能理解了。
 
 ## 用 Jetty NIO 实现一个简易网关
 下面通过 Servlet 3.0 提出的 `AsyncContext` 介绍一下非阻塞式 IO 的处理方式。假设我们要用 Jetty 写一个简易的网关程序，也就是说 Jetty 服务端在接受到请求后，需要往后端服务转发请求，这个往后端服务转发的过程显然是一个重 IO 的操作，它很可能比较耗时，因此我们希望它可以异步进行，不占用 Jetty Server 的工作线程，那么我们需要如下实现
@@ -495,7 +501,7 @@ public class RequestHandler extends AbstractHandler {
         if (baseRequest.isHandled()) {
             return;
         }
-        // 将当前请求设置为异步处理. 调用完该方法之后，即使 handle 方法结束，该请求的响应也不会被提交，直到调用 asyncContext.complete() 方法为止
+        // 将当前请求设置为异步处理模式. 调用完该方法之后，即使 handle 方法结束，该请求的响应也不会被提交，直到调用 asyncContext.complete() 方法为止
         final AsyncContext asyncContext = baseRequest.startAsync();
         baseRequest.setHandled(true);
 
@@ -529,6 +535,7 @@ public class RequestHandler extends AbstractHandler {
                         } finally {
                             // 会打印 Execute IO Thread: HttpClient@3339ad8e-19 ，说明回调是在内部线程池里执行的
                             log.info("Execute IO Thread: " + Thread.currentThread().getName());
+                            // 只有执行了 complete 函数后，才认为当前请求已经处理完了，可以返回响应了
                             asyncContext.complete();
                         }
                     }
@@ -536,4 +543,14 @@ public class RequestHandler extends AbstractHandler {
     }
 }
 ```
+上述例子可以看出，只有执行了 complete 函数后，Jetty 才会认为当前请求已经处理完毕了，可以返回响应了。
+
+对应到上面讲的 NIO 原理，可以理解为在 selectSet 的 change 列表中又添加了一项，所以 selector 线程在遍历的时候可以感知到这一事件，从而分配一个空闲的工作线程来走接下来的写响应流程。
+
+所以在这种 NIO 模型中，一个请求的处理过程会比较分散：
+* 请求到来后，被 acceptor 处理，建立好连接，甩一个 change 到 selectSet 中。
+*  selector 在遍历 change 列表时，发现了这个 change，得知有一个新的连接来了，于是分配给一个工作线程去处理。
+* 工作线程处理过程中，如果开启了异步模式，往往会开始处理一些异步IO操作，例如上面的异步 http 调用，于是这个工作线程就表示：“你先IO吧，我不等了，我去干别的事情了”。
+* 异步 IO 被别的回调线程处理完之后，会提醒下 Jetty 它已经处理好了，提醒的方式就是往 selectSet 中又添加一个 change
+* selector 遍历过程中发现这个 change 后，又分配一个工作线程去处理，工作线程处理完之后就OK了。
 
