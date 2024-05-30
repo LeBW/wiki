@@ -153,6 +153,56 @@ protected Class<?> loadClass(String name, boolean resolve)
 * 如果我们不想打破双亲委派模型，就重写 ClassLoader 类中的 findClass() 方法即可，无法被父类加载器加载的类最终会通过这个方法被加载
 * 但是，如果想打破双亲委派模型，则需要重写 loadClass() 方法
 
+## ClassNotFoundException 和 NoClassDefFoundError 之间的关系
+首先，ClassNotFoundException 是一个 Exception，而 NoClassDefFoundError 是一个 Error，从 Java 虚拟机的角度来讲，Error 的严重程度是更高的，往往意味着虚拟机无法正常运行了；而 Exception 严重程度要低一些，可以被用户程序所捕获并进行处理。
+
+那么具体区别是什么呢？ClassNotFoundException 是类加载器在加载类的时候，发现自身路径里无法找到这个类，就会抛出异常 ClassNotFoundException。一个最典型的例子，在调用 `Class.forName("xxx.xxx")` 时，或者调用 `ClassLoader.loadClass("xxx.xxx")`时，如果找不到类，就会抛出该异常。
+
+而另一方面，NoClassDefFoundError 是 Java 虚拟机或 ClassLoader 实例试图在类的定义中加载（通常作为方法调用的一部份，或者是使用 new 来创建新的对象）时，发现找不到该类的定义（要查找的类在编译的时候是存在的，运行的时候却找不到了），抛出此错误。
+
+举个例子，现在有两个类，ClassLoaderTest 和 Test
+```java
+// ClassLoaderTest.java
+public class ClassLoaderTest {
+    public static void main(String[] args) {
+
+        Test test = new Test();
+        test.say();
+    }
+}
+
+// Test.java
+public class Test {
+    public void say() {
+        System.out.println("Say hello");
+    }
+}
+```
+正常情况下，先编译这两个类，并执行
+```bash
+# 编译两个源文件，得到 ClassLoaderTest.class 和 Test.class
+$ javac ClassLoaderTest.java Test.java
+# 执行
+$ java ClassLoaderTest
+Say hello
+```
+如果我们手动把 Test.class 文件删掉之后，再跑一次
+```bash
+$ rm Test.class
+$ java ClassLoaderTest
+Exception in thread "main" java.lang.NoClassDefFoundError: classloader/Test
+        at classloader.ClassLoaderTest.main(ClassLoaderTest.java:9)
+Caused by: java.lang.ClassNotFoundException: classloader.Test
+        at java.net.URLClassLoader.findClass(URLClassLoader.java:382)
+        at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+        at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:355)
+        at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+        ... 1 more
+
+```
+可以发现， 报错信息中既有 NoClassDefFoundError，也有 ClassNotFoundException，其中：
+* 报错 NoClassDefFoundError 是因为程序执行时遇到了 `new Test()` 语句，但实际上发现找不到 Test 类
+* 报错 ClassNotFoundException 是因为程序调用类加载器去加载 Test 类时，发现找不到该类。
 
 # 参考
 [极客时间 - 请介绍类加载过程，什么是双亲委派模型](https://time.geekbang.org/column/article/9946)
