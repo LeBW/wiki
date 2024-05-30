@@ -194,5 +194,6 @@ function getDockerSidebar() {
 function getRedisSidebar() {
   return [
     'basis',
+    'cluster',
   ]
 }
