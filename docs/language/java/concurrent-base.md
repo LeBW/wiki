@@ -145,6 +145,93 @@ public interface ExecutorService extends Executor {
     <T> Future<T> submit(Callable<T> task);
 }
 ```
+## Object.wait() 和 Object.notify()
+在 Java 中，`Object.wait` 和 `Object.notify()`（或 `Object.notifyAll()`) 是一对用于线程间通信的底层机制。
+> 注意，这些方法只能在同步代码块或方法中调用，即这些方法的调用必须在对应对象的 synchronized 块或方法内部，因为它们依赖于监视器锁（Monitor Lock）来提供线程间的通信能力和同步控制。（如果在非 synchronized 代码块中使用 wait 或 notify，会抛出异常
+
+这个机制基于 object 对象内置的监视器锁，实现了基本的线程间同步原语。
+> 需要注意的是，`wait()` 和 `notify()` 的底层实现都是依赖于 JVM，它们都是 native 方法。
+
+
+### wait 干了什么
+当一个线程调用某对象的 `wait()` 方法时，该线程就会进入该对象的等待池（wait set）中，并且进入 WAITING 状态，释放对该对象的锁（暂时挂起），暂停执行，进入等待状态。
+
+WAITING 状态的线程类似于下面这样
+```
+"t1" #11 prio=5 os_prio=31 tid=0x00007fe74a208800 nid=0x5fd3 in Object.wait() [0x000000030a19e000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x000000076ac166b0> (a concurrent.WaitAndNotifyTest$Packet)
+	at java.lang.Object.wait(Object.java:502)
+	at concurrent.WaitAndNotifyTest.lambda$main$0(WaitAndNotifyTest.java:19)
+	- locked <0x000000076ac166b0> (a concurrent.WaitAndNotifyTest$Packet)
+	at concurrent.WaitAndNotifyTest$$Lambda$1/1078694789.run(Unknown Source)
+	at java.lang.Thread.run(Thread.java:748)
+```
+
+
+### notify 干了什么
+当其他线程调用同一对象的 `notify()` 或 `notifyAll()` 时，它会唤醒该对象等待池中等待的一个或所有线程。需要注意的是，线程被唤起后，需要重新竞争锁，只有拿到锁之后，才能开始执行 `wait` 后面的代码。
+
+为什么这么说呢，因为线程被唤醒后，可以理解为会从 `WAITING` 状态转变为 `BLOCKING` 状态，那么阻塞的到底是什么呢？其实就是当前 object 的监视器锁。因为 notify() 执行后，执行 notify() 的线程并不会立马释放对象的监视器锁，而是需要在离开 synchoronized 代码块之后，才会真正释放监视器锁，而只有释放了监视器锁之后，被唤醒的线程才有机会拿到锁。
+> 简单总结一句话，就是 notify() 做的不是让线程进入执行状态，而是将它“唤醒”至 BLOCKING 状态，让它有资格去竞争锁
+
+为了验证这一点，我做了一个简单的测试，两个线程 t1 和 t2，其中 t1 进入 wait 状态，t2 执行 notify，在执行 notify 后，利用自循环，不退出 synchorinized ，从而观察 t1 的状态，最后发现为：
+```
+"t1" #11 prio=5 os_prio=31 tid=0x00007fb01287f800 nid=0x7427 in Object.wait() [0x000000030f75a000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x000000076ac16578> (a concurrent.WaitAndNotifyTest$Packet)
+	at java.lang.Object.wait(Object.java:502)
+	at concurrent.WaitAndNotifyTest.lambda$main$0(WaitAndNotifyTest.java:19)
+	- locked <0x000000076ac16578> (a concurrent.WaitAndNotifyTest$Packet)
+	at concurrent.WaitAndNotifyTest$$Lambda$1/1078694789.run(Unknown Source)
+	at java.lang.Thread.run(Thread.java:748)
+```
+确实是 BLOCKED 状态，这也验证了上面的猜想。
+
+
+另外，通常建议在 wait() 调用的前后使用循环来检查条件，因为线程在被唤醒后仍然需要确认条件是否满足。
+
+下面是一个简单的生产者-消费者的解决方案示例，说明 wait 和 notify 的实际用法
+```java
+
+public class Store {
+    private int product = 0;
+
+    public synchronized void produce() {
+        while (product >= 1) {
+            try {
+                wait(); // 缓冲区满，则生产者线程等待
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        product++; // 生产产品
+        System.out.println("Produced one product. Current products: " + product);
+        notify(); // 唤醒在此对象监视器上等待的单个线程（例如，一个消费者线程）
+    }
+
+    public synchronized void consume() {
+        while (product < 1) {
+            try {
+                wait(); // 缓冲区空，则消费者线程等待
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        product--; // 消费产品
+        System.out.println("Consumed one product. Current products: " + product);
+        notify(); // 唤醒在此对象监视器上等待的单个线程（例如，一个生产者线程）
+    }
+}
+```
+在这个例子中，生产者方法（produce()）和消费者方法（consume()）都是同步方法，保证了同一时刻只有一个线程可以执行其中的代码。当产品数量达到一定条件时（例如，在这个案例中为大于等于 1 个时），生产者就会调用 wait 方法暂停生产并释放锁，等待消费者消费产品。
+
+反过来，当消费者在缓冲区为空时，会通过调用 wait 来等待生产者生产。总之，通过调用 notify 方法，生产者和消费者可以互相唤醒对方继续执行。
+
+当然，这种通过 wait 和 notify 实现的通信机制，虽然在某些场合非常有用，但是用起来非常复杂，容易出错。因此，在实际开发中，更推荐使用 Java 推荐的高级并发工具，例如 BlockingQueue、Semaphore、CountDownLatch、CyclicBarrier 等，他们能提供更简洁、更高效、更安全的线程间通信方式。
+
 ## 面试常问
 ### 为什么我们启动线程时需要调用 start()，而不是直接调用 run()？
 
