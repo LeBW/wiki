@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Redis 集群详解 | LBW&#39;s Wiki Pages</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/lbw-wiki.png">
+    <meta name="description" content="Organize all of my knowledge.">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.6eab1976.js" as="script"><link rel="preload" href="/assets/js/2.167d90c7.js" as="script"><link rel="preload" href="/assets/js/16.d9b44fc4.js" as="script"><link rel="prefetch" href="/assets/js/10.1ec14536.js"><link rel="prefetch" href="/assets/js/100.d3be4e1b.js"><link rel="prefetch" href="/assets/js/101.971eb1f4.js"><link rel="prefetch" href="/assets/js/102.2ae2fa3b.js"><link rel="prefetch" href="/assets/js/11.ec909d32.js"><link rel="prefetch" href="/assets/js/12.75d6c1db.js"><link rel="prefetch" href="/assets/js/13.fafebc4f.js"><link rel="prefetch" href="/assets/js/14.7da14f0a.js"><link rel="prefetch" href="/assets/js/15.0e8dd2a9.js"><link rel="prefetch" href="/assets/js/17.7a43f1b2.js"><link rel="prefetch" href="/assets/js/18.c16ff94e.js"><link rel="prefetch" href="/assets/js/19.4052930d.js"><link rel="prefetch" href="/assets/js/20.c97d4e30.js"><link rel="prefetch" href="/assets/js/21.fec0ccc6.js"><link rel="prefetch" href="/assets/js/22.b13a8b79.js"><link rel="prefetch" href="/assets/js/23.60db8c03.js"><link rel="prefetch" href="/assets/js/24.0eb76eee.js"><link rel="prefetch" href="/assets/js/25.9bbc378a.js"><link rel="prefetch" href="/assets/js/26.d71f4e99.js"><link rel="prefetch" href="/assets/js/27.51cc4dbb.js"><link rel="prefetch" href="/assets/js/28.984bcad5.js"><link rel="prefetch" href="/assets/js/29.23b6a9b4.js"><link rel="prefetch" href="/assets/js/3.91689c96.js"><link rel="prefetch" href="/assets/js/30.b9b53754.js"><link rel="prefetch" href="/assets/js/31.9ee2b382.js"><link rel="prefetch" href="/assets/js/32.aa1e7d4d.js"><link rel="prefetch" href="/assets/js/33.95599c18.js"><link rel="prefetch" href="/assets/js/34.91eec23a.js"><link rel="prefetch" href="/assets/js/35.842185fd.js"><link rel="prefetch" href="/assets/js/36.645d08e2.js"><link rel="prefetch" href="/assets/js/37.d2e53880.js"><link rel="prefetch" href="/assets/js/38.1401a1a9.js"><link rel="prefetch" href="/assets/js/39.6c0d3d3c.js"><link rel="prefetch" href="/assets/js/4.09a575dd.js"><link rel="prefetch" href="/assets/js/40.4038c6d1.js"><link rel="prefetch" href="/assets/js/41.43ae76f7.js"><link rel="prefetch" href="/assets/js/42.1aaebfeb.js"><link rel="prefetch" href="/assets/js/43.c98f9509.js"><link rel="prefetch" href="/assets/js/44.97a11a85.js"><link rel="prefetch" href="/assets/js/45.fc75f295.js"><link rel="prefetch" href="/assets/js/46.d2a82b99.js"><link rel="prefetch" href="/assets/js/47.90b9a3ec.js"><link rel="prefetch" href="/assets/js/48.a5f20f35.js"><link rel="prefetch" href="/assets/js/49.95d58daf.js"><link rel="prefetch" href="/assets/js/5.face5c6e.js"><link rel="prefetch" href="/assets/js/50.4a946785.js"><link rel="prefetch" href="/assets/js/51.74ef85d1.js"><link rel="prefetch" href="/assets/js/52.ab75e264.js"><link rel="prefetch" href="/assets/js/53.04e9a209.js"><link rel="prefetch" href="/assets/js/54.83caae44.js"><link rel="prefetch" href="/assets/js/55.0d6ab8db.js"><link rel="prefetch" href="/assets/js/56.8f313634.js"><link rel="prefetch" href="/assets/js/57.8e9ec077.js"><link rel="prefetch" href="/assets/js/58.445e1ec2.js"><link rel="prefetch" href="/assets/js/59.a81cf678.js"><link rel="prefetch" href="/assets/js/6.9b742511.js"><link rel="prefetch" href="/assets/js/60.0983c596.js"><link rel="prefetch" href="/assets/js/61.34edaa63.js"><link rel="prefetch" href="/assets/js/62.3c1dcc60.js"><link rel="prefetch" href="/assets/js/63.ca5ecc69.js"><link rel="prefetch" href="/assets/js/64.3d87faf8.js"><link rel="prefetch" href="/assets/js/65.bd56dfe3.js"><link rel="prefetch" href="/assets/js/66.ab87e244.js"><link rel="prefetch" href="/assets/js/67.e35259f3.js"><link rel="prefetch" href="/assets/js/68.ec2588e7.js"><link rel="prefetch" href="/assets/js/69.b13a6cfd.js"><link rel="prefetch" href="/assets/js/7.e41a37eb.js"><link rel="prefetch" href="/assets/js/70.8739c828.js"><link rel="prefetch" href="/assets/js/71.a694ddca.js"><link rel="prefetch" href="/assets/js/72.fe3bf48b.js"><link rel="prefetch" href="/assets/js/73.57026e0a.js"><link rel="prefetch" href="/assets/js/74.39a6f866.js"><link rel="prefetch" href="/assets/js/75.8d49462e.js"><link rel="prefetch" href="/assets/js/76.f891bf45.js"><link rel="prefetch" href="/assets/js/77.c8a3af4c.js"><link rel="prefetch" href="/assets/js/78.07521a97.js"><link rel="prefetch" href="/assets/js/79.aee888a3.js"><link rel="prefetch" href="/assets/js/8.f616a798.js"><link rel="prefetch" href="/assets/js/80.cfd0cd53.js"><link rel="prefetch" href="/assets/js/81.707a5ee3.js"><link rel="prefetch" href="/assets/js/82.791bd9b0.js"><link rel="prefetch" href="/assets/js/83.d2599399.js"><link rel="prefetch" href="/assets/js/84.e4773484.js"><link rel="prefetch" href="/assets/js/85.72f88fa5.js"><link rel="prefetch" href="/assets/js/86.ffdf2d1e.js"><link rel="prefetch" href="/assets/js/87.b4227711.js"><link rel="prefetch" href="/assets/js/88.ced4d671.js"><link rel="prefetch" href="/assets/js/89.7ceb6053.js"><link rel="prefetch" href="/assets/js/9.581e98ff.js"><link rel="prefetch" href="/assets/js/90.f1b678cb.js"><link rel="prefetch" href="/assets/js/91.8d1d690b.js"><link rel="prefetch" href="/assets/js/92.867a487f.js"><link rel="prefetch" href="/assets/js/93.49f36484.js"><link rel="prefetch" href="/assets/js/94.8ebd746e.js"><link rel="prefetch" href="/assets/js/95.bc94dbc7.js"><link rel="prefetch" href="/assets/js/96.fb0c9c67.js"><link rel="prefetch" href="/assets/js/97.3ab234c0.js"><link rel="prefetch" href="/assets/js/98.96a4f503.js"><link rel="prefetch" href="/assets/js/99.087cd15a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">LBW's Wiki Pages</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/overview/" class="nav-link">
+  概览
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础知识" class="dropdown-title"><span class="title">基础知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础知识" class="mobile-dropdown-title"><span class="title">基础知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/algorithm/" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/operating-system/" class="nav-link">
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/computer-network/" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-item"><!----> <a href="/distributed-system/" class="nav-link">
+  分布式系统
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程语言" class="dropdown-title"><span class="title">编程语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程语言" class="mobile-dropdown-title"><span class="title">编程语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/language/java/" class="nav-link">
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/language/c/" class="nav-link">
+  C/C++
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/tomcat/" class="nav-link">
+  Tomcat
+</a></li><li class="dropdown-item"><!----> <a href="/backend/jetty/" class="nav-link">
+  Jetty
+</a></li><li class="dropdown-item"><!----> <a href="/backend/spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/backend/database/" class="nav-link">
+  数据库
+</a></li><li class="dropdown-item"><!----> <a href="/backend/redis/" class="nav-link router-link-active">
+  Redis
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="微服务" class="dropdown-title"><span class="title">微服务</span> <span class="arrow down"></span></button> <button type="button" aria-label="微服务" class="mobile-dropdown-title"><span class="title">微服务</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/microservice/" class="nav-link">
+  微服务架构
+</a></li><li class="dropdown-item"><!----> <a href="/docker/" class="nav-link">
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/kubernetes/" class="nav-link">
+  Kubernetes
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend/" class="nav-link">
+  前端
+</a></li><li class="dropdown-item"><!----> <a href="/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/devops/" class="nav-link">
+  Dev-Ops
+</a></li><li class="dropdown-item"><!----> <a href="/circumvent-internet/" class="nav-link">
+  科学上网
+</a></li></ul></div></div><div class="nav-item"><a href="https://lebw.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Blog
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/lebw/my-wiki" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/overview/" class="nav-link">
+  概览
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础知识" class="dropdown-title"><span class="title">基础知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础知识" class="mobile-dropdown-title"><span class="title">基础知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/algorithm/" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/operating-system/" class="nav-link">
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/computer-network/" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-item"><!----> <a href="/distributed-system/" class="nav-link">
+  分布式系统
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程语言" class="dropdown-title"><span class="title">编程语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程语言" class="mobile-dropdown-title"><span class="title">编程语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/language/java/" class="nav-link">
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/language/c/" class="nav-link">
+  C/C++
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/tomcat/" class="nav-link">
+  Tomcat
+</a></li><li class="dropdown-item"><!----> <a href="/backend/jetty/" class="nav-link">
+  Jetty
+</a></li><li class="dropdown-item"><!----> <a href="/backend/spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/backend/database/" class="nav-link">
+  数据库
+</a></li><li class="dropdown-item"><!----> <a href="/backend/redis/" class="nav-link router-link-active">
+  Redis
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="微服务" class="dropdown-title"><span class="title">微服务</span> <span class="arrow down"></span></button> <button type="button" aria-label="微服务" class="mobile-dropdown-title"><span class="title">微服务</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/microservice/" class="nav-link">
+  微服务架构
+</a></li><li class="dropdown-item"><!----> <a href="/docker/" class="nav-link">
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/kubernetes/" class="nav-link">
+  Kubernetes
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend/" class="nav-link">
+  前端
+</a></li><li class="dropdown-item"><!----> <a href="/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/devops/" class="nav-link">
+  Dev-Ops
+</a></li><li class="dropdown-item"><!----> <a href="/circumvent-internet/" class="nav-link">
+  科学上网
+</a></li></ul></div></div><div class="nav-item"><a href="https://lebw.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Blog
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/lebw/my-wiki" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/backend/redis/basis.html" class="sidebar-link">Redis 基础</a></li><li><a href="/backend/redis/cluster.html" aria-current="page" class="active sidebar-link">Redis 集群详解</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/backend/redis/cluster.html#主从复制模式" class="sidebar-link">主从复制模式</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/backend/redis/cluster.html#使用方式" class="sidebar-link">使用方式</a></li><li class="sidebar-sub-header"><a href="/backend/redis/cluster.html#优缺点" class="sidebar-link">优缺点</a></li></ul></li><li class="sidebar-sub-header"><a href="/backend/redis/cluster.html#哨兵模式" class="sidebar-link">哨兵模式</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/backend/redis/cluster.html#使用方式-2" class="sidebar-link">使用方式</a></li><li class="sidebar-sub-header"><a href="/backend/redis/cluster.html#优缺点-2" class="sidebar-link">优缺点</a></li></ul></li><li class="sidebar-sub-header"><a href="/backend/redis/cluster.html#脑裂问题" class="sidebar-link">脑裂问题</a></li><li class="sidebar-sub-header"><a href="/backend/redis/cluster.html#cluster-模式" class="sidebar-link">Cluster 模式</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="redis-集群详解"><a href="#redis-集群详解" class="header-anchor">#</a> Redis 集群详解</h1> <p>为了保证 Redis 的高可用，通常不会采用单机模式，而是考虑使用多台机器组成 Redis 集群。</p> <p>Redis 集群是一种通过将多个 Redis 节点连接在一起以实现高可用性、数据分片和负载均衡的技术。它允许 Redis 在不同节点上同时提供服务，提高整体性能和可靠性。根据搭建的方式和集群的特性，Redis 集群主要有三种模式：主从复制模式（Master-Slave）、哨兵模式（Sentinel）和 Cluster 模式。</p> <p>使用 Redis 集群模式的优点：</p> <ol><li>高可用：Redis 集群可以在某个节点发生故障时，自动进行故障转移，保证服务的高可用。</li> <li>负载均衡：Redis 集群可以将客户端请求分发到不同的节点上，有效分担节点的压力，提高系统的整体性能。</li> <li>容灾恢复：通过主从复制或哨兵模式，Redis 集群可以在主节点出现故障时，快速切换到从节点，实现业务的无缝切换</li> <li>数据分片：在 Cluster 模式下，Redis 集群可以将数据分散在不同节点上，从而突破单节点内存限制，实现更大规模的数据存储</li> <li>易于扩展：Redis 集群可以根据业务需求和系统负载，动态添加或移除节点，实现水平扩展。</li></ol> <h2 id="主从复制模式"><a href="#主从复制模式" class="header-anchor">#</a> 主从复制模式</h2> <p>主从复制模式最大的优点就是简单，最少两个节点就可以组成主从模式，并且可以通过读写分离来避免读和写同时不可用。不过，在这种模式种，一旦 Master 节点出现故障，主从节点无法自动切换，直接导致写不可用。</p> <p>所以，主从模式一般适合业务发展初期，并发量低，运维成本低的情况。</p> <p><img src="/assets/img/master-slave.96477690.png" alt="master-slave"></p> <h3 id="使用方式"><a href="#使用方式" class="header-anchor">#</a> 使用方式</h3> <p>使用主从节点的方式如下：</p> <ol><li>配置主节点：在主节点的 <code>redis.conf</code> 文件中，无需特殊配置，主节点默认监听所有客户端请求</li></ol> <div class="language- extra-class"><pre class="language-text"><code># 主节点默认端口号 6379
+port 6379
+</code></pre></div><ol start="2"><li>配置从节点：在从节点的 <code>redis.conf</code> 文件中，添加如下配置，指定主节点的地址和端口</li></ol> <div class="language- extra-class"><pre class="language-text"><code># 从节点默认端口号 6379
+port 6379
+
+# replicaof 主节点IP 主节点端口
+replicaof xxx.xxx.xx.xx 6379
+</code></pre></div><ol start="3"><li>验证主从复制：在主节点上执行写操作，然后在从节点上进行读操作，检查数据是否一致。</li></ol> <h3 id="优缺点"><a href="#优缺点" class="header-anchor">#</a> 优缺点</h3> <p>主从模式的优点：</p> <ol><li>配置简单，易于实现</li> <li>实现数据冗余，提高集群的可靠性</li> <li>客户端可以使用读写分离的方式来访问，提高系统性能</li></ol> <p>缺点：</p> <ol><li>主节点故障时，需要手动切换到从节点，故障恢复时间较长</li> <li>主节点承担所有写操作，可能成为性能瓶颈</li> <li>无法实现数据分片，受单节点内存限制</li></ol> <h2 id="哨兵模式"><a href="#哨兵模式" class="header-anchor">#</a> 哨兵模式</h2> <p>哨兵模式时在主从模式的基础上加入了哨兵节点，实现了自动故障转移。哨兵节点是一种特殊的 Redis 节点，它会监控主节点和从节点的运行状态。当主节点发生故障时，哨兵节点会自动从从节点中选出一个新的主节点，并通知其他从节点和客户端，实现故障转移。
+<img src="/assets/img/sentinel.ce9cc902.png" alt="sentinel"></p> <h3 id="使用方式-2"><a href="#使用方式-2" class="header-anchor">#</a> 使用方式</h3> <ol><li>配置主从复制：首先按照主从复制的方式，搭建一个主从复制集群（上面讲过）</li> <li>配置哨兵节点：在哨兵节点上常见一个新的哨兵配置文件（如 sentinel.conf），并添加如下配置</li></ol> <div class="language- extra-class"><pre class="language-text"><code># sentinel节点端口号
+port 26379
+
+# sentinel monitor 被监控主节点名称 主节点IP 主节点端口 quorum
+sentinel monitor mymaster 127.0.0.1 6379 2
+
+# sentinel down-after-milliseconds 被监控主节点名称 毫秒数
+sentinel down-after-milliseconds mymaster 60000
+
+# sentinel failover-timeout 被监控主节点名称 毫秒数
+sentinel failover-timeout mymaster 180000
+</code></pre></div><p>其中：</p> <ul><li>quorum 是指触发故障转移所需的最小哨兵节点数。</li> <li>down-after-milliseconds 是指主节点被判断为失效的时间</li> <li>failover-timeout 是故障转移超时时间。</li></ul> <p>为什么只配置了主节点的地址，没有配置从节点？因为通过主节点，可以找到从节点，例如通过在主节点执行 <code>INFO REPLICATION</code> 命令，可以查看其连接的从节点。</p> <p>为什么没有配置其他的哨兵地址？Sentinel 只要连接上 redis master 节点，就可以发现连接该 master 的其他 Sentinel，具体发现过程：</p> <ol><li>Sentinel 启动时：每个 Sentinel 实例启动时，会订阅由所有监控同一个主服务器的 Sentinel 组成的一个特殊频道 <strong>sentinel</strong>:hello。</li> <li>发送 Hello 消息：每个 Sentinel 实例会定期（默认为每 2 秒）向 <strong>sentinel</strong>:hello 频道发送一个 hello 消息。该消息包含了该 Sentinel 实例的一些元信息，比如它的 IP 地址、端口以及它知道的关于主节点和其他 Sentinel 的情报。</li> <li>接受 Hello 消息：当其他 Sentinel 实例收到一个 hello 消息时，它们会解析该消息并学习发送者的存在。如果接收到新的 Sentinel 信息，则会将其加入到本地已知其他 Sentinel 实例列表中。</li> <li>自我更新和同步：当一个 Sentinel 实例收到包含更多最新信息的 hello 消息时（例如，一些 Sentinel 可能已经感知到主节点的故障），它会更新自己的状态信息，并根据 hello 消息中的数据同步自己的视图。</li> <li>定期检查：每个 Sentinel 实例也会定期对它已知的其他 Sentinel 实例执行检查，以确认它们是否仍然是活跃的。如果某个 Sentinel 长时间未响应，那么它将被认为已经下线，并从已知的 Sentinel 列表中移除。</li></ol> <p>Sentinel 通过这种方式确保了整个群体的成员都对彼此有一致的认识，即使在没有中央控制器的情况下。这种自动发现机制增强了 Redis Sentinel 高可用系统的健壮性和可扩展性，因为你可以轻松地通过添加更多的 Sentinel 实例来增加系统的容错能力。</p> <p>要查看 Sentinel 知道的其他 Sentinel 实例，你可以使用 sentinel sentinels <master-name> 命令。这将列出所有监控给定主节点的 Sentinel 实例及其状态信息。请记住 <master-name> 是你在 Sentinel 配置文件中配置的监控主节点的名称。</master-name></master-name></p> <h3 id="优缺点-2"><a href="#优缺点-2" class="header-anchor">#</a> 优缺点</h3> <p>哨兵模式优点：</p> <ol><li>自动故障转移，提高系统的高可用性</li> <li>具备主从复制的所有优点，如数据冗余和读写分离</li></ol> <p>缺点：</p> <ol><li>配置和管理相对复杂</li> <li>依然无法实现数据分片，受单节点内存限制。</li></ol> <h2 id="脑裂问题"><a href="#脑裂问题" class="header-anchor">#</a> 脑裂问题</h2> <p>像上面提到的哨兵模式，因为存在主从切换过程，因此存在脑裂问题。</p> <p>什么是脑裂问题？是指在主从集群中，同时有两个主节点，它们都能接受写请求，它们之间产生数据不一致，形象称为“脑裂”。脑裂最直接的影响，就是客户端不知道该往哪个主节点写入数据，结果就是不同的客户端会往不同的主节点上写入数据。而且严重的话，脑裂会进一步导致数据丢失。</p> <p>下面是一个产生脑裂问题的场景
+<img src="/assets/img/brain.41b4d833.png" alt="brain">
+简单来讲，就是主库暂时下线，哨兵开始进行主从切换。在主从切换还未完成的过程中，原主库又好了，等到主从切换结束后，新选择出来的主库和原主库同时存在，就会出现脑裂了。</p> <p>那么为什么脑裂会导致数据丢失呢？</p> <ul><li>主从切换后，从库一旦升级为新主库，哨兵就会让原主库执行slave of命令，和新主库重新进行全量同步。而在全量同步执行的最后阶段，原主库需要清空本地的数据，加载新主库发送的RDB文件，这样一来原主库在主从切换期间保存的新写数据就丢失了；</li></ul> <p>脑裂产生问题的本质原因是，Redis 主从集群内部没有通过共识算法，来维护多个节点数据的强一致性。它不像Zookeeper那样，每次写请求必须大多数节点写成功后才认为成功。当脑裂发生时 Zookeeper 主节点被孤立，此时无法写入大多数节点，写请求会直接返回失败，因此它可以保证集群数据的一致性；</p> <p>从 Zookeeper 的实践中，我们可以推导出 Redis 中解决脑裂问题的办法，下面看。</p> <p>Redis 中有两个参数配置：</p> <ul><li>min-slaves-to-write：设置主库能进行数据同步的最少从库数量；</li> <li>min-slaves-max-lag：设置主从库间进行数据复制时，从库给主库发送ACK消息的最大延迟（以秒为单位）；</li></ul> <p>min-slaves-to-write 和 min-slaves-max-lag 分别给它们设置一定的阈值，假设为 N 和 T；这两个配置项组合后的要求是，主库连接的从库中至少有 N 个从库，和主库进行数据复制时的 ACK 消息延迟不能超过 T 秒，否则主库就不会再接收客户端的请求了；即使原主库是假故障，它在假故障期间也无法响应哨兵心跳，也不能和从库进行同步，自然也就无法和从库进行 ACK 确认了；这样 min-slaves-to-write 和 min-slaves-max-lag 的组合要求就无法得到满足，原主库就会被限制接收客户端请求，客户端也就不能在原主库中写入新数据了；等到新主库上线时，就只有新主库能接收和处理客户端请求，此时新写的数据会被直接写到新主库中，而原主库会被哨兵降为从库，即使它的数据被清空了，也不会有新数据丢失；</p> <h2 id="cluster-模式"><a href="#cluster-模式" class="header-anchor">#</a> Cluster 模式</h2></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/backend/redis/basis.html" class="prev">
+        Redis 基础
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.6eab1976.js" defer></script><script src="/assets/js/2.167d90c7.js" defer></script><script src="/assets/js/16.d9b44fc4.js" defer></script>
+  </body>
+</html>

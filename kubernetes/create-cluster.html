@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>搭建集群 | LBW&#39;s Wiki Pages</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/lbw-wiki.png">
+    <meta name="description" content="Organize all of my knowledge.">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.6eab1976.js" as="script"><link rel="preload" href="/assets/js/2.167d90c7.js" as="script"><link rel="preload" href="/assets/js/80.cfd0cd53.js" as="script"><link rel="prefetch" href="/assets/js/10.1ec14536.js"><link rel="prefetch" href="/assets/js/100.d3be4e1b.js"><link rel="prefetch" href="/assets/js/101.971eb1f4.js"><link rel="prefetch" href="/assets/js/102.2ae2fa3b.js"><link rel="prefetch" href="/assets/js/11.ec909d32.js"><link rel="prefetch" href="/assets/js/12.75d6c1db.js"><link rel="prefetch" href="/assets/js/13.fafebc4f.js"><link rel="prefetch" href="/assets/js/14.7da14f0a.js"><link rel="prefetch" href="/assets/js/15.0e8dd2a9.js"><link rel="prefetch" href="/assets/js/16.d9b44fc4.js"><link rel="prefetch" href="/assets/js/17.7a43f1b2.js"><link rel="prefetch" href="/assets/js/18.c16ff94e.js"><link rel="prefetch" href="/assets/js/19.4052930d.js"><link rel="prefetch" href="/assets/js/20.c97d4e30.js"><link rel="prefetch" href="/assets/js/21.fec0ccc6.js"><link rel="prefetch" href="/assets/js/22.b13a8b79.js"><link rel="prefetch" href="/assets/js/23.60db8c03.js"><link rel="prefetch" href="/assets/js/24.0eb76eee.js"><link rel="prefetch" href="/assets/js/25.9bbc378a.js"><link rel="prefetch" href="/assets/js/26.d71f4e99.js"><link rel="prefetch" href="/assets/js/27.51cc4dbb.js"><link rel="prefetch" href="/assets/js/28.984bcad5.js"><link rel="prefetch" href="/assets/js/29.23b6a9b4.js"><link rel="prefetch" href="/assets/js/3.91689c96.js"><link rel="prefetch" href="/assets/js/30.b9b53754.js"><link rel="prefetch" href="/assets/js/31.9ee2b382.js"><link rel="prefetch" href="/assets/js/32.aa1e7d4d.js"><link rel="prefetch" href="/assets/js/33.95599c18.js"><link rel="prefetch" href="/assets/js/34.91eec23a.js"><link rel="prefetch" href="/assets/js/35.842185fd.js"><link rel="prefetch" href="/assets/js/36.645d08e2.js"><link rel="prefetch" href="/assets/js/37.d2e53880.js"><link rel="prefetch" href="/assets/js/38.1401a1a9.js"><link rel="prefetch" href="/assets/js/39.6c0d3d3c.js"><link rel="prefetch" href="/assets/js/4.09a575dd.js"><link rel="prefetch" href="/assets/js/40.4038c6d1.js"><link rel="prefetch" href="/assets/js/41.43ae76f7.js"><link rel="prefetch" href="/assets/js/42.1aaebfeb.js"><link rel="prefetch" href="/assets/js/43.c98f9509.js"><link rel="prefetch" href="/assets/js/44.97a11a85.js"><link rel="prefetch" href="/assets/js/45.fc75f295.js"><link rel="prefetch" href="/assets/js/46.d2a82b99.js"><link rel="prefetch" href="/assets/js/47.90b9a3ec.js"><link rel="prefetch" href="/assets/js/48.a5f20f35.js"><link rel="prefetch" href="/assets/js/49.95d58daf.js"><link rel="prefetch" href="/assets/js/5.face5c6e.js"><link rel="prefetch" href="/assets/js/50.4a946785.js"><link rel="prefetch" href="/assets/js/51.74ef85d1.js"><link rel="prefetch" href="/assets/js/52.ab75e264.js"><link rel="prefetch" href="/assets/js/53.04e9a209.js"><link rel="prefetch" href="/assets/js/54.83caae44.js"><link rel="prefetch" href="/assets/js/55.0d6ab8db.js"><link rel="prefetch" href="/assets/js/56.8f313634.js"><link rel="prefetch" href="/assets/js/57.8e9ec077.js"><link rel="prefetch" href="/assets/js/58.445e1ec2.js"><link rel="prefetch" href="/assets/js/59.a81cf678.js"><link rel="prefetch" href="/assets/js/6.9b742511.js"><link rel="prefetch" href="/assets/js/60.0983c596.js"><link rel="prefetch" href="/assets/js/61.34edaa63.js"><link rel="prefetch" href="/assets/js/62.3c1dcc60.js"><link rel="prefetch" href="/assets/js/63.ca5ecc69.js"><link rel="prefetch" href="/assets/js/64.3d87faf8.js"><link rel="prefetch" href="/assets/js/65.bd56dfe3.js"><link rel="prefetch" href="/assets/js/66.ab87e244.js"><link rel="prefetch" href="/assets/js/67.e35259f3.js"><link rel="prefetch" href="/assets/js/68.ec2588e7.js"><link rel="prefetch" href="/assets/js/69.b13a6cfd.js"><link rel="prefetch" href="/assets/js/7.e41a37eb.js"><link rel="prefetch" href="/assets/js/70.8739c828.js"><link rel="prefetch" href="/assets/js/71.a694ddca.js"><link rel="prefetch" href="/assets/js/72.fe3bf48b.js"><link rel="prefetch" href="/assets/js/73.57026e0a.js"><link rel="prefetch" href="/assets/js/74.39a6f866.js"><link rel="prefetch" href="/assets/js/75.8d49462e.js"><link rel="prefetch" href="/assets/js/76.f891bf45.js"><link rel="prefetch" href="/assets/js/77.c8a3af4c.js"><link rel="prefetch" href="/assets/js/78.07521a97.js"><link rel="prefetch" href="/assets/js/79.aee888a3.js"><link rel="prefetch" href="/assets/js/8.f616a798.js"><link rel="prefetch" href="/assets/js/81.707a5ee3.js"><link rel="prefetch" href="/assets/js/82.791bd9b0.js"><link rel="prefetch" href="/assets/js/83.d2599399.js"><link rel="prefetch" href="/assets/js/84.e4773484.js"><link rel="prefetch" href="/assets/js/85.72f88fa5.js"><link rel="prefetch" href="/assets/js/86.ffdf2d1e.js"><link rel="prefetch" href="/assets/js/87.b4227711.js"><link rel="prefetch" href="/assets/js/88.ced4d671.js"><link rel="prefetch" href="/assets/js/89.7ceb6053.js"><link rel="prefetch" href="/assets/js/9.581e98ff.js"><link rel="prefetch" href="/assets/js/90.f1b678cb.js"><link rel="prefetch" href="/assets/js/91.8d1d690b.js"><link rel="prefetch" href="/assets/js/92.867a487f.js"><link rel="prefetch" href="/assets/js/93.49f36484.js"><link rel="prefetch" href="/assets/js/94.8ebd746e.js"><link rel="prefetch" href="/assets/js/95.bc94dbc7.js"><link rel="prefetch" href="/assets/js/96.fb0c9c67.js"><link rel="prefetch" href="/assets/js/97.3ab234c0.js"><link rel="prefetch" href="/assets/js/98.96a4f503.js"><link rel="prefetch" href="/assets/js/99.087cd15a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">LBW's Wiki Pages</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/overview/" class="nav-link">
+  概览
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础知识" class="dropdown-title"><span class="title">基础知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础知识" class="mobile-dropdown-title"><span class="title">基础知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/algorithm/" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/operating-system/" class="nav-link">
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/computer-network/" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-item"><!----> <a href="/distributed-system/" class="nav-link">
+  分布式系统
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程语言" class="dropdown-title"><span class="title">编程语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程语言" class="mobile-dropdown-title"><span class="title">编程语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/language/java/" class="nav-link">
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/language/c/" class="nav-link">
+  C/C++
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/tomcat/" class="nav-link">
+  Tomcat
+</a></li><li class="dropdown-item"><!----> <a href="/backend/jetty/" class="nav-link">
+  Jetty
+</a></li><li class="dropdown-item"><!----> <a href="/backend/spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/backend/database/" class="nav-link">
+  数据库
+</a></li><li class="dropdown-item"><!----> <a href="/backend/redis/" class="nav-link">
+  Redis
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="微服务" class="dropdown-title"><span class="title">微服务</span> <span class="arrow down"></span></button> <button type="button" aria-label="微服务" class="mobile-dropdown-title"><span class="title">微服务</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/microservice/" class="nav-link">
+  微服务架构
+</a></li><li class="dropdown-item"><!----> <a href="/docker/" class="nav-link">
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/kubernetes/" class="nav-link router-link-active">
+  Kubernetes
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend/" class="nav-link">
+  前端
+</a></li><li class="dropdown-item"><!----> <a href="/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/devops/" class="nav-link">
+  Dev-Ops
+</a></li><li class="dropdown-item"><!----> <a href="/circumvent-internet/" class="nav-link">
+  科学上网
+</a></li></ul></div></div><div class="nav-item"><a href="https://lebw.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Blog
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/lebw/my-wiki" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/overview/" class="nav-link">
+  概览
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础知识" class="dropdown-title"><span class="title">基础知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础知识" class="mobile-dropdown-title"><span class="title">基础知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/algorithm/" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/operating-system/" class="nav-link">
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/computer-network/" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-item"><!----> <a href="/distributed-system/" class="nav-link">
+  分布式系统
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程语言" class="dropdown-title"><span class="title">编程语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程语言" class="mobile-dropdown-title"><span class="title">编程语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/language/java/" class="nav-link">
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/language/c/" class="nav-link">
+  C/C++
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/tomcat/" class="nav-link">
+  Tomcat
+</a></li><li class="dropdown-item"><!----> <a href="/backend/jetty/" class="nav-link">
+  Jetty
+</a></li><li class="dropdown-item"><!----> <a href="/backend/spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/backend/database/" class="nav-link">
+  数据库
+</a></li><li class="dropdown-item"><!----> <a href="/backend/redis/" class="nav-link">
+  Redis
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="微服务" class="dropdown-title"><span class="title">微服务</span> <span class="arrow down"></span></button> <button type="button" aria-label="微服务" class="mobile-dropdown-title"><span class="title">微服务</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/microservice/" class="nav-link">
+  微服务架构
+</a></li><li class="dropdown-item"><!----> <a href="/docker/" class="nav-link">
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/kubernetes/" class="nav-link router-link-active">
+  Kubernetes
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend/" class="nav-link">
+  前端
+</a></li><li class="dropdown-item"><!----> <a href="/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/devops/" class="nav-link">
+  Dev-Ops
+</a></li><li class="dropdown-item"><!----> <a href="/circumvent-internet/" class="nav-link">
+  科学上网
+</a></li></ul></div></div><div class="nav-item"><a href="https://lebw.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Blog
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/lebw/my-wiki" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/kubernetes/overview.html" class="sidebar-link">Kubernetes 概览</a></li><li><a href="/kubernetes/core-components.html" class="sidebar-link">Kubernetes 核心组件</a></li><li><a href="/kubernetes/service.html" class="sidebar-link">Service 实现原理</a></li><li><a href="/kubernetes/ingress.html" class="sidebar-link">Service 与 Ingress</a></li><li><a href="/kubernetes/scheduler.html" class="sidebar-link">Scheduler</a></li><li><a href="/kubernetes/create-cluster.html" aria-current="page" class="active sidebar-link">搭建集群</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/kubernetes/create-cluster.html#系统要求" class="sidebar-link">系统要求</a></li><li class="sidebar-sub-header"><a href="/kubernetes/create-cluster.html#修改主机名和hosts文件" class="sidebar-link">修改主机名和hosts文件</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/kubernetes/create-cluster.html#修改主机名" class="sidebar-link">修改主机名</a></li><li class="sidebar-sub-header"><a href="/kubernetes/create-cluster.html#修改hosts文件" class="sidebar-link">修改hosts文件</a></li></ul></li><li class="sidebar-sub-header"><a href="/kubernetes/create-cluster.html#系统基本配置" class="sidebar-link">系统基本配置</a></li><li class="sidebar-sub-header"><a href="/kubernetes/create-cluster.html#安装docker" class="sidebar-link">安装Docker</a></li><li class="sidebar-sub-header"><a href="/kubernetes/create-cluster.html#安装kubeadm-kubelet和kubectl" class="sidebar-link">安装kubeadm，kubelet和kubectl</a></li><li class="sidebar-sub-header"><a href="/kubernetes/create-cluster.html#初始化主节点-master" class="sidebar-link">初始化主节点（Master）</a></li><li class="sidebar-sub-header"><a href="/kubernetes/create-cluster.html#加入工作节点" class="sidebar-link">加入工作节点</a></li><li class="sidebar-sub-header"><a href="/kubernetes/create-cluster.html#验证集群是否安装完成" class="sidebar-link">验证集群是否安装完成</a></li><li class="sidebar-sub-header"><a href="/kubernetes/create-cluster.html#踩过的坑" class="sidebar-link">踩过的坑</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/kubernetes/create-cluster.html#cgroup不支持pids子系统。" class="sidebar-link">Cgroup不支持pids子系统。</a></li></ul></li></ul></li><li><a href="/kubernetes/create-nfs.html" class="sidebar-link">搭建NFS服务器</a></li><li><a href="/kubernetes/storageclass-nfs.html" class="sidebar-link">利用NFS创建StorageClass</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="搭建集群"><a href="#搭建集群" class="header-anchor">#</a> 搭建集群</h1> <p>Kubernetes是如今最为火热的容器编排软件，是谷歌严格保密十几年的秘密武器Borg的开源版本。初学者部署Kubernetes集群，建议从以下两个方面入手：</p> <ol><li>Minikube。Minikube是Kubernetes官方提供的单节点小型集群，可以轻松跑在普通的笔记本电脑上。Minikube其实就是一个虚拟机，用户可以根据<a href="https://kubernetes.io/docs/setup/learning-environment/minikube/" target="_blank" rel="noopener noreferrer">官方指南<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>进行安装。但是Minikube运行在虚拟机之上，性能有限，并且只支持单节点。如果你拥有超过一台的服务器可以使用，那么建议使用第二种方法。</li> <li>使用kubeadm部署高可用集群。kubeadm是官方提供的快速部署Kubernetes集群的工具，目前总体上已经达到GA水平，基本满足生产使用，对于学习使用那更是绰绰有余。接下来对kubeadm部署集群的步骤进行详细地指南。</li></ol> <h2 id="系统要求"><a href="#系统要求" class="header-anchor">#</a> 系统要求</h2> <p>CPU和内存：双核，4GB以上。
+操作系统：基于x86_64的各种Linux发行版，包括CentOS，Federa，Ubuntu等，但是内核要求在3.10及以上。这里我使用的是Centos7系统。
+容器运行时：一般情况，使用Docker作为容器运行时。</p> <h2 id="修改主机名和hosts文件"><a href="#修改主机名和hosts文件" class="header-anchor">#</a> 修改主机名和hosts文件</h2> <p>为了使机器之间能够相互通信，首先我们需要给机器提供合适的主机名，并且在hosts文件中添加相关映射。</p> <h3 id="修改主机名"><a href="#修改主机名" class="header-anchor">#</a> 修改主机名</h3> <ol><li>首先修改主机名，centos中利用<code>hostname server01</code>可以修改主机名为server01；</li> <li>然后打开<code>/etc/sysconfig/network</code>文件，写入<code>HOSTNAME=server01</code>。</li> <li>然后重新进入服务器，查看名称是否改变。</li></ol> <h3 id="修改hosts文件"><a href="#修改hosts文件" class="header-anchor">#</a> 修改hosts文件</h3> <p>进入每一台机器的<code>/etc/hosts</code>文件，添加所有映射关系。例如，现在我有两台机器，一台叫做master，IP地址为192.168.0.1，一台叫做node-1，IP地址为192.168.0.2，那么我需要添加以下内容：</p> <div class="language- extra-class"><pre class="language-text"><code>192.168.0.1 master
+192.168.0.2 node-1
+</code></pre></div><p>为了检验映射关系是否添加成功，我们可以利用ping命令。在master中执行<code>ping node-1</code>，在node-1中执行<code>ping master</code>，如果能够ping通，说明成功。</p> <h2 id="系统基本配置"><a href="#系统基本配置" class="header-anchor">#</a> 系统基本配置</h2> <p>在每一台机器上执行以下命令</p> <div class="language- extra-class"><pre class="language-text"><code># 关闭系统交换空间使用。（每次重启机器时都需要关闭，否则kubelet启动会报错）
+swapoff -a 
+
+# 关闭防火墙
+systemctl stop firewalld
+systemctl disable firewalld
+
+# 设置SELinux
+setenforce 0
+sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+</code></pre></div><p>另外，一些Centos7用户报告了由于iptables被绕过而导致路由出错的问题，因此我们需要保证<code>net.bridge.bridge-nf-call-iptables</code>设置为1。具体来说，执行以下命令</p> <div class="language- extra-class"><pre class="language-text"><code>cat &lt;&lt;EOF &gt;  /etc/sysctl.d/k8s.conf
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+EOF
+sysctl --system
+</code></pre></div><p>为了保证<code>br_netfilter</code>模块加载，我们需要执行以下命令：</p> <div class="language- extra-class"><pre class="language-text"><code>modprobe br_netfilter
+</code></pre></div><h2 id="安装docker"><a href="#安装docker" class="header-anchor">#</a> 安装Docker</h2> <p>如果没有安装过Docker，首先需要安装Docker作为容器运行时。</p> <p>首先，尝试卸载旧版本的Docker，保证安装环境</p> <div class="language- extra-class"><pre class="language-text"><code>yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-engine
+</code></pre></div><p>然后安装相关依赖包
+<code>yum install -y yum-utils device-mapper-persistent-data lvm2</code></p> <p>然后将docker仓库添加到yum的源中</p> <div class="language- extra-class"><pre class="language-text"><code>yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+</code></pre></div><p>然后安装相应版本的Docker。这里我没有说最新版本，因为kubernetes往往没有来得及支持最新版本的Docker，所以在官网会推荐相应的版本，可以从<a href="https://kubernetes.io/docs/setup/production-environment/container-runtimes/" target="_blank" rel="noopener noreferrer">这里<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>查看。这里我安装的是最新的Kubernetes v1.15.0，官网推荐的Docker版本是docker-ce-18.06.2.ce，于是我用以下命令安装docker-ce-18.06.2.ce</p> <div class="language- extra-class"><pre class="language-text"><code>yum update &amp;&amp; yum install docker-ce-18.06.2.ce
+</code></pre></div><p>安装完毕后，使用<code>systemctl start docker</code>来运行docker。然后我们可以用<code>docker version</code>命令查看是否成功安装，如果出现Client和Server两个版本信息，说明Docker已经成功安装并且运行。（如果只有Client的信息，说明docker没有成功运行，需要用<code>systemctl status docker</code>查看相关信息，寻找错误原因）。</p> <h2 id="安装kubeadm-kubelet和kubectl"><a href="#安装kubeadm-kubelet和kubectl" class="header-anchor">#</a> 安装kubeadm，kubelet和kubectl</h2> <ul><li><code>kubeadm</code>：快速创建集群的工具</li> <li><code>kubelet</code>：这是一个需要在所有集群中机器上安装的组件，它用于执行开启Pod和容器等操作。</li> <li><code>kubectl</code>：与集群通信的命令行工具，官方提供的CLI。</li></ul> <p>首先要在yum中添加Kubernetes的仓库源。官方源的地址为https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64，在国内无法访问，所幸阿里云为我们提供了镜像源（感谢阿里爸爸），使用以下命令添加阿里镜像源</p> <div class="language- extra-class"><pre class="language-text"><code>cat &lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
+EOF
+</code></pre></div><p>然后运行yum install命令安装kubeadm和相关工具</p> <div class="language- extra-class"><pre class="language-text"><code>yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+
+systemctl enable --now kubelet
+</code></pre></div><h2 id="初始化主节点-master"><a href="#初始化主节点-master" class="header-anchor">#</a> 初始化主节点（Master）</h2> <p>成功安装kubeadm等一系列工具后，接下来就是正式部署Kubernetes集群了。首先我们需要在Master主机上执行<code>kubeadm init</code>相关命令，将Master节点配置成功，那么此时集群也就基本成功部署了。</p> <p>具体来说，在master主机中执行以下命令</p> <div class="language- extra-class"><pre class="language-text"><code>kubeadm init \
+	--image-repository=registry.aliyuncs.com/google_containers
+	--pod-network-cidr=10.244.0.0/16
+</code></pre></div><p>其中<code>--imge-repository</code>指向阿里云的镜像仓库，显然还是因为google镜像仓库在国内无法访问；而<code>--pod-network-cidr</code>是为了接下来的Pod间网络通信使用flannel而设置的。如果你想安装其他的网络组件，可以在官网上<a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/#pod-network" target="_blank" rel="noopener noreferrer">这里<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>查看所有支持的网络组件，并修改以上命令。</p> <p>以上命令执行可能需要几分钟的时间。执行完毕后，主机点就基本上初始化成功了！</p> <blockquote><p>如果初始化失败的话，根据提示寻找原因。第一次我初始化失败后，发现可能是由于在安装kubeadm之后才修改的主机名，造成kubeadm某些配置不正确。这种情况只需卸载并重新安装kubeadm，再次运行kubeadm init相关命令即可。
+<code>$ kubeadm reset</code> <code>$ yum remove kubeadm</code> <code>$ yum install kubeadm --disableexcludes=kubernetes</code></p></blockquote> <p>安装成功后，会显示一些重要信息。首先按照提示执行以下命令：</p> <div class="language- extra-class"><pre class="language-text"><code>mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+</code></pre></div><p>然后给集群安装一个Pod网络组件。这里我选择flannel组件，执行以下命令安装</p> <div class="language- extra-class"><pre class="language-text"><code>sysctl net.bridge.bridge-nf-call-iptables=1
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/62e44c867a2846fefb68bd5f178daf4da3095ccb/Documentation/kube-flannel.yml
+</code></pre></div><p>安装完毕后，执行<code>kubectl get nodes</code>命令，可以发现master的状态从NotReady变成了Ready。</p> <p>默认情况下，集群不会在Master节点上部署Pod，这意味着你的集群至少需要两个节点才能正常工作。如果你想要允许集群在Master上部署Pod，可以执行以下命令，这样即使只有一台机器，你也可以正常使用集群</p> <div class="language- extra-class"><pre class="language-text"><code>kubectl taint nodes --all node-role.kubernetes.io/master-
+</code></pre></div><p>另外，<code>kubeadm init</code>成功后会显示有关kubeadm join的命令，我们需要保存这个命令，以便后面为集群添加节点使用。</p> <h2 id="加入工作节点"><a href="#加入工作节点" class="header-anchor">#</a> 加入工作节点</h2> <p>首先仍然需要为工作节点安装docker，kubeadm等相关工具，具体步骤见上。然后执行上一步骤中保存的<code>kubeadm join</code>相关命令，就成功地将该节点添加进集群中了。</p> <p>如果初始化时的token没有保存或者已经过期，可以在Master使用以下命令重新生成<code>kubeadm join</code>相关token及命令：</p> <div class="language- extra-class"><pre class="language-text"><code>kubeadm token create --print-join-command
+</code></pre></div><h2 id="验证集群是否安装完成"><a href="#验证集群是否安装完成" class="header-anchor">#</a> 验证集群是否安装完成</h2> <p>执行以下命令，验证集群相关Pod是否都正常创建并运行：</p> <div class="language- extra-class"><pre class="language-text"><code>kubectl get pods --all-namespaces
+</code></pre></div><p>如果所有Pod都处于Running状态，说明集群正常运行。如果发现有状态错误的Pod，执行<code>kubectl describe pod &lt;pod_name&gt; --namespace=kube-system</code>查看错误原因，常见的错误一般是镜像没有下载完成。</p> <p>至此，我们就通过<code>kubeadm</code>工具实现了Kubernetes集群的快速搭建。接下来可以愉快地使用了！</p> <h2 id="踩过的坑"><a href="#踩过的坑" class="header-anchor">#</a> 踩过的坑</h2> <h3 id="cgroup不支持pids子系统。"><a href="#cgroup不支持pids子系统。" class="header-anchor">#</a> Cgroup不支持pids子系统。</h3> <p>工作节点加入后，一直是NotReady状态。describe后发现报错如下：</p> <div class="language- extra-class"><pre class="language-text"><code>Warning  FailedNodeAllocatableEnforcement  &lt;invalid&gt; (x1411 over 23h)     
+kubelet, lbw-node-3   
+Failed to update Node Allocatable Limits [&quot;kubepods&quot;]: failed to set supported cgroup subsystems for cgroup [kubepods]: Failed to find subsystem mount for required subsystem: pids
+</code></pre></div><p>由错误日志可知是节点中的Cgroup不支持子系统pids所致。于是用<code>uname -r</code>查看内核版本：</p> <div class="language- extra-class"><pre class="language-text"><code>[root@localhost ~]# uname -r 
+3.10.0-327.el7.x86_64
+</code></pre></div><p>然后查看该内核所支持的CGROUP，发现的确不支持PIDS。</p> <div class="language- extra-class"><pre class="language-text"><code>[root@localhost ~]# cat /boot/config-3.10.0-327.el7.x86_64  | grep CGROUP
+CONFIG_CGROUPS=y
+# CONFIG_CGROUP_DEBUG is not set
+CONFIG_CGROUP_FREEZER=y
+CONFIG_CGROUP_DEVICE=y
+CONFIG_CGROUP_CPUACCT=y
+CONFIG_CGROUP_HUGETLB=y
+CONFIG_CGROUP_PERF=y
+CONFIG_CGROUP_SCHED=y
+CONFIG_BLK_CGROUP=y
+# CONFIG_DEBUG_BLK_CGROUP is not set
+CONFIG_NETFILTER_XT_MATCH_CGROUP=m
+CONFIG_NET_CLS_CGROUP=y
+CONFIG_NETPRIO_CGROUP=m
+</code></pre></div><p>然后在运行<code>yum update -y</code>后，使用<code>yum list kernel</code>命令查看当前安装的内核.</p> <div class="language- extra-class"><pre class="language-text"><code>[root@lbw-master ~]# yum list kernel
+Installed Packages
+kernel.x86_64		3.10.0-327.el7			    @anaconda
+kernel.x86_64		3.10.0-862.3.2.el7 		    @updates
+kernel.x86_64		3.10.0-957.21.3.el7 	    @updates
+kernel.x86_64		3.10.0-957.27.2.el7			@updates
+</code></pre></div><p>查看新版内核所支持的CGOURP</p> <div class="language- extra-class"><pre class="language-text"><code>[root@lbw-master ~]# cat /boot/config-3.10.0-957.27.2.el7.x86_64 | grep CGROUP
+CONFIG_CGROUPS=y
+# CONFIG_CGROUP_DEBUG is not set
+CONFIG_CGROUP_FREEZER=y
+CONFIG_CGROUP_PIDS=y
+CONFIG_CGROUP_DEVICE=y
+CONFIG_CGROUP_CPUACCT=y
+CONFIG_CGROUP_HUGETLB=y
+CONFIG_CGROUP_PERF=y
+CONFIG_CGROUP_SCHED=y
+CONFIG_BLK_CGROUP=y
+# CONFIG_DEBUG_BLK_CGROUP is not set
+CONFIG_NETFILTER_XT_MATCH_CGROUP=m
+CONFIG_NET_CLS_CGROUP=y
+CONFIG_NETPRIO_CGROUP=y
+</code></pre></div><p>发现的确有PIDS支持。于是接下来就是想办法将内核进行升级了。
+用以下命令查看所有可用的内核</p> <div class="language- extra-class"><pre class="language-text"><code>[root@lbw-master ~]# awk -F\' '$1==&quot;menuentry &quot; {print i++ &quot; : &quot; $2}' /etc/grub2.cfg
+0 : CentOS Linux (3.10.0-957.27.2.el7.x86_64) 7 (Core)
+1 : CentOS Linux (3.10.0-957.21.3.el7.x86_64) 7 (Core)
+2 : CentOS Linux (3.10.0-862.3.2.el7.x86_64) 7 (Core)
+3 : CentOS Linux (3.10.0-327.el7.x86_64) 7 (Core)
+4 : CentOS Linux (0-rescue-c4da2e677e384e85b9fd9f27eb3a9f8a) 7 (Core)
+</code></pre></div><p>用<code>grub2-set-default</code>命令设置默认启动内核。利用设为0表示使用上一个命令输出的第一个内核。</p> <div class="language- extra-class"><pre class="language-text"><code>grub2-set-default 0
+</code></pre></div><p>然后用<code>grub2-mkconfig</code>命令生成配置文件并应用在grub.config文件中。</p> <div class="language- extra-class"><pre class="language-text"><code>grub2-mkconfig -o /boot/grub2/grub.cfg
+</code></pre></div><p>执行完毕后，用<code>reboot</code>命令重启机器即可。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/kubernetes/scheduler.html" class="prev">
+        Scheduler
+      </a></span> <span class="next"><a href="/kubernetes/create-nfs.html">
+        搭建NFS服务器
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.6eab1976.js" defer></script><script src="/assets/js/2.167d90c7.js" defer></script><script src="/assets/js/80.cfd0cd53.js" defer></script>
+  </body>
+</html>

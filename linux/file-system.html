@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>文件系统 | LBW&#39;s Wiki Pages</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/lbw-wiki.png">
+    <meta name="description" content="Organize all of my knowledge.">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.6eab1976.js" as="script"><link rel="preload" href="/assets/js/2.167d90c7.js" as="script"><link rel="preload" href="/assets/js/40.4038c6d1.js" as="script"><link rel="prefetch" href="/assets/js/10.1ec14536.js"><link rel="prefetch" href="/assets/js/100.d3be4e1b.js"><link rel="prefetch" href="/assets/js/101.971eb1f4.js"><link rel="prefetch" href="/assets/js/102.2ae2fa3b.js"><link rel="prefetch" href="/assets/js/11.ec909d32.js"><link rel="prefetch" href="/assets/js/12.75d6c1db.js"><link rel="prefetch" href="/assets/js/13.fafebc4f.js"><link rel="prefetch" href="/assets/js/14.7da14f0a.js"><link rel="prefetch" href="/assets/js/15.0e8dd2a9.js"><link rel="prefetch" href="/assets/js/16.d9b44fc4.js"><link rel="prefetch" href="/assets/js/17.7a43f1b2.js"><link rel="prefetch" href="/assets/js/18.c16ff94e.js"><link rel="prefetch" href="/assets/js/19.4052930d.js"><link rel="prefetch" href="/assets/js/20.c97d4e30.js"><link rel="prefetch" href="/assets/js/21.fec0ccc6.js"><link rel="prefetch" href="/assets/js/22.b13a8b79.js"><link rel="prefetch" href="/assets/js/23.60db8c03.js"><link rel="prefetch" href="/assets/js/24.0eb76eee.js"><link rel="prefetch" href="/assets/js/25.9bbc378a.js"><link rel="prefetch" href="/assets/js/26.d71f4e99.js"><link rel="prefetch" href="/assets/js/27.51cc4dbb.js"><link rel="prefetch" href="/assets/js/28.984bcad5.js"><link rel="prefetch" href="/assets/js/29.23b6a9b4.js"><link rel="prefetch" href="/assets/js/3.91689c96.js"><link rel="prefetch" href="/assets/js/30.b9b53754.js"><link rel="prefetch" href="/assets/js/31.9ee2b382.js"><link rel="prefetch" href="/assets/js/32.aa1e7d4d.js"><link rel="prefetch" href="/assets/js/33.95599c18.js"><link rel="prefetch" href="/assets/js/34.91eec23a.js"><link rel="prefetch" href="/assets/js/35.842185fd.js"><link rel="prefetch" href="/assets/js/36.645d08e2.js"><link rel="prefetch" href="/assets/js/37.d2e53880.js"><link rel="prefetch" href="/assets/js/38.1401a1a9.js"><link rel="prefetch" href="/assets/js/39.6c0d3d3c.js"><link rel="prefetch" href="/assets/js/4.09a575dd.js"><link rel="prefetch" href="/assets/js/41.43ae76f7.js"><link rel="prefetch" href="/assets/js/42.1aaebfeb.js"><link rel="prefetch" href="/assets/js/43.c98f9509.js"><link rel="prefetch" href="/assets/js/44.97a11a85.js"><link rel="prefetch" href="/assets/js/45.fc75f295.js"><link rel="prefetch" href="/assets/js/46.d2a82b99.js"><link rel="prefetch" href="/assets/js/47.90b9a3ec.js"><link rel="prefetch" href="/assets/js/48.a5f20f35.js"><link rel="prefetch" href="/assets/js/49.95d58daf.js"><link rel="prefetch" href="/assets/js/5.face5c6e.js"><link rel="prefetch" href="/assets/js/50.4a946785.js"><link rel="prefetch" href="/assets/js/51.74ef85d1.js"><link rel="prefetch" href="/assets/js/52.ab75e264.js"><link rel="prefetch" href="/assets/js/53.04e9a209.js"><link rel="prefetch" href="/assets/js/54.83caae44.js"><link rel="prefetch" href="/assets/js/55.0d6ab8db.js"><link rel="prefetch" href="/assets/js/56.8f313634.js"><link rel="prefetch" href="/assets/js/57.8e9ec077.js"><link rel="prefetch" href="/assets/js/58.445e1ec2.js"><link rel="prefetch" href="/assets/js/59.a81cf678.js"><link rel="prefetch" href="/assets/js/6.9b742511.js"><link rel="prefetch" href="/assets/js/60.0983c596.js"><link rel="prefetch" href="/assets/js/61.34edaa63.js"><link rel="prefetch" href="/assets/js/62.3c1dcc60.js"><link rel="prefetch" href="/assets/js/63.ca5ecc69.js"><link rel="prefetch" href="/assets/js/64.3d87faf8.js"><link rel="prefetch" href="/assets/js/65.bd56dfe3.js"><link rel="prefetch" href="/assets/js/66.ab87e244.js"><link rel="prefetch" href="/assets/js/67.e35259f3.js"><link rel="prefetch" href="/assets/js/68.ec2588e7.js"><link rel="prefetch" href="/assets/js/69.b13a6cfd.js"><link rel="prefetch" href="/assets/js/7.e41a37eb.js"><link rel="prefetch" href="/assets/js/70.8739c828.js"><link rel="prefetch" href="/assets/js/71.a694ddca.js"><link rel="prefetch" href="/assets/js/72.fe3bf48b.js"><link rel="prefetch" href="/assets/js/73.57026e0a.js"><link rel="prefetch" href="/assets/js/74.39a6f866.js"><link rel="prefetch" href="/assets/js/75.8d49462e.js"><link rel="prefetch" href="/assets/js/76.f891bf45.js"><link rel="prefetch" href="/assets/js/77.c8a3af4c.js"><link rel="prefetch" href="/assets/js/78.07521a97.js"><link rel="prefetch" href="/assets/js/79.aee888a3.js"><link rel="prefetch" href="/assets/js/8.f616a798.js"><link rel="prefetch" href="/assets/js/80.cfd0cd53.js"><link rel="prefetch" href="/assets/js/81.707a5ee3.js"><link rel="prefetch" href="/assets/js/82.791bd9b0.js"><link rel="prefetch" href="/assets/js/83.d2599399.js"><link rel="prefetch" href="/assets/js/84.e4773484.js"><link rel="prefetch" href="/assets/js/85.72f88fa5.js"><link rel="prefetch" href="/assets/js/86.ffdf2d1e.js"><link rel="prefetch" href="/assets/js/87.b4227711.js"><link rel="prefetch" href="/assets/js/88.ced4d671.js"><link rel="prefetch" href="/assets/js/89.7ceb6053.js"><link rel="prefetch" href="/assets/js/9.581e98ff.js"><link rel="prefetch" href="/assets/js/90.f1b678cb.js"><link rel="prefetch" href="/assets/js/91.8d1d690b.js"><link rel="prefetch" href="/assets/js/92.867a487f.js"><link rel="prefetch" href="/assets/js/93.49f36484.js"><link rel="prefetch" href="/assets/js/94.8ebd746e.js"><link rel="prefetch" href="/assets/js/95.bc94dbc7.js"><link rel="prefetch" href="/assets/js/96.fb0c9c67.js"><link rel="prefetch" href="/assets/js/97.3ab234c0.js"><link rel="prefetch" href="/assets/js/98.96a4f503.js"><link rel="prefetch" href="/assets/js/99.087cd15a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">LBW's Wiki Pages</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/overview/" class="nav-link">
+  概览
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础知识" class="dropdown-title"><span class="title">基础知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础知识" class="mobile-dropdown-title"><span class="title">基础知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/algorithm/" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/operating-system/" class="nav-link">
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/computer-network/" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-item"><!----> <a href="/distributed-system/" class="nav-link">
+  分布式系统
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程语言" class="dropdown-title"><span class="title">编程语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程语言" class="mobile-dropdown-title"><span class="title">编程语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/language/java/" class="nav-link">
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/language/c/" class="nav-link">
+  C/C++
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/tomcat/" class="nav-link">
+  Tomcat
+</a></li><li class="dropdown-item"><!----> <a href="/backend/jetty/" class="nav-link">
+  Jetty
+</a></li><li class="dropdown-item"><!----> <a href="/backend/spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/backend/database/" class="nav-link">
+  数据库
+</a></li><li class="dropdown-item"><!----> <a href="/backend/redis/" class="nav-link">
+  Redis
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="微服务" class="dropdown-title"><span class="title">微服务</span> <span class="arrow down"></span></button> <button type="button" aria-label="微服务" class="mobile-dropdown-title"><span class="title">微服务</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/microservice/" class="nav-link">
+  微服务架构
+</a></li><li class="dropdown-item"><!----> <a href="/docker/" class="nav-link">
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/kubernetes/" class="nav-link">
+  Kubernetes
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend/" class="nav-link">
+  前端
+</a></li><li class="dropdown-item"><!----> <a href="/linux/" class="nav-link router-link-active">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/devops/" class="nav-link">
+  Dev-Ops
+</a></li><li class="dropdown-item"><!----> <a href="/circumvent-internet/" class="nav-link">
+  科学上网
+</a></li></ul></div></div><div class="nav-item"><a href="https://lebw.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Blog
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/lebw/my-wiki" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/overview/" class="nav-link">
+  概览
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础知识" class="dropdown-title"><span class="title">基础知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础知识" class="mobile-dropdown-title"><span class="title">基础知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/algorithm/" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/operating-system/" class="nav-link">
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/computer-network/" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-item"><!----> <a href="/distributed-system/" class="nav-link">
+  分布式系统
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程语言" class="dropdown-title"><span class="title">编程语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程语言" class="mobile-dropdown-title"><span class="title">编程语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/language/java/" class="nav-link">
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/language/c/" class="nav-link">
+  C/C++
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/tomcat/" class="nav-link">
+  Tomcat
+</a></li><li class="dropdown-item"><!----> <a href="/backend/jetty/" class="nav-link">
+  Jetty
+</a></li><li class="dropdown-item"><!----> <a href="/backend/spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/backend/database/" class="nav-link">
+  数据库
+</a></li><li class="dropdown-item"><!----> <a href="/backend/redis/" class="nav-link">
+  Redis
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="微服务" class="dropdown-title"><span class="title">微服务</span> <span class="arrow down"></span></button> <button type="button" aria-label="微服务" class="mobile-dropdown-title"><span class="title">微服务</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/microservice/" class="nav-link">
+  微服务架构
+</a></li><li class="dropdown-item"><!----> <a href="/docker/" class="nav-link">
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/kubernetes/" class="nav-link">
+  Kubernetes
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend/" class="nav-link">
+  前端
+</a></li><li class="dropdown-item"><!----> <a href="/linux/" class="nav-link router-link-active">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/devops/" class="nav-link">
+  Dev-Ops
+</a></li><li class="dropdown-item"><!----> <a href="/circumvent-internet/" class="nav-link">
+  科学上网
+</a></li></ul></div></div><div class="nav-item"><a href="https://lebw.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Blog
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/lebw/my-wiki" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/linux/common-command.html" class="sidebar-link">Linux常用命令</a></li><li><a href="/linux/file-system.html" aria-current="page" class="active sidebar-link">文件系统</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/linux/file-system.html#利用fdisk对硬盘重新分区" class="sidebar-link">利用fdisk对硬盘重新分区</a></li><li class="sidebar-sub-header"><a href="/linux/file-system.html#扩大文件系统" class="sidebar-link">扩大文件系统</a></li><li class="sidebar-sub-header"><a href="/linux/file-system.html#lvm-logical-volume-manager" class="sidebar-link">LVM (Logical Volume Manager)</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/linux/file-system.html#举例" class="sidebar-link">举例</a></li><li class="sidebar-sub-header"><a href="/linux/file-system.html#对学院服务器进行文件系统扩缩容" class="sidebar-link">对学院服务器进行文件系统扩缩容</a></li></ul></li></ul></li><li><a href="/linux/vim-config.html" class="sidebar-link">Vim 配置</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="文件系统"><a href="#文件系统" class="header-anchor">#</a> 文件系统</h1> <p>本节记录 Linux 操作系统中的文件系统相关概念和操作。</p> <h2 id="利用fdisk对硬盘重新分区"><a href="#利用fdisk对硬盘重新分区" class="header-anchor">#</a> 利用fdisk对硬盘重新分区</h2> <p>fdisk是操作硬盘分区表的工具。输入<code>fdisk /dev/vda</code>以对该硬盘进行分区操作.输出为：</p> <div class="language- extra-class"><pre class="language-text"><code>[root@virt2 ~]# fdisk /dev/vda
+Welcome to fdisk (util-linux 2.23.2).
+
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+
+Command (m for help): m
+Command action
+   a   toggle a bootable flag
+   b   edit bsd disklabel
+   c   toggle the dos compatibility flag
+   d   delete a partition
+   g   create a new empty GPT partition table
+   G   create an IRIX (SGI) partition table
+   l   list known partition types
+   m   print this menu
+   n   add a new partition
+   o   create a new empty DOS partition table
+   p   print the partition table
+   q   quit without saving changes
+   s   create a new empty Sun disklabel
+   t   change a partition's system id
+   u   change display/entry units
+   v   verify the partition table
+   w   write table to disk and exit
+   x   extra functionality (experts only)
+</code></pre></div><p>在输入m后得到了操作表。首先我们输入p以查看当前的分区表。</p> <div class="language- extra-class"><pre class="language-text"><code>Command (m for help): p
+
+Disk /dev/vda: 214.7 GB, 214748364800 bytes, 419430400 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0x000c411d
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/vda1   *        2048    62916607    31457280   83  Linux
+/dev/vda2        62916608    67108863     2096128   82  Linux swap / Solaris
+
+Command (m for help):
+</code></pre></div><p>在这里我们发现问题：
+硬盘容量有 214.7GB，但是分区1仅仅使用 30GB，分区2仅仅使用 2GB，也就是说还有很大一部分的硬盘容量没有利用起来。于是这里我们需要对硬盘重新分区。</p> <p>首先使用d命令删除当前的两个分区表</p> <div class="language- extra-class"><pre class="language-text"><code>Command (m for help): d
+Partition number (1,2, default 2):
+Partition 2 is deleted
+
+Command (m for help): d
+Selected partition 1
+Partition 1 is deleted
+
+Command (m for help):
+</code></pre></div><p>然后使用n命令新建两个分区表。与之前一样，一个用来当启动分区，一个用于交换。由于一共有200G空间，我决定给启动分区184G的空间，交换分区16G的空间。关于交换分区的大小，可以参考<a href="https://www.tldp.org/HOWTO/Partition/requirements.html#SwapSize" target="_blank" rel="noopener noreferrer">此文档<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>.</p> <p>分区1创建过程如下：</p> <div class="language- extra-class"><pre class="language-text"><code>Command (m for help): n
+Partition type:
+   p   primary (0 primary, 0 extended, 4 free)
+   e   extended
+Select (default p): p
+Partition number (1-4, default 1): 1
+First sector (2048-419430399, default 2048):
+Using default value 2048
+Last sector, +sectors or +size{K,M,G} (2048-419430399, default 419430399): +184G
+Partition 1 of type Linux and of size 184 GiB is set
+
+</code></pre></div><p>其中的技巧是使用<code>+184G</code>来指定分区大小，从而让fdisk为我们计算结束扇区。</p> <p>分区二创建过程如下：</p> <div class="language- extra-class"><pre class="language-text"><code>Command (m for help): n
+Partition type:
+   p   primary (1 primary, 0 extended, 3 free)
+   e   extended
+Select (default p): p
+Partition number (2-4, default 2): 2
+First sector (385878016-419430399, default 385878016):
+Using default value 385878016
+Last sector, +sectors or +size{K,M,G} (385878016-419430399, default 419430399):
+Using default value 419430399
+Partition 2 of type Linux and of size 16 GiB is set
+</code></pre></div><p>其中无需更改扇区结束处，因为fdisk默认会使用所有未分配的容量。</p> <p>同时，因为此分区用于交换，我们需要修改改分区的system ID。</p> <p>输入t后，指定分区2，然后可以输入L来显示所有的ID以供参考。我们可以看到82代表了Linux Swap。所以我们将其修改为82. 过程如下：</p> <div class="language- extra-class"><pre class="language-text"><code>Command (m for help): t
+Partition number (1,2, default 2): 2
+Hex code (type L to list all codes): L
+
+ 0  Empty           24  NEC DOS         81  Minix / old Lin bf  Solaris
+ 1  FAT12           27  Hidden NTFS Win 82  Linux swap / So c1  DRDOS/sec (FAT-
+ 2  XENIX root      39  Plan 9          83  Linux           c4  DRDOS/sec (FAT-
+ 3  XENIX usr       3c  PartitionMagic  84  OS/2 hidden C:  c6  DRDOS/sec (FAT-
+ 4  FAT16 &lt;32M      40  Venix 80286     85  Linux extended  c7  Syrinx
+ 5  Extended        41  PPC PReP Boot   86  NTFS volume set da  Non-FS data
+ 6  FAT16           42  SFS             87  NTFS volume set db  CP/M / CTOS / .
+ 7  HPFS/NTFS/exFAT 4d  QNX4.x          88  Linux plaintext de  Dell Utility
+ 8  AIX             4e  QNX4.x 2nd part 8e  Linux LVM       df  BootIt
+ 9  AIX bootable    4f  QNX4.x 3rd part 93  Amoeba          e1  DOS access
+ a  OS/2 Boot Manag 50  OnTrack DM      94  Amoeba BBT      e3  DOS R/O
+ b  W95 FAT32       51  OnTrack DM6 Aux 9f  BSD/OS          e4  SpeedStor
+ c  W95 FAT32 (LBA) 52  CP/M            a0  IBM Thinkpad hi eb  BeOS fs
+ e  W95 FAT16 (LBA) 53  OnTrack DM6 Aux a5  FreeBSD         ee  GPT
+ f  W95 Ext'd (LBA) 54  OnTrackDM6      a6  OpenBSD         ef  EFI (FAT-12/16/
+10  OPUS            55  EZ-Drive        a7  NeXTSTEP        f0  Linux/PA-RISC b
+11  Hidden FAT12    56  Golden Bow      a8  Darwin UFS      f1  SpeedStor
+12  Compaq diagnost 5c  Priam Edisk     a9  NetBSD          f4  SpeedStor
+14  Hidden FAT16 &lt;3 61  SpeedStor       ab  Darwin boot     f2  DOS secondary
+16  Hidden FAT16    63  GNU HURD or Sys af  HFS / HFS+      fb  VMware VMFS
+17  Hidden HPFS/NTF 64  Novell Netware  b7  BSDI fs         fc  VMware VMKCORE
+18  AST SmartSleep  65  Novell Netware  b8  BSDI swap       fd  Linux raid auto
+1b  Hidden W95 FAT3 70  DiskSecure Mult bb  Boot Wizard hid fe  LANstep
+1c  Hidden W95 FAT3 75  PC/IX           be  Solaris boot    ff  BBT
+1e  Hidden W95 FAT1 80  Old Minix
+Hex code (type L to list all codes): 82
+Changed type of partition 'Linux' to 'Linux swap / Solaris'
+</code></pre></div><p>到这里分区的删除、重新创建就已经结束了。最后一定要注意使用w命令将其写入硬盘，否则所有的修改都是无效的。</p> <div class="language- extra-class"><pre class="language-text"><code>Command (m for help): w
+The partition table has been altered!
+
+Calling ioctl() to re-read partition table.
+
+WARNING: Re-reading the partition table failed with error 16: Device or resource busy.
+The kernel still uses the old table. The new table will be used at
+the next reboot or after you run partprobe(8) or kpartx(8)
+Syncing disks.
+</code></pre></div><p>最后<code>sudo reboot</code>重启机器，以应用新的分区表。</p> <p>重启后使用<code>fdisk -l</code>命令发现，新的分区表已经生成成功。</p> <div class="language- extra-class"><pre class="language-text"><code>[root@virt2 ~]# fdisk -l
+
+Disk /dev/vda: 214.7 GB, 214748364800 bytes, 419430400 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0x000c411d
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/vda1            2048   385878015   192937984   83  Linux
+/dev/vda2       385878016   419430399    16776192   82  Linux swap / Solaris
+</code></pre></div><h2 id="扩大文件系统"><a href="#扩大文件系统" class="header-anchor">#</a> 扩大文件系统</h2> <p>对硬盘重新分区后，使用<code>df -hT</code> 查看文件系统时，发现事情没有这么简单...</p> <div class="language- extra-class"><pre class="language-text"><code>[root@virt2 ~]# df -hT
+Filesystem     Type      Size  Used Avail Use% Mounted on
+/dev/vda1      ext4       30G  1.5G   27G   6% /
+devtmpfs       devtmpfs   16G     0   16G   0% /dev
+tmpfs          tmpfs      16G     0   16G   0% /dev/shm
+tmpfs          tmpfs      16G  8.6M   16G   1% /run
+tmpfs          tmpfs      16G     0   16G   0% /sys/fs/cgroup
+tmpfs          tmpfs     3.2G     0  3.2G   0% /run/user/0
+</code></pre></div><p>在这里，/dev/vda1分区的容量还是只有30G. 这是因为改变的是分区大小，而其对应的文件系统不会自动改变容量，需要继续进行相关操作来扩大文件系统的容量。</p> <p>在网上搜集相关资料后，发现一个相关命令<code>resize2fs</code>. 通过<code>man resize2fs</code>命令发现了一段关键信息：</p> <div class="language- extra-class"><pre class="language-text"><code>If you wish to enlarge a filesystem, you must make sure you can expand the  size of  the  underlying partition first. 
+This can be done using fdisk(8) by deleting the partition and recreating it with a larger size or using lvex-tend(8), 
+if you're using the logical volume manager lvm(8).  
+When recreating the partition, make sure you create it with  the  same  starting  disk cylinder as before!
+Otherwise, the resize operation will certainly not work, and you may lose your entire filesystem. 
+After running fdisk(8),run resize2fs to resize the ext2 filesystem to use all of the space in the newly enlarged partition.
+</code></pre></div><p>这里说的意思是：如果你想要扩大文件系统的容量，首先需要确保你可以扩大其对应的磁盘分区容量.（可以使用<code>fdisk</code>命令来删除并重新创建分区；而如果你使用lvm的话，需要使用<code>lvextend</code>命令）。
+然后，对于 <code>ext2/3/4</code> 类型的文件系统，可以使用 <code>resize2fs</code>来改变文件系统容量。</p> <p>所以我输入命令 <code>resize2fs /dev/vda1</code> 成功得扩大了文件系统容量。</p> <div class="language- extra-class"><pre class="language-text"><code>[root@virt2 ~]# resize2fs /dev/vda1
+resize2fs 1.42.9 (28-Dec-2013)
+Filesystem at /dev/vda1 is mounted on /; on-line resizing required
+old_desc_blocks = 4, new_desc_blocks = 23
+The filesystem on /dev/vda1 is now 48234496 blocks long.
+
+</code></pre></div><p>然后用 <code>df -hT</code>来查看文件系统</p> <div class="language- extra-class"><pre class="language-text"><code>[root@virt2 ~]# df -hT
+Filesystem     Type      Size  Used Avail Use% Mounted on
+/dev/vda1      ext4      181G  1.5G  172G   1% /
+devtmpfs       devtmpfs   16G     0   16G   0% /dev
+tmpfs          tmpfs      16G     0   16G   0% /dev/shm
+tmpfs          tmpfs      16G  8.6M   16G   1% /run
+tmpfs          tmpfs      16G     0   16G   0% /sys/fs/cgroup
+tmpfs          tmpfs     3.2G     0  3.2G   0% /run/user/0
+</code></pre></div><p>发现已经成功扩容。</p> <p>最后使用<code>mkswap /dev/vda2 &amp;&amp; swapon /dev/vda2</code> 使用swap交换。</p> <h2 id="lvm-logical-volume-manager"><a href="#lvm-logical-volume-manager" class="header-anchor">#</a> LVM (Logical Volume Manager)</h2> <p>LVM是 逻辑卷管理（Logical Volume Manager）的简写，它是 Linux 环境下对磁盘分区管理的一种机制。</p> <p>在以上系统中，文件系统（File System）直接建立于硬盘分区（Partition）上。而这种方式下，由于硬盘分区在确定后很难更改大小，所以文件系统的大小也很难在运行时改变大小（尤其是减小）。如果在使用过程中发现文件系统容量不够，需要随机应变时，这种简单的磁盘分区管理机制就无法满足要求了。</p> <p>因此完美地解决方法应该是在零停机前提下可以自如地对文件系统对大小进行调整，可以方便地实现文件系统跨越不同磁盘和分区。LVM机制就是这样一种方案。</p> <p>LVM本质上是一个虚拟设备驱动，是在内核中块设备和物理设备之间添加的一个新的抽象层次，如图所示。
+<img src="/assets/img/lvm.144fbc44.png" alt="lvm"></p> <ul><li>PV（Physical Volume)：物理卷，处于LVM的最底层，可以是硬盘分区、整个硬盘、元设备或者回送文件(loopback file)。</li> <li>VG（Volume Group)：卷组，建立在PV之上，可以含有一个到多个PV。</li> <li>LV（Logical Volume）：逻辑卷，建立在VG之上，相当于原来分区的概念。优点是灵活，大小可以动态改变，并且不需要在物理上连续，甚至可以跨硬盘。</li></ul> <p>使用LVM的基本步骤如下：</p> <ol><li>如果有必要的话，安装新的硬盘。</li> <li>选做：为硬盘进行分区。</li> <li>使用<code>pvcreate</code>命令将硬盘或者分区创建成为LVM管理的物理卷。</li> <li>使用<code>vgcreate</code>创建新的卷组或者使用<code>vgextend</code>将PV加入现有的卷组。</li> <li>使用<code>lvcreate</code>在VG上创建新的逻辑卷。</li> <li>使用<code>mkfs</code>在逻辑卷上创建新的文件系统。</li> <li>在<code>/etc/fstab</code>中写入相应条目，将文件系统 mount 在合适的目录下。</li> <li>mount 文件系统。</li></ol> <h3 id="举例"><a href="#举例" class="header-anchor">#</a> 举例</h3> <p>假设现在安装了一块新的硬盘<code>/dev/hdd</code>，可以通过以下操作创建新的文件系统。</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># create new PV from hard drive.</span>
+pvcreate /dev/hdd
+<span class="token comment"># add PV to existing volume group</span>
+vgextend /dev/MyVG01 /dev/hdd
+<span class="token comment"># create a logical volume</span>
+lvcreate -L 50G --name Stuff MyVG01
+<span class="token comment"># create a file system</span>
+<span class="token function">mkfs</span> -t ext4 /dev/MyVG01/Stuff
+<span class="token comment"># add a file system label</span>
+e2label /dev/MyVG01/Stuff Stuff
+<span class="token comment"># mount the file system</span>
+<span class="token comment"># add an apporiate entry to /etc/fstab </span>
+<span class="token comment"># use df, lvs, vgs to check.</span>
+</code></pre></div><p>假设想要为文件系统扩容，在为VG添加了PV后：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># extend the logical volume</span>
+lvextend -L 50G /dev/MyVG01/Stuff
+<span class="token comment"># expand teh file system</span>
+resize2fs /dev/MyVG01/Stuff
+<span class="token comment"># check </span>
+<span class="token function">df</span> -hT
+</code></pre></div><h3 id="对学院服务器进行文件系统扩缩容"><a href="#对学院服务器进行文件系统扩缩容" class="header-anchor">#</a> 对学院服务器进行文件系统扩缩容</h3> <p>学院服务器使用 LVM 对磁盘进行管理。使用 <code>lvdisplay</code> 查看其逻辑卷情况，发现有三个逻辑卷，主要的两个是 <code>/dev/centos/home</code> 和 <code>/dev/centos/root/</code>。</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ lvdisplay
+  --- Logical volume ---
+  LV Path                /dev/centos/swap
+  LV Name                swap
+  VG Name                centos
+  LV UUID                rJR3Jb-5uhg-Bk0m-Mylv-4fhs-N00U-TCX6kQ
+  LV Write Access        read/write
+  LV Creation host, <span class="token function">time</span> localhost.localdomain, <span class="token number">2016</span>-08-09 <span class="token number">22</span>:22:00 -0400
+  LV Status              available
+  <span class="token comment"># open                 2</span>
+  LV Size                <span class="token number">2.00</span> GiB
+  Current LE             <span class="token number">512</span>
+  Segments               <span class="token number">1</span>
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently <span class="token builtin class-name">set</span> to     <span class="token number">8192</span>
+  Block device           <span class="token number">253</span>:1
+   
+  --- Logical volume ---
+  LV Path                /dev/centos/home
+  LV Name                home
+  VG Name                centos
+  LV UUID                Nj18L4-51Lz-d2n8-pAJP-4OBz-rWke-yc5VcZ
+  LV Write Access        read/write
+  LV Creation host, <span class="token function">time</span> localhost.localdomain, <span class="token number">2016</span>-08-09 <span class="token number">22</span>:22:00 -0400
+  LV Status              available
+  <span class="token comment"># open                 1</span>
+  LV Size                <span class="token number">47.45</span> GiB
+  Current LE             <span class="token number">12146</span>
+  Segments               <span class="token number">1</span>
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently <span class="token builtin class-name">set</span> to     <span class="token number">8192</span>
+  Block device           <span class="token number">253</span>:2
+   
+  --- Logical volume ---
+  LV Path                /dev/centos/root
+  LV Name                root
+  VG Name                centos
+  LV UUID                w7RY5D-luT1-RZXj-iyjb-0c7B-uD3z-64FJLO
+  LV Write Access        read/write
+  LV Creation host, <span class="token function">time</span> localhost.localdomain, <span class="token number">2016</span>-08-09 <span class="token number">22</span>:22:02 -0400
+  LV Status              available
+  <span class="token comment"># open                 1</span>
+  LV Size                <span class="token number">50.00</span> GiB
+  Current LE             <span class="token number">12800</span>
+  Segments               <span class="token number">1</span>
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently <span class="token builtin class-name">set</span> to     <span class="token number">8192</span>
+  Block device           <span class="token number">253</span>:0
+</code></pre></div><p>然后，查看一下文件系统：</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">df</span> -hT
+Filesystem              Type      Size  Used Avail Use% Mounted on
+/dev/mapper/centos-root xfs        50G  <span class="token number">1</span>.1G   49G   <span class="token number">3</span>% /
+devtmpfs                devtmpfs   12G     <span class="token number">0</span>   12G   <span class="token number">0</span>% /dev
+tmpfs                   tmpfs      12G     <span class="token number">0</span>   12G   <span class="token number">0</span>% /dev/shm
+tmpfs                   tmpfs      12G  <span class="token number">1</span>.1G   11G   <span class="token number">9</span>% /run
+tmpfs                   tmpfs      12G     <span class="token number">0</span>   12G   <span class="token number">0</span>% /sys/fs/cgroup
+/dev/mapper/centos-home xfs        48G   33M   48G   <span class="token number">1</span>% /home
+/dev/sda1               xfs       497M  123M  375M  <span class="token number">25</span>% /boot
+tmpfs                   tmpfs     <span class="token number">2</span>.4G     <span class="token number">0</span>  <span class="token number">2</span>.4G   <span class="token number">0</span>% /run/user/0
+</code></pre></div><p>发现：</p> <ul><li><code>/dev/mapper/centos-root</code> 挂载的是根目录，即我们常用的基本都放在这里了</li> <li><code>/dev/mapper/contos-home</code> 挂载的是 <code>/home</code> 目录，平时用的比较少</li></ul> <p>而两个文件系统都是给的 50G 左右的大小，所以比较浪费，我们需要给 root 分配更多，而给 home 分配少一点即可。</p> <p>由于 xfs 文件系统只能扩，不能缩，所以我们首先把 home 删掉。（如果需要收缩的文件系统很大且很重要，那么请谨慎使用该方法）。</p> <ol start="0"><li>备份</li></ol> <div class="language-bash extra-class"><pre class="language-bash"><code>$ xfsdump -f /root/home.img /home
+</code></pre></div><ol><li>卸载 home 目录</li></ol> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">umount</span> /home
+</code></pre></div><p>如果无法卸载报错 <code>umount: /home: device is busy</code>
+那么必须用fuser命令来查看process ID和进程的拥有者，比如:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">[</span>root@yc ~<span class="token punctuation">]</span><span class="token comment"># fuser -cu /home/</span>
+/home:                1849rce<span class="token punctuation">(</span>yinchong<span class="token punctuation">)</span>  1861rce<span class="token punctuation">(</span>yinchong<span class="token punctuation">)</span>  
+<span class="token punctuation">[</span>root@yc ~<span class="token punctuation">]</span><span class="token comment">#</span>
+</code></pre></div><p>然后使用 <code>fuser -ck /home/</code> 可以 kill 相关进程。</p> <ol start="2"><li>删除相关逻辑卷</li></ol> <div class="language-bash extra-class"><pre class="language-bash"><code>$ lvremove /dev/centos/home
+</code></pre></div><ol start="3"><li>扩展 root 逻辑卷 与 文件系统根目录</li></ol> <div class="language-bash extra-class"><pre class="language-bash"><code>$ lvresize -L 90G /dev/centos/root  <span class="token comment"># 扩展逻辑卷</span>
+$ xfs_growfs /dev/centos/root  <span class="token comment"># 扩展文件系统</span>
+</code></pre></div><ol start="4"><li>重建 home 逻辑卷 和 文件系统</li></ol> <div class="language-bash extra-class"><pre class="language-bash"><code>$ lvcreate -L 5G -n home centos    <span class="token comment"># 重建逻辑卷</span>
+$ mkfs.xfs /dev/mapper/centos-home  <span class="token comment"># 格式化 home 文件系统</span>
+$ <span class="token function">mount</span> -a <span class="token comment"># 挂载。由于本文中 lv 名称 和 挂载点都不变，所以不需要修改 /etc/fstab</span>
+</code></pre></div><ol start="5"><li>恢复备份</li></ol> <div class="language- extra-class"><pre class="language-text"><code>$ xfsrestore -f home.img /home
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/linux/common-command.html" class="prev">
+        Linux常用命令
+      </a></span> <span class="next"><a href="/linux/vim-config.html">
+        Vim 配置
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.6eab1976.js" defer></script><script src="/assets/js/2.167d90c7.js" defer></script><script src="/assets/js/40.4038c6d1.js" defer></script>
+  </body>
+</html>

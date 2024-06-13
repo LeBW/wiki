@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Jetty | LBW&#39;s Wiki Pages</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/lbw-wiki.png">
+    <meta name="description" content="Organize all of my knowledge.">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.6eab1976.js" as="script"><link rel="preload" href="/assets/js/2.167d90c7.js" as="script"><link rel="preload" href="/assets/js/15.0e8dd2a9.js" as="script"><link rel="prefetch" href="/assets/js/10.1ec14536.js"><link rel="prefetch" href="/assets/js/100.d3be4e1b.js"><link rel="prefetch" href="/assets/js/101.971eb1f4.js"><link rel="prefetch" href="/assets/js/102.2ae2fa3b.js"><link rel="prefetch" href="/assets/js/11.ec909d32.js"><link rel="prefetch" href="/assets/js/12.75d6c1db.js"><link rel="prefetch" href="/assets/js/13.fafebc4f.js"><link rel="prefetch" href="/assets/js/14.7da14f0a.js"><link rel="prefetch" href="/assets/js/16.d9b44fc4.js"><link rel="prefetch" href="/assets/js/17.7a43f1b2.js"><link rel="prefetch" href="/assets/js/18.c16ff94e.js"><link rel="prefetch" href="/assets/js/19.4052930d.js"><link rel="prefetch" href="/assets/js/20.c97d4e30.js"><link rel="prefetch" href="/assets/js/21.fec0ccc6.js"><link rel="prefetch" href="/assets/js/22.b13a8b79.js"><link rel="prefetch" href="/assets/js/23.60db8c03.js"><link rel="prefetch" href="/assets/js/24.0eb76eee.js"><link rel="prefetch" href="/assets/js/25.9bbc378a.js"><link rel="prefetch" href="/assets/js/26.d71f4e99.js"><link rel="prefetch" href="/assets/js/27.51cc4dbb.js"><link rel="prefetch" href="/assets/js/28.984bcad5.js"><link rel="prefetch" href="/assets/js/29.23b6a9b4.js"><link rel="prefetch" href="/assets/js/3.91689c96.js"><link rel="prefetch" href="/assets/js/30.b9b53754.js"><link rel="prefetch" href="/assets/js/31.9ee2b382.js"><link rel="prefetch" href="/assets/js/32.aa1e7d4d.js"><link rel="prefetch" href="/assets/js/33.95599c18.js"><link rel="prefetch" href="/assets/js/34.91eec23a.js"><link rel="prefetch" href="/assets/js/35.842185fd.js"><link rel="prefetch" href="/assets/js/36.645d08e2.js"><link rel="prefetch" href="/assets/js/37.d2e53880.js"><link rel="prefetch" href="/assets/js/38.1401a1a9.js"><link rel="prefetch" href="/assets/js/39.6c0d3d3c.js"><link rel="prefetch" href="/assets/js/4.09a575dd.js"><link rel="prefetch" href="/assets/js/40.4038c6d1.js"><link rel="prefetch" href="/assets/js/41.43ae76f7.js"><link rel="prefetch" href="/assets/js/42.1aaebfeb.js"><link rel="prefetch" href="/assets/js/43.c98f9509.js"><link rel="prefetch" href="/assets/js/44.97a11a85.js"><link rel="prefetch" href="/assets/js/45.fc75f295.js"><link rel="prefetch" href="/assets/js/46.d2a82b99.js"><link rel="prefetch" href="/assets/js/47.90b9a3ec.js"><link rel="prefetch" href="/assets/js/48.a5f20f35.js"><link rel="prefetch" href="/assets/js/49.95d58daf.js"><link rel="prefetch" href="/assets/js/5.face5c6e.js"><link rel="prefetch" href="/assets/js/50.4a946785.js"><link rel="prefetch" href="/assets/js/51.74ef85d1.js"><link rel="prefetch" href="/assets/js/52.ab75e264.js"><link rel="prefetch" href="/assets/js/53.04e9a209.js"><link rel="prefetch" href="/assets/js/54.83caae44.js"><link rel="prefetch" href="/assets/js/55.0d6ab8db.js"><link rel="prefetch" href="/assets/js/56.8f313634.js"><link rel="prefetch" href="/assets/js/57.8e9ec077.js"><link rel="prefetch" href="/assets/js/58.445e1ec2.js"><link rel="prefetch" href="/assets/js/59.a81cf678.js"><link rel="prefetch" href="/assets/js/6.9b742511.js"><link rel="prefetch" href="/assets/js/60.0983c596.js"><link rel="prefetch" href="/assets/js/61.34edaa63.js"><link rel="prefetch" href="/assets/js/62.3c1dcc60.js"><link rel="prefetch" href="/assets/js/63.ca5ecc69.js"><link rel="prefetch" href="/assets/js/64.3d87faf8.js"><link rel="prefetch" href="/assets/js/65.bd56dfe3.js"><link rel="prefetch" href="/assets/js/66.ab87e244.js"><link rel="prefetch" href="/assets/js/67.e35259f3.js"><link rel="prefetch" href="/assets/js/68.ec2588e7.js"><link rel="prefetch" href="/assets/js/69.b13a6cfd.js"><link rel="prefetch" href="/assets/js/7.e41a37eb.js"><link rel="prefetch" href="/assets/js/70.8739c828.js"><link rel="prefetch" href="/assets/js/71.a694ddca.js"><link rel="prefetch" href="/assets/js/72.fe3bf48b.js"><link rel="prefetch" href="/assets/js/73.57026e0a.js"><link rel="prefetch" href="/assets/js/74.39a6f866.js"><link rel="prefetch" href="/assets/js/75.8d49462e.js"><link rel="prefetch" href="/assets/js/76.f891bf45.js"><link rel="prefetch" href="/assets/js/77.c8a3af4c.js"><link rel="prefetch" href="/assets/js/78.07521a97.js"><link rel="prefetch" href="/assets/js/79.aee888a3.js"><link rel="prefetch" href="/assets/js/8.f616a798.js"><link rel="prefetch" href="/assets/js/80.cfd0cd53.js"><link rel="prefetch" href="/assets/js/81.707a5ee3.js"><link rel="prefetch" href="/assets/js/82.791bd9b0.js"><link rel="prefetch" href="/assets/js/83.d2599399.js"><link rel="prefetch" href="/assets/js/84.e4773484.js"><link rel="prefetch" href="/assets/js/85.72f88fa5.js"><link rel="prefetch" href="/assets/js/86.ffdf2d1e.js"><link rel="prefetch" href="/assets/js/87.b4227711.js"><link rel="prefetch" href="/assets/js/88.ced4d671.js"><link rel="prefetch" href="/assets/js/89.7ceb6053.js"><link rel="prefetch" href="/assets/js/9.581e98ff.js"><link rel="prefetch" href="/assets/js/90.f1b678cb.js"><link rel="prefetch" href="/assets/js/91.8d1d690b.js"><link rel="prefetch" href="/assets/js/92.867a487f.js"><link rel="prefetch" href="/assets/js/93.49f36484.js"><link rel="prefetch" href="/assets/js/94.8ebd746e.js"><link rel="prefetch" href="/assets/js/95.bc94dbc7.js"><link rel="prefetch" href="/assets/js/96.fb0c9c67.js"><link rel="prefetch" href="/assets/js/97.3ab234c0.js"><link rel="prefetch" href="/assets/js/98.96a4f503.js"><link rel="prefetch" href="/assets/js/99.087cd15a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">LBW's Wiki Pages</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/overview/" class="nav-link">
+  概览
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础知识" class="dropdown-title"><span class="title">基础知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础知识" class="mobile-dropdown-title"><span class="title">基础知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/algorithm/" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/operating-system/" class="nav-link">
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/computer-network/" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-item"><!----> <a href="/distributed-system/" class="nav-link">
+  分布式系统
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程语言" class="dropdown-title"><span class="title">编程语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程语言" class="mobile-dropdown-title"><span class="title">编程语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/language/java/" class="nav-link">
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/language/c/" class="nav-link">
+  C/C++
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/tomcat/" class="nav-link">
+  Tomcat
+</a></li><li class="dropdown-item"><!----> <a href="/backend/jetty/" class="nav-link router-link-active">
+  Jetty
+</a></li><li class="dropdown-item"><!----> <a href="/backend/spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/backend/database/" class="nav-link">
+  数据库
+</a></li><li class="dropdown-item"><!----> <a href="/backend/redis/" class="nav-link">
+  Redis
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="微服务" class="dropdown-title"><span class="title">微服务</span> <span class="arrow down"></span></button> <button type="button" aria-label="微服务" class="mobile-dropdown-title"><span class="title">微服务</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/microservice/" class="nav-link">
+  微服务架构
+</a></li><li class="dropdown-item"><!----> <a href="/docker/" class="nav-link">
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/kubernetes/" class="nav-link">
+  Kubernetes
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend/" class="nav-link">
+  前端
+</a></li><li class="dropdown-item"><!----> <a href="/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/devops/" class="nav-link">
+  Dev-Ops
+</a></li><li class="dropdown-item"><!----> <a href="/circumvent-internet/" class="nav-link">
+  科学上网
+</a></li></ul></div></div><div class="nav-item"><a href="https://lebw.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Blog
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/lebw/my-wiki" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/overview/" class="nav-link">
+  概览
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础知识" class="dropdown-title"><span class="title">基础知识</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础知识" class="mobile-dropdown-title"><span class="title">基础知识</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/algorithm/" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/operating-system/" class="nav-link">
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/computer-network/" class="nav-link">
+  计算机网络
+</a></li><li class="dropdown-item"><!----> <a href="/distributed-system/" class="nav-link">
+  分布式系统
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="编程语言" class="dropdown-title"><span class="title">编程语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="编程语言" class="mobile-dropdown-title"><span class="title">编程语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/language/java/" class="nav-link">
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/language/c/" class="nav-link">
+  C/C++
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/tomcat/" class="nav-link">
+  Tomcat
+</a></li><li class="dropdown-item"><!----> <a href="/backend/jetty/" class="nav-link router-link-active">
+  Jetty
+</a></li><li class="dropdown-item"><!----> <a href="/backend/spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/backend/database/" class="nav-link">
+  数据库
+</a></li><li class="dropdown-item"><!----> <a href="/backend/redis/" class="nav-link">
+  Redis
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="微服务" class="dropdown-title"><span class="title">微服务</span> <span class="arrow down"></span></button> <button type="button" aria-label="微服务" class="mobile-dropdown-title"><span class="title">微服务</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/microservice/" class="nav-link">
+  微服务架构
+</a></li><li class="dropdown-item"><!----> <a href="/docker/" class="nav-link">
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/kubernetes/" class="nav-link">
+  Kubernetes
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend/" class="nav-link">
+  前端
+</a></li><li class="dropdown-item"><!----> <a href="/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/devops/" class="nav-link">
+  Dev-Ops
+</a></li><li class="dropdown-item"><!----> <a href="/circumvent-internet/" class="nav-link">
+  科学上网
+</a></li></ul></div></div><div class="nav-item"><a href="https://lebw.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Blog
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/lebw/my-wiki" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/backend/jetty/jetty.html" aria-current="page" class="active sidebar-link">Jetty</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/backend/jetty/jetty.html#如何使用-jetty" class="sidebar-link">如何使用 Jetty</a></li><li class="sidebar-sub-header"><a href="/backend/jetty/jetty.html#jetty-启动流程" class="sidebar-link">Jetty 启动流程</a></li><li class="sidebar-sub-header"><a href="/backend/jetty/jetty.html#jetty-的-nio-与-bio-模型" class="sidebar-link">Jetty 的 NIO 与 BIO 模型</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/backend/jetty/jetty.html#bio" class="sidebar-link">BIO</a></li><li class="sidebar-sub-header"><a href="/backend/jetty/jetty.html#nio" class="sidebar-link">NIO</a></li></ul></li><li class="sidebar-sub-header"><a href="/backend/jetty/jetty.html#用-jetty-nio-实现一个简易网关" class="sidebar-link">用 Jetty NIO 实现一个简易网关</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="jetty"><a href="#jetty" class="header-anchor">#</a> Jetty</h1> <p>这里以 Jetty 8.2 为例，介绍 Jetty 的模型。</p> <p>Jetty 的架构如下图所示</p> <p><img src="/assets/img/jetty.f1a78e59.png" alt="Jetty"></p> <p>可见 Jetty 里的核心组件有 Connector 和 Handler，其中：</p> <ul><li>Connector 用于发起 HTTP 监听，并接受外部 HTTP 请求</li> <li>Handler 用于处理 HTTP 请求并生成响应</li></ul> <h2 id="如何使用-jetty"><a href="#如何使用-jetty" class="header-anchor">#</a> 如何使用 Jetty</h2> <p>首先看一个最简单的例子，用 Jetty 启用一个 Web 服务器，监听 8080 端口并对请求返回字符串 “Hello World”。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloWorldServer</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">HelloServlet</span> <span class="token keyword">extends</span> <span class="token class-name">HttpServlet</span> <span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">doGet</span><span class="token punctuation">(</span><span class="token class-name">HttpServletRequest</span> req<span class="token punctuation">,</span> <span class="token class-name">HttpServletResponse</span> resp<span class="token punctuation">)</span>
+                <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">{</span>
+            resp<span class="token punctuation">.</span><span class="token function">setContentType</span><span class="token punctuation">(</span><span class="token string">&quot;text/html&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            resp<span class="token punctuation">.</span><span class="token function">setStatus</span><span class="token punctuation">(</span><span class="token class-name">HttpServletResponse</span><span class="token punctuation">.</span>SC_OK<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            resp<span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;&lt;h1&gt;Hello World&lt;/h1&gt;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Server</span> server <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Server</span><span class="token punctuation">(</span><span class="token number">8080</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 创建 Jetty 服务器，监听 8080 端口</span>
+        
+        <span class="token comment">// 创建一个 handler，handler 用于处理请求</span>
+        <span class="token class-name">ServletContextHandler</span> context <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ServletContextHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 设置上下文路径</span>
+        context<span class="token punctuation">.</span><span class="token function">setContextPath</span><span class="token punctuation">(</span><span class="token string">&quot;/&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+        <span class="token comment">// 将 servlet 添加到 Jetty，并映射到路径 &quot;/&quot;</span>
+        context<span class="token punctuation">.</span><span class="token function">addServlet</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ServletHolder</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">HelloServlet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">&quot;/&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 将该 handler 配置成 server 的 handler</span>
+        <span class="token comment">// 这里调用的其实是 Server 的 父类 HandlerWrapper 的 setHandler 方法</span>
+        server<span class="token punctuation">.</span><span class="token function">setHandler</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            server<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 启动 Jetty 服务器</span>
+            server<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 在当前线程加入服务器，等待服务器关闭</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+            server<span class="token punctuation">.</span><span class="token function">destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 在服务器关闭时清理资源</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><p>Jetty 的主类是 <code>org.eclipse.jetty.server.Server</code>. 看一下里面的关键字段和方法</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Server</span> <span class="token keyword">extends</span> <span class="token class-name">HandlerWrapper</span> <span class="token keyword">implements</span> <span class="token class-name">Attributes</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// Server 使用的线程池</span>
+    <span class="token keyword">private</span> <span class="token class-name">ThreadPool</span> _threadPool<span class="token punctuation">;</span>
+    <span class="token comment">// connector 是用来接受 HTTP 请求的连接器</span>
+    <span class="token comment">//一个 Server 可以有多个 connector，可以理解为能够监听多个端口，但是他们默认是共用一个线程池的</span>
+    <span class="token keyword">private</span> <span class="token class-name">Connector</span><span class="token punctuation">[</span><span class="token punctuation">]</span> _connectors<span class="token punctuation">;</span>
+
+    <span class="token comment">// 构造方法，port代表需要监听的端口</span>
+    <span class="token keyword">public</span> <span class="token class-name">Server</span><span class="token punctuation">(</span><span class="token keyword">int</span> port<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">setServer</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 初始化 SelectorChannelConnector，（内部创建了一个 SelectorManager，并加入了 bean 列表中）</span>
+        <span class="token comment">// SelectChannelConnector 是一个 NIO 的连接器，说明 Jetty 从这时就已经支持并且默认是 NIO 模型了</span>
+        <span class="token comment">// 与之对应的，有 BIO 的连接器，类名称是 SocketConnector，后面可以做对比</span>
+        <span class="token class-name">Connector</span> connector<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">SelectChannelConnector</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        connector<span class="token punctuation">.</span><span class="token function">setPort</span><span class="token punctuation">(</span>port<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">setConnectors</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Connector</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span>connector<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">doStart</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><h2 id="jetty-启动流程"><a href="#jetty-启动流程" class="header-anchor">#</a> Jetty 启动流程</h2> <p>接下来看看 Server 的 doStart 里到底做了什么事情。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">doStart</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 配置了默认线程池，并加入了 Server 维护的 bean 列表中</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>_threadPool<span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span>
+        <span class="token function">setThreadPool</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">QueuedThreadPool</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">try</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// 调用了所有 bean 的 start 方法（包括上面的线程池，所以这一步启动了 Server 的线程池）</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">doStart</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token comment">// 调用了所有 connecotr 的 start 方法</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>_connectors<span class="token operator">!=</span><span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> mex<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>_connectors<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">try</span><span class="token punctuation">{</span>_connectors<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+            <span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token class-name">Throwable</span> e<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                mex<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>可以看出，其实就是调用了每个 connector 的 start 方法。而上面的构造函数可以看出，这里的 connector 是一个 <code>SelectorChannelConnector</code> ，所以接下来看 <code>SelectorChannelConnector</code> 的 start 方法.</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">//AbstractConnector.java</span>
+<span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">doStart</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>_server <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalStateException</span><span class="token punctuation">(</span><span class="token string">&quot;No server&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 开启端口监听。这里调用的就是实际Connector 的open 方法了。</span>
+    <span class="token comment">// 如果是 NIO 模型，调用的是SelectChannelConnector 的 open() 方法</span>
+    <span class="token comment">// 如果是 BIO 模型，调用的是 Selector 的 open() 方法</span>
+    <span class="token comment">// 调用完后，就已经开始监听目标端口了。后面在讲两种模型时，会具体讲到</span>
+    <span class="token keyword">open</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 把 server 的线程池直接拿过来用，这也应证了上面说的一个 Server 内的 connector 共用线程池</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>_threadPool <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        _threadPool <span class="token operator">=</span> _server<span class="token punctuation">.</span><span class="token function">getThreadPool</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 把线程池加入该 connector 维护的 bean 列表中</span>
+        <span class="token function">addBean</span><span class="token punctuation">(</span>_threadPool<span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 内部其实是调用了每个 bean 的 start 方法，有两个关键的 bean</span>
+    <span class="token comment">// 一个是上面上面刚刚加入的那个线程池的(不过如果是从 server 拿的线程池，那么已经是开启状态了，内部逻辑保证不会重复开启)</span>
+    <span class="token comment">// 一个是构造函数时加入的 ConnectorSelectorManager（调用它的 start，主要是开启了 selector 线程，也就是从线程池中拿一个线程出来当 selector 线程）</span>
+    <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">doStart</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// getAcceptors 默认返回1，所以这里是创建了一个长度为1的线程数组</span>
+        _acceptorThreads <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">[</span><span class="token function">getAcceptors</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 为线程池添加一个 new Acceptor(i) 的任务，该任务会将「执行该任务的线程」变成一个 acceptor 线程</span>
+        <span class="token comment">// 也就是从线程池中拿一个线程出来当 acceptor 线程</span>
+        <span class="token comment">// acceptor 线程的作用就是接受外部请求的TCP连接，然后调用 connector 的 accept  方法进行连接</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> _acceptorThreads<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>_threadPool<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Acceptor</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalStateException</span><span class="token punctuation">(</span><span class="token string">&quot;!accepting&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>_threadPool<span class="token punctuation">.</span><span class="token function">isLowOnThreads</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            LOG<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">&quot;insufficient threads configured for {}&quot;</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    LOG<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&quot;Started {}&quot;</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>可以看出，acceptor 线程是从线程池里抽出来的，那么看看 <code>Acceptor</code> 类的 run 方法，就知道 acceptor 线程在干什么事情了。（下文讲到的 NIO 和 BIO 模型，都有 acceptor 线程，而且是都是这个 Acceptor）</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">private</span> <span class="token keyword">class</span> <span class="token class-name">Acceptor</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name">Thread</span> current <span class="token operator">=</span> <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+        <span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span class="token class-name">AbstractConnector</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>_acceptorThreads <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+                <span class="token keyword">return</span><span class="token punctuation">;</span>
+
+            _acceptorThreads<span class="token punctuation">[</span>_acceptor<span class="token punctuation">]</span> <span class="token operator">=</span> current<span class="token punctuation">;</span>
+            name <span class="token operator">=</span> _acceptorThreads<span class="token punctuation">[</span>_acceptor<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 设置 acceptor 线程的名字，方便识别</span>
+            current<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span>name <span class="token operator">+</span> <span class="token string">&quot; Acceptor&quot;</span> <span class="token operator">+</span> _acceptor <span class="token operator">+</span> <span class="token string">&quot; &quot;</span> <span class="token operator">+</span> <span class="token class-name">AbstractConnector</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">int</span> old_priority <span class="token operator">=</span> current<span class="token punctuation">.</span><span class="token function">getPriority</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">try</span>
+        <span class="token punctuation">{</span>
+            current<span class="token punctuation">.</span><span class="token function">setPriority</span><span class="token punctuation">(</span>old_priority <span class="token operator">-</span> _acceptorPriorityOffset<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token function">isRunning</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">getConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">try</span>
+                <span class="token punctuation">{</span>
+                    <span class="token comment">// 不停调用子类的 accept 方法。</span>
+                    <span class="token comment">// 根据 BIO 或是 NIO，这里会调到不同的子类方法，BIO 是 SocketConnector，NIO 是 SelectChannelConnector</span>
+                    <span class="token function">accept</span><span class="token punctuation">(</span>_acceptor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">EofException</span> e<span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    LOG<span class="token punctuation">.</span><span class="token function">ignore</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="jetty-的-nio-与-bio-模型"><a href="#jetty-的-nio-与-bio-模型" class="header-anchor">#</a> Jetty 的 NIO 与 BIO 模型</h2> <p>上面提到，Jetty 默认采用的 NIO 模型，同时也支持较老的 BIO 模型，下面分别讲下这两种模型，以便更好理解区别。</p> <p>由于 BIO 更简单，首先讲讲 BIO 模型。</p> <h3 id="bio"><a href="#bio" class="header-anchor">#</a> BIO</h3> <p><img src="/assets/img/jetty-bio.9e66bf3a.jpg" alt="jetty-bio"></p> <p>如上图所示，在 BIO 模型中，Jetty 会将线程池中的一个线程拿出来当成 acceptor 线程，这个线程专门负责接受 HTTP 请求，并建立起 TCP 连接，然后将建立好的连接抛给线程池其他的线程，让他们去处理（包括读取请求数据，处理请求，将响应写入连接等）。
+之前在启动流程中讲过，开启监听的关键在 Connector 的 open 方法中。所以首先我们看看 <code>SocketConnector</code> 的 open 方法</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SocketConnector</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractConnector</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token keyword">open</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// 创建一个 ServerSocket，这是 JDK 自带的一个类，专门用于开启服务端socket监听的</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>_serverSocket<span class="token operator">==</span><span class="token keyword">null</span> <span class="token operator">||</span> _serverSocket<span class="token punctuation">.</span><span class="token function">isClosed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        _serverSocket<span class="token operator">=</span> <span class="token function">newServerSocket</span><span class="token punctuation">(</span><span class="token function">getHost</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">getPort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">getAcceptQueueSize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        _serverSocket<span class="token punctuation">.</span><span class="token function">setReuseAddress</span><span class="token punctuation">(</span><span class="token function">getReuseAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        _localPort<span class="token operator">=</span>_serverSocket<span class="token punctuation">.</span><span class="token function">getLocalPort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>_localPort<span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalStateException</span><span class="token punctuation">(</span><span class="token string">&quot;port not allocated for &quot;</span><span class="token operator">+</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">protected</span> <span class="token class-name">ServerSocket</span> <span class="token function">newServerSocket</span><span class="token punctuation">(</span><span class="token class-name">String</span> host<span class="token punctuation">,</span> <span class="token keyword">int</span> port<span class="token punctuation">,</span><span class="token keyword">int</span> backlog<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name">ServerSocket</span> ss<span class="token operator">=</span> host<span class="token operator">==</span><span class="token keyword">null</span><span class="token operator">?</span>
+            <span class="token keyword">new</span> <span class="token class-name">ServerSocket</span><span class="token punctuation">(</span>port<span class="token punctuation">,</span>backlog<span class="token punctuation">)</span><span class="token operator">:</span>
+            <span class="token keyword">new</span> <span class="token class-name">ServerSocket</span><span class="token punctuation">(</span>port<span class="token punctuation">,</span>backlog<span class="token punctuation">,</span><span class="token class-name">InetAddress</span><span class="token punctuation">.</span><span class="token function">getByName</span><span class="token punctuation">(</span>host<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> ss<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>然后再看看 <code>SocketConnector</code> 的 accept 方法，这是 acceptor 线程会调用到的方法</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SocketConnector</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractConnector</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">accept</span><span class="token punctuation">(</span><span class="token keyword">int</span> acceptorID<span class="token punctuation">)</span>
+    	<span class="token keyword">throws</span> <span class="token class-name">IOException</span><span class="token punctuation">,</span> <span class="token class-name">InterruptedException</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// 一个阻塞性的accept方法，会阻塞直到建立一条连接</span>
+        <span class="token class-name">Socket</span> socket <span class="token operator">=</span> _serverSocket<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">configure</span><span class="token punctuation">(</span>socket<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// ConnectorEndpoint 代表一条连接，同时也是一个Runnable的任务</span>
+        <span class="token class-name">ConnectorEndPoint</span> connection<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">ConnectorEndPoint</span><span class="token punctuation">(</span>socket<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// dispatch 底层会调用 threadpool 的 dispatch 方法，执行这个任务</span>
+        connection<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>ConnectorEndpoint 里的具体任务就暂时不细分析了，总之在这个任务里，会执行请求流读取、请求处理及生成响应、响应流写入的完整过程。之所以说这种模式是 BIO 的，就是因为请求到来，连接建立完毕后，这个任务就直接甩给一个工作线程了，由这个工作线程负责所有的读取、处理、写入等。</p> <p>而我们知道，网络IO（也就是上面说的读取、写入等操作）是比较耗时的，这些时间该工作线程一直在等待，无法干其他的事情，相当于没法用 CPU 了，只是耗着内存。</p> <p>假设现在有 500 个线程，都处于 IO 过程中，那么这 500 个线程会占用大量内存，而且没法再去处理新的请求了，这无疑是一种浪费。如果有更好的办法能够利用起这些线程，让他们在等待 IO 的过程中可以去处理别的请求，等 IO 准备好之后，再回来处理这个请求，无疑会更高效，这也是 NIO 的目的和意义。</p> <h3 id="nio"><a href="#nio" class="header-anchor">#</a> NIO</h3> <p>下面看看 Jetty 的 NIO 模型。架构如下
+<img src="/assets/img/jetty-nio.abe7af50.jpg" alt="jetty-nio"></p> <p>在 NIO 模型中，Connector 的类就由 <code>SocketConnector</code> 变为 <code>SelectChannelConnector</code> 了。先看看它的初始化方法</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SelectChannelConnector</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractNIOConnector</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">SelectorManager</span> _manager <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConnectorSelectorManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">SelectChannelConnector</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        _manager<span class="token punctuation">.</span><span class="token function">setMaxIdleTime</span><span class="token punctuation">(</span><span class="token function">getMaxIdleTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 把初始化好的 manager 放到了 bean 列表里，方便后面执行它的 start 方法</span>
+        <span class="token function">addBean</span><span class="token punctuation">(</span>_manager<span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 设置 acceptors 数量，后面 acceptor 线程的数量就由它决定</span>
+        <span class="token function">setAcceptors</span><span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token class-name">Runtime</span><span class="token punctuation">.</span><span class="token function">getRuntime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">availableProcessors</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>接下来看看它的 doStart 方法</p> <div class="language-java extra-class"><pre class="language-java"><code>    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">doStart</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// 将 selectSets 值设置为与 acceptor 数量相同</span>
+        _manager<span class="token punctuation">.</span><span class="token function">setSelectSets</span><span class="token punctuation">(</span><span class="token function">getAcceptors</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        _manager<span class="token punctuation">.</span><span class="token function">setMaxIdleTime</span><span class="token punctuation">(</span><span class="token function">getMaxIdleTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        _manager<span class="token punctuation">.</span><span class="token function">setLowResourcesConnections</span><span class="token punctuation">(</span><span class="token function">getLowResourcesConnections</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        _manager<span class="token punctuation">.</span><span class="token function">setLowResourcesMaxIdleTime</span><span class="token punctuation">(</span><span class="token function">getLowResourcesMaxIdleTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 调用 AbstractConnector 的 doStart 方法，在上面讲过了</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">doStart</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><p>开启监听的方法是 <code>SelectChannelConnector</code> 的 open 方法</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SelectChannelConnector</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractNIOConnector</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token keyword">open</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">synchronized</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>_acceptChannel <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token comment">// 创建一个新的 server socket</span>
+                <span class="token comment">// 注意 ServerSocketChannel 是 jdk nio 里的类</span>
+                _acceptChannel <span class="token operator">=</span> <span class="token class-name">ServerSocketChannel</span><span class="token punctuation">.</span><span class="token keyword">open</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">// 将该 channel 配置成阻塞模式。</span>
+                <span class="token comment">// 也就是说，当执行 _acceptChannel.accept()方法时，会阻塞直到新的连接请求到来</span>
+                _acceptChannel<span class="token punctuation">.</span><span class="token function">configureBlocking</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                _acceptChannel<span class="token punctuation">.</span><span class="token function">socket</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setReuseAddress</span><span class="token punctuation">(</span><span class="token function">getReuseAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">InetSocketAddress</span> addr <span class="token operator">=</span> <span class="token function">getHost</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token keyword">null</span><span class="token operator">?</span><span class="token keyword">new</span> <span class="token class-name">InetSocketAddress</span><span class="token punctuation">(</span><span class="token function">getPort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token keyword">new</span> <span class="token class-name">InetSocketAddress</span><span class="token punctuation">(</span><span class="token function">getHost</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">getPort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">// 将该 channel 绑定到目标端口上</span>
+                _acceptChannel<span class="token punctuation">.</span><span class="token function">socket</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>addr<span class="token punctuation">,</span><span class="token function">getAcceptQueueSize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                _localPort<span class="token operator">=</span>_acceptChannel<span class="token punctuation">.</span><span class="token function">socket</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getLocalPort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>_localPort<span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">)</span>
+                    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IOException</span><span class="token punctuation">(</span><span class="token string">&quot;Server channel not bound&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token function">addBean</span><span class="token punctuation">(</span>_acceptChannel<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>需要重点关注这个 <code>_acceptChannel.configureBlocking(true);</code> ，理解下这里的阻塞模式：</p> <ul><li>当传递 true 时，这个通道将被配置为阻塞模式。这意味着任何试图在这个通道上进行 I/O 操作的线程会被阻塞直到操作完成。就 ServerSocketChannel 而言，accept() 方法（这个方法接受并返回新的连接）将会阻塞，直到新的连接到达或被其他方式中断。在阻塞模式下，ServerSocketChannel 的行为和传统的 ServerSocket 很相似。</li> <li>如果传递 false，通道将被配置为非阻塞模式。在这种模式下，调用 accept() 方法将立即返回，如果还没有新的连接，则返回 null。这允许服务器在单个线程中管理多个通道，即所谓的非阻塞 IO 或多路复用 IO。</li></ul> <p>这里之所以选择阻塞模式，是因为 Jetty 使用单独的 acceptor 线程来处理建立连接的过程，这个线程只需要关心 accept 就可以了，其他的统统不用关心，也就是说它没有其他的事情可干了，所以干脆设置成阻塞模式，意思可以理解为：“如果当前没有新的请求过来，那你就阻塞着吧，反正你也没别的事情可干”。</p> <p>上述代码执行后，目标端口就已经成功开始监听了，也可以理解为服务器启动了。接下来是启动 selector 线程和 acceptor 线程。
+启动 selector 的线程在 <code>ConnectorSelectorManager</code> 的 start 方法里</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">// SelectorManager</span>
+<span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">doStart</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// selectSets 值与 acceptor 数量相同</span>
+    _selectSet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SelectSet</span><span class="token punctuation">[</span>_selectSets<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>_selectSet<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        _selectSet<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SelectSet</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">doStart</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 开启相应数量的 selector 线程</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token function">getSelectSets</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> <span class="token keyword">int</span> id<span class="token operator">=</span>i<span class="token punctuation">;</span>
+        <span class="token keyword">boolean</span> selecting<span class="token operator">=</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Runnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token class-name">String</span> name<span class="token operator">=</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">int</span> priority<span class="token operator">=</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getPriority</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">try</span>
+                <span class="token punctuation">{</span>
+                    <span class="token class-name">SelectSet</span><span class="token punctuation">[</span><span class="token punctuation">]</span> sets<span class="token operator">=</span>_selectSet<span class="token punctuation">;</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>sets<span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span>
+                        <span class="token keyword">return</span><span class="token punctuation">;</span>
+                    <span class="token class-name">SelectSet</span> set<span class="token operator">=</span>sets<span class="token punctuation">[</span>id<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+                    <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span>name<span class="token operator">+</span><span class="token string">&quot; Selector&quot;</span><span class="token operator">+</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">getSelectorPriorityDelta</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span>
+                        <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setPriority</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getPriority</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token function">getSelectorPriorityDelta</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    LOG<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">&quot;Starting {} on {}&quot;</span><span class="token punctuation">,</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token function">isRunning</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">{</span>
+                        <span class="token keyword">try</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token comment">// selector 线程的任务，就是不停执行 set.doSelect() 方法</span>
+                            set<span class="token punctuation">.</span><span class="token function">doSelect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span>
+                        <span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span>
+                        <span class="token punctuation">{</span>
+                            LOG<span class="token punctuation">.</span><span class="token function">ignore</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span>
+                        <span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span>
+                        <span class="token punctuation">{</span>
+                            LOG<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">finally</span>
+                <span class="token punctuation">{</span>
+                    LOG<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">&quot;Stopped {} on {}&quot;</span><span class="token punctuation">,</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">getSelectorPriorityDelta</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span>
+                        <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setPriority</span><span class="token punctuation">(</span>priority<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>selecting<span class="token punctuation">)</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalStateException</span><span class="token punctuation">(</span><span class="token string">&quot;!Selecting&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>selector 线程的工作就是不停执行 <code>set.doSelect()</code> 方法，而这个方法非常长。。详情可以看 <code>org.eclipse.jetty.io.nio.SelectorManager.SelectSet#doSelect</code> ，不展开了，其作用可以总结为：</p> <ol><li>设置当前选择器线程：标记当前的 _selecting 线程为处理选择器事件的线程。</li> <li>确认选择器状态：检查传入的选择器 selector 是否为 null，如果是，则直接返回。</li> <li>处理变更队列：处理 _changes 队列中的所有更改，这可能包括注册新的通道，更新已有的 EndPoint，或执行其他任务。这要求代码处理队列中的对象，这些对象可能表示新的连接请求、优先级更改等。</li> <li>执行即时选择：通过调用 selector.selectNow() 执行一个非阻塞的选择操作，立即返回任何就绪的 IO 事件。</li> <li>处理就绪事件：
+如果没有就绪事件，有可能进行了短暂的休眠（如果 _pausing 标志为 true）。
+调用 selector.select(wait) 可能会执行一个阻塞的选择操作，等待特定的时间或直到就绪事件出现。</li> <li>清理和更新选择器状态：检查 _selector 是否已关闭或被销毁，这样循环就会退出。</li> <li>处理选定的键：遍历 selector.selectedKeys() 集合，并根据每个键表示的 IO 事件采取相应的行动。校验键是否有效，并取消无效的键。处理可读、可写或连接完成的事件。</li> <li>调度超时任务：检查任何等待执行或已到期的超时任务，并执行它们。</li> <li>心跳和空闲处理：
+如果到了心跳时间，执行心跳检查，检查非活动的 EndPoint。
+用于决定选择器是否过于忙碌，并可能决定引入休眠来减少 CPU 利用率。</li> <li>清除处理的键：清理处理过的选择键，为下一轮选择事件准备。</li> <li>忙碌选择监控器重置：重置忙碌选择数和暂停标志，以准备下一次监控周期。</li> <li>异常处理：捕获异常，根据服务器运行状态决定是否记录日志，并且确保相关通道被关闭。</li> <li>结束清理：清除 _selecting 的引用，表明选择器处理循环结束。</li></ol> <p>总之，<code>doSelect</code> 做的事情就是遍历所有 changes，找到可以处理的任务并进行分配。</p> <p>而这里的 changes 是哪里来的呢，主要来源之一就是 acceptor，下面会讲。</p> <p>接下来看看 <code>SelectChannelConnector</code> 的 <code>accept</code> 方法，也就是 acceptor 线程执行的代码</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">accept</span><span class="token punctuation">(</span><span class="token keyword">int</span> acceptorID<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span>
+<span class="token punctuation">{</span>
+    <span class="token class-name">ServerSocketChannel</span> server<span class="token punctuation">;</span>
+    <span class="token keyword">synchronized</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        server <span class="token operator">=</span> _acceptChannel<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>server<span class="token operator">!=</span><span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> server<span class="token punctuation">.</span><span class="token function">isOpen</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> _manager<span class="token punctuation">.</span><span class="token function">isStarted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// 调用 accept 方法，接受新请求，建立连接，连接对应一个 SocketChannel</span>
+        <span class="token class-name">SocketChannel</span> channel <span class="token operator">=</span> server<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 这个具体的 channel，需要配置为非阻塞模式</span>
+        channel<span class="token punctuation">.</span><span class="token function">configureBlocking</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Socket</span> socket <span class="token operator">=</span> channel<span class="token punctuation">.</span><span class="token function">socket</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">configure</span><span class="token punctuation">(</span>socket<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 调用 SelectorManager 的 register 方法，将该 channel 注册进去</span>
+        _manager<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span>channel<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>下面看下 SelectorManager 的 register 方法</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">register</span><span class="token punctuation">(</span><span class="token class-name">SocketChannel</span> channel<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// 类似轮训的方式，找到一个合适的 s</span>
+    <span class="token keyword">int</span> s<span class="token operator">=</span>_set<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>s<span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">)</span>
+        s<span class="token operator">=</span><span class="token operator">-</span>s<span class="token punctuation">;</span>
+    s<span class="token operator">=</span>s<span class="token operator">%</span>_selectSets<span class="token punctuation">;</span>
+    <span class="token class-name">SelectSet</span><span class="token punctuation">[</span><span class="token punctuation">]</span> sets<span class="token operator">=</span>_selectSet<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>sets<span class="token operator">!=</span><span class="token keyword">null</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// 在 sets[s] 中添加 change，这里的 change 实际类型就是 SocketChannel</span>
+        <span class="token class-name">SelectSet</span> set<span class="token operator">=</span>sets<span class="token punctuation">[</span>s<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        set<span class="token punctuation">.</span><span class="token function">addChange</span><span class="token punctuation">(</span>channel<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        set<span class="token punctuation">.</span><span class="token function">wakeup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>也就是说，accept 做的事情其实就是建立连接，然后吧 socketChannel 加入到对应 set 的 change 列表中，就完了。</p> <p>是 selector 线程来遍历 set 里面的 change，然后进行处理和任务分配的。</p> <p>接下里可能会有一个疑问：selector 把任务分配给工作线程之后，工作线程在处理任务的时候，如果碰到了 IO（例如网络请求等），会怎么处理呢？如果还是像传统的方式一样调用阻塞式的 IO 操作，那么工作线程还是会阻塞住，没法干别的事情，所以这里我们需要调用非阻塞式的 IO 操作，例如 Servlet 3.0 提出来的 <code>AsyncContext</code> 模式，或者在早期 Jetty 使用的 Continuation 模式。</p> <p>这种模式的原理可以理解为，工作线程在处理的过程中，如果需要重IO，比如网络请求，那么它可以开启异步模式，然后使用支持异步的 HTTP Client 去发送请求，同时在这个异步 HTTP Client 的回调函数里填充响应，并且提醒原始请求可以返回响应了。</p> <p>听起来很绕，不过看看下面这个例子，应该就能理解了。</p> <h2 id="用-jetty-nio-实现一个简易网关"><a href="#用-jetty-nio-实现一个简易网关" class="header-anchor">#</a> 用 Jetty NIO 实现一个简易网关</h2> <p>下面通过 Servlet 3.0 提出的 <code>AsyncContext</code> 介绍一下非阻塞式 IO 的处理方式。假设我们要用 Jetty 写一个简易的网关程序，也就是说 Jetty 服务端在接受到请求后，需要往后端服务转发请求，这个往后端服务转发的过程显然是一个重 IO 的操作，它很可能比较耗时，因此我们希望它可以异步进行，不占用 Jetty Server 的工作线程，那么我们需要如下实现</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SimpleGateway</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 初始化一个 Jetty Server，监听 8082 端口</span>
+        <span class="token class-name">Server</span> server <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Server</span><span class="token punctuation">(</span><span class="token number">8082</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 设置处理器</span>
+        server<span class="token punctuation">.</span><span class="token function">setHandler</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">RequestHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        server<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        server<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RequestHandler</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractHandler</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">static</span> <span class="token class-name">Logger</span> log <span class="token operator">=</span> <span class="token class-name">Logger</span><span class="token punctuation">.</span><span class="token function">getLogger</span><span class="token punctuation">(</span><span class="token class-name">RequestHandler</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">HttpClient</span> httpClient <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HttpClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">RequestHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        httpClient<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">handle</span><span class="token punctuation">(</span><span class="token class-name">String</span> target<span class="token punctuation">,</span> <span class="token class-name">Request</span> baseRequest<span class="token punctuation">,</span> <span class="token class-name">HttpServletRequest</span> request<span class="token punctuation">,</span> <span class="token class-name">HttpServletResponse</span> response<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span><span class="token punctuation">,</span> <span class="token class-name">ServletException</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>baseRequest<span class="token punctuation">.</span><span class="token function">isHandled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// 将当前请求设置为异步处理模式. 调用完该方法之后，即使 handle 方法结束，该请求的响应也不会被提交，直到调用 asyncContext.complete() 方法为止</span>
+        <span class="token keyword">final</span> <span class="token class-name">AsyncContext</span> asyncContext <span class="token operator">=</span> baseRequest<span class="token punctuation">.</span><span class="token function">startAsync</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        baseRequest<span class="token punctuation">.</span><span class="token function">setHandled</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 根据实际情况配置后端服务 URI</span>
+        <span class="token class-name">String</span> backendServiceUri <span class="token operator">=</span> <span class="token string">&quot;http://httpbin.org/get&quot;</span><span class="token punctuation">;</span>
+        <span class="token comment">//会打印 Handle Request Thread: qtp1146743572-27，是 server 创建的线程池里的线程，也就是上面图中画的工作线程 worker</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&quot;Handle Request Thread: &quot;</span> <span class="token operator">+</span> <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// httpClient 这里是异步调用，为非阻塞，所以会立即返回，对响应的处理在回调函数里进行</span>
+        httpClient<span class="token punctuation">.</span><span class="token function">newRequest</span><span class="token punctuation">(</span>backendServiceUri<span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">method</span><span class="token punctuation">(</span><span class="token class-name">HttpMethod</span><span class="token punctuation">.</span>GET<span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BufferingResponseListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token annotation punctuation">@Override</span>
+                    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onComplete</span><span class="token punctuation">(</span><span class="token class-name">Result</span> result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token comment">// 这里面的逻辑都属于回调函数，是在 httpClient 内置的线程池里进行的</span>
+                        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                            <span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">.</span><span class="token function">isSucceeded</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                <span class="token class-name">Response</span> backendResponse <span class="token operator">=</span> result<span class="token punctuation">.</span><span class="token function">getResponse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> responseContent <span class="token operator">=</span> <span class="token function">getContent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                                <span class="token comment">// 设置响应码和内容类型</span>
+                                response<span class="token punctuation">.</span><span class="token function">setStatus</span><span class="token punctuation">(</span>backendResponse<span class="token punctuation">.</span><span class="token function">getStatus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                response<span class="token punctuation">.</span><span class="token function">setContentType</span><span class="token punctuation">(</span>backendResponse<span class="token punctuation">.</span><span class="token function">getHeaders</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;Content-Type&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                <span class="token comment">// 将后端服务的响应发送给原始请求客户端</span>
+                                response<span class="token punctuation">.</span><span class="token function">getOutputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>responseContent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                                response<span class="token punctuation">.</span><span class="token function">setStatus</span><span class="token punctuation">(</span><span class="token class-name">HttpStatus</span><span class="token punctuation">.</span>BAD_GATEWAY_502<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                result<span class="token punctuation">.</span><span class="token function">getFailure</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token punctuation">}</span>
+                        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+                            <span class="token comment">// 会打印 Execute IO Thread: HttpClient@3339ad8e-19 ，说明回调是在内部线程池里执行的</span>
+                            log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&quot;Execute IO Thread: &quot;</span> <span class="token operator">+</span> <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token comment">// 只有执行了 complete 函数后，才认为当前请求已经处理完了，可以返回响应了</span>
+                            asyncContext<span class="token punctuation">.</span><span class="token function">complete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>上述例子可以看出，只有执行了 complete 函数后，Jetty 才会认为当前请求已经处理完毕了，可以返回响应了。</p> <p>对应到上面讲的 NIO 原理，可以理解为在 selectSet 的 change 列表中又添加了一项，所以 selector 线程在遍历的时候可以感知到这一事件，从而分配一个空闲的工作线程来走接下来的写响应流程。</p> <p>所以在这种 NIO 模型中，一个请求的处理过程会比较分散：</p> <ul><li>请求到来后，被 acceptor 处理，建立好连接，甩一个 change 到 selectSet 中。</li> <li>selector 在遍历 change 列表时，发现了这个 change，得知有一个新的连接来了，于是分配给一个工作线程去处理。</li> <li>工作线程处理过程中，如果开启了异步模式，往往会开始处理一些异步IO操作，例如上面的异步 http 调用，于是这个工作线程就表示：“你先IO吧，我不等了，我去干别的事情了”。</li> <li>异步 IO 被别的回调线程处理完之后，会提醒下 Jetty 它已经处理好了，提醒的方式就是往 selectSet 中又添加一个 change</li> <li>selector 遍历过程中发现这个 change 后，又分配一个工作线程去处理，工作线程处理完之后就OK了。</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.6eab1976.js" defer></script><script src="/assets/js/2.167d90c7.js" defer></script><script src="/assets/js/15.0e8dd2a9.js" defer></script>
+  </body>
+</html>
