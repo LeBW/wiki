@@ -30,6 +30,10 @@ Java 线程状态变更图如下所示：
 
 > 由于操作系统隐藏 Java 虚拟机（JVM）中的 READY 和 RUNNING 状态，因此它只能看到 RUNNABLE 状态。所以 Java 系统一般把这两个状态统称为 RUNNABLE 状态。另外，无论是 Waiting，Time Waiting 还是 Blocked，在操作系统中都是对应着 waiting（等待）状态。
 
+> 需要注意，BLOCKED、WAITING、TIMED_WAITING 都会使线程进入暂停状态，其中 BLOCKED 仅在使用 synchoronized 关键词时会使用到，而其他的锁（例如 ReentrantLock）都会使线程进入 WAITING 状态（因为底层用到的是 AQS，AQS 底层用到的是 LockSupport）
+
+> 另外，需要注意 BLOCKED、WAITING 都是用来控制线程间同步或等待情况而定义的状态而设定的，它与我们平时在说 I/O 时的阻塞不是一回事。换句话说，当线程在调用阻塞IO（例如 SocketInputStream.read）的时候，虽然我们会说线程进入了阻塞，但是其实它在 JVM 线程的层面仍然是 RUNNABLE 状态，只不过在操作系统的角度来看进入了等待 IO 的状态，因此不会占用 CPU。
+
 ### Runnable
 `Runnable` 是 Java 并发中最基本的接口，可以理解为任务的意思，其中只有一个方法 `run()`。任何一个想要被线程执行的实例类，都需要实现这个接口。
 ```java
@@ -257,7 +261,7 @@ public class Store {
 ### `Thread.sleep()` 和 `Object.wait()` 方法的区别和共同点？
 
 **共同点**
-* 两者都可以暂停线程的运行。
+* 两者都可以暂停线程的运行，使线程进入 WAITING（或 TIMED_WAITING）状态。
 
 **不同点**
 * 两者最主要的区别是：sleep 方法不会释放锁（monitor），而 wait 方法释放了锁（monitor）。
