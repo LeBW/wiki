@@ -83,7 +83,7 @@ sentinel failover-timeout mymaster 180000
 
 Sentinel 通过这种方式确保了整个群体的成员都对彼此有一致的认识，即使在没有中央控制器的情况下。这种自动发现机制增强了 Redis Sentinel 高可用系统的健壮性和可扩展性，因为你可以轻松地通过添加更多的 Sentinel 实例来增加系统的容错能力。
 
-要查看 Sentinel 知道的其他 Sentinel 实例，你可以使用 sentinel sentinels <master-name> 命令。这将列出所有监控给定主节点的 Sentinel 实例及其状态信息。请记住 <master-name> 是你在 Sentinel 配置文件中配置的监控主节点的名称。
+要查看 Sentinel 知道的其他 Sentinel 实例，你可以使用 `sentinel sentinels <master-name>` 命令。这将列出所有监控给定主节点的 Sentinel 实例及其状态信息。请记住 `<master-name>` 是你在 Sentinel 配置文件中配置的监控主节点的名称。
 
 ### 优缺点
 哨兵模式优点：
