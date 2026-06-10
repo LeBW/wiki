@@ -6,13 +6,13 @@
 主页：[https://wiki.libowen.website/](https://wiki.libowen.website/)
 
 ## Prerequisites
-* Node.js 10+
+* Node.js 18+
 
 推荐使用 [nvm](https://github.com/nvm-sh/nvm) 管理 Node.js。
 
 ```sh
-nvm install v16.20.2
-nvm use v16.20.2
+nvm install 18
+nvm use 18
 ```
 ## Quick Start
 * 安装依赖
@@ -26,4 +26,8 @@ npm run dev
 * 编译打包
 ```bash
 npm run build
+```
+* 预览构建产物
+```bash
+npm run preview
 ```
