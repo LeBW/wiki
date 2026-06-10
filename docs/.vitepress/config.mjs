@@ -68,7 +68,7 @@ export default defineConfig({
     ],
     sidebar: {
       '/backend/tomcat/': [
-        { text: 'Tomcat', link: '/backend/tomcat/' },
+        { text: 'Tomcat', link: '/backend/tomcat/tomcat' },
         { text: 'Servlet', link: '/backend/tomcat/servlet' },
         { text: 'JSP', link: '/backend/tomcat/jsp' },
       ],
@@ -153,7 +153,7 @@ export default defineConfig({
         { text: 'Spring Boot', link: '/backend/spring/spring-boot' },
         { text: 'Spring Data', link: '/backend/spring/spring-data' },
         { text: 'Spring Security', link: '/backend/spring/spring-security' },
-        { text: 'Filter/Listener/Interceptor', link: '/backend/spring/filter-listener-intecepter' },
+        { text: '过滤器、监听器、拦截器', link: '/backend/spring/filter-listener-intecepter' },
         { text: '跨域', link: '/backend/spring/cross-domain' },
       ],
       '/distributed-system/': [
