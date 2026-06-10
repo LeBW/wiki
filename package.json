@@ -1,10 +1,11 @@
 {
   "devDependencies": {
-    "vuepress": "^1.9.2"
+    "vitepress": "^1.6.4"
   },
   "scripts": {
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
   },
   "version": "0.0.0"
 }
