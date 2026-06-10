@@ -4,19 +4,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-A personal wiki/knowledge base built with **VuePress 1.x** (Webpack-based static site generator). Content is written in Markdown with Chinese and English technical documentation covering computer science, backend engineering, DevOps, and more. Deployed to GitHub Pages at [wiki.libowen.website](https://wiki.libowen.website).
+A personal wiki/knowledge base built with **VitePress** (Vite-based static site generator). Content is written in Markdown with Chinese and English technical documentation covering computer science, backend engineering, DevOps, and more. Deployed to GitHub Pages at [wiki.libowen.website](https://wiki.libowen.website).
 
 ## Commands
 
 ```bash
-# Install dependencies (Node.js 10+, tested with 16.x)
+# Install dependencies (Node.js 18+)
 npm install
 
 # Start local dev server with hot-reload
 npm run dev
 
-# Build static site (output to docs/.vuepress/dist)
+# Build static site (output to docs/.vitepress/dist)
 npm run build
+
+# Preview build output locally
+npm run preview
 ```
 
 ## Architecture
@@ -35,22 +38,20 @@ npm run build
   - `docs/linux/` — Common commands, file system, vim config
   - `docs/devops/` — DevOps culture, code management, Jenkins
   - `docs/overview/` — Site overview
-- **`docs/.vuepress/`** — VuePress configuration:
-  - `config.js` — Site config including sidebar definitions (one function per topic area)
-  - `nav.js` — Navigation bar structure (概览, 基础知识, 编程语言, 后端, 微服务, 其他)
-  - `public/` — Static assets (logo, CNAME for custom domain)
+- **`docs/.vitepress/`** — VitePress configuration:
+  - `config.mjs` — Site config including nav and sidebar definitions
+- **`docs/public/`** — Static assets (logo, CNAME for custom domain)
 - **`images/`** — Screenshots and assets used in README
 - **Deployment**: GitHub Actions workflow (`.github/workflows/deploy.yml`) builds and deploys to `gh-pages` branch when pushing to `master`. Also supports Docker/Nginx deployment via `Docker-compose.yml`.
 
 ## Content Conventions
 
-- Each topic directory has a `README.md` as the section landing page.
-- Sidebar configuration in `config.js` lists the order of pages per section — adding a new page requires updating the corresponding sidebar function.
-- Navigation links are defined in `nav.js` with grouped dropdowns.
+- Each topic directory has an `index.md` as the section landing page.
+- Sidebar and navigation are configured in `docs/.vitepress/config.mjs`.
 - Markdown files reference local images by relative paths.
 
 ## Deployment
 
-- **CI/CD**: GitHub Actions on push to `master` — runs `npm install && npm run build`, deploys `docs/.vuepress/dist` to `gh-pages` branch using `crazy-max/ghaction-github-pages`.
-- **Custom domain**: `wiki.libowen.website` (configured in `docs/.vuepress/public/CNAME`).
+- **CI/CD**: GitHub Actions on push to `master` — runs `npm install && npm run build`, deploys `docs/.vitepress/dist` to `gh-pages` branch using `crazy-max/ghaction-github-pages`.
+- **Custom domain**: `wiki.libowen.website` (configured in `docs/public/CNAME`).
 - **Docker**: An nginx container serving the built static site.
