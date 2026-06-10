@@ -4,11 +4,15 @@ export default defineConfig({
   title: "LBW's Wiki Pages",
   description: 'Organize all of my knowledge.',
   base: '/',
+  lastUpdated: true,
   ignoreDeadLinks: true,
   head: [
     ['link', { rel: 'icon', href: '/lbw-wiki.png' }],
   ],
   themeConfig: {
+    search: {
+      provider: 'local',
+    },
     nav: [
       {
         text: '概览',
